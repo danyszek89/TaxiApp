@@ -1,5 +1,6 @@
 #pragma once
 #include "Program.h"
+#include "Register.h"
 
 namespace TaxiApp {
 
@@ -9,6 +10,7 @@ namespace TaxiApp {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace MySql::Data::MySqlClient;
 
 	/// <summary>
 	/// Podsumowanie informacji o Login
@@ -69,7 +71,7 @@ namespace TaxiApp {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(67, 56);
+			this->label1->Location = System::Drawing::Point(60, 30);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(36, 13);
 			this->label1->TabIndex = 0;
@@ -78,7 +80,7 @@ namespace TaxiApp {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(64, 92);
+			this->label2->Location = System::Drawing::Point(57, 66);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(39, 13);
 			this->label2->TabIndex = 1;
@@ -86,14 +88,14 @@ namespace TaxiApp {
 			// 
 			// txtLogin
 			// 
-			this->txtLogin->Location = System::Drawing::Point(106, 56);
+			this->txtLogin->Location = System::Drawing::Point(99, 30);
 			this->txtLogin->Name = L"txtLogin";
 			this->txtLogin->Size = System::Drawing::Size(142, 20);
 			this->txtLogin->TabIndex = 2;
 			// 
 			// txtPassword
 			// 
-			this->txtPassword->Location = System::Drawing::Point(106, 92);
+			this->txtPassword->Location = System::Drawing::Point(99, 66);
 			this->txtPassword->Name = L"txtPassword";
 			this->txtPassword->PasswordChar = '*';
 			this->txtPassword->Size = System::Drawing::Size(142, 20);
@@ -101,7 +103,7 @@ namespace TaxiApp {
 			// 
 			// btnLogin
 			// 
-			this->btnLogin->Location = System::Drawing::Point(61, 139);
+			this->btnLogin->Location = System::Drawing::Point(54, 113);
 			this->btnLogin->Name = L"btnLogin";
 			this->btnLogin->Size = System::Drawing::Size(75, 23);
 			this->btnLogin->TabIndex = 4;
@@ -111,7 +113,7 @@ namespace TaxiApp {
 			// 
 			// btnCancel
 			// 
-			this->btnCancel->Location = System::Drawing::Point(173, 139);
+			this->btnCancel->Location = System::Drawing::Point(166, 113);
 			this->btnCancel->Name = L"btnCancel";
 			this->btnCancel->Size = System::Drawing::Size(75, 23);
 			this->btnCancel->TabIndex = 5;
@@ -121,12 +123,13 @@ namespace TaxiApp {
 			// 
 			// btn_register
 			// 
-			this->btn_register->Location = System::Drawing::Point(61, 183);
+			this->btn_register->Location = System::Drawing::Point(54, 157);
 			this->btn_register->Name = L"btn_register";
 			this->btn_register->Size = System::Drawing::Size(187, 23);
 			this->btn_register->TabIndex = 6;
 			this->btn_register->Text = L"Zarejestruj siê!";
 			this->btn_register->UseVisualStyleBackColor = true;
+			this->btn_register->Click += gcnew System::EventHandler(this, &Login::btn_register_Click);
 			// 
 			// Login
 			// 
@@ -154,6 +157,13 @@ private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ 
 	this->Hide();
 	Program^ program = gcnew Program();
 	program->ShowDialog();
+	this->Close();
+}
+private: System::Void btn_register_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Hide();
+	
+	Register^ reg= gcnew Register();
+	reg->ShowDialog();
 	this->Close();
 }
 };
