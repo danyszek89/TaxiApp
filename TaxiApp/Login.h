@@ -160,11 +160,11 @@ private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ 
 	this->Close();
 }
 private: System::Void btn_register_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->Hide();
+	
 	
 	Register^ reg= gcnew Register();
 	reg->ShowDialog();
-	this->Close();
+	
 }
 };
 }
