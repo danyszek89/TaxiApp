@@ -334,7 +334,7 @@ private: System::Void btn_register_as_custumer_Click(System::Object^ sender, Sys
 
 		query->ExecuteNonQuery();
 
-		query->CommandText = "INSERT INTO tbl_customer SET  user_id=last_insert_id(), name='" + txt_reg_name->Text + "', surname ='" + txt_reg_surname->Text + "', tel_number='" + txt_reg_phone->Text + "'";
+		query->CommandText = "INSERT INTO tbl_customer SET  tbl_customer.user_id=last_insert_id(), name='" + txt_reg_name->Text + "', surname ='" + txt_reg_surname->Text + "', tel_number='" + txt_reg_phone->Text + "'";
 
 		query->ExecuteNonQuery();
 
