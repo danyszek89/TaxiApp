@@ -1,6 +1,10 @@
 #pragma once
 #include "Program.h"
 #include "Register.h"
+#include "Customer.h"
+#include "DriverProgram.h"
+
+
 
 namespace TaxiApp {
 
@@ -154,17 +158,66 @@ namespace TaxiApp {
 		this->Close();
 	}
 private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->Hide();
-	Program^ program = gcnew Program();
-	program->ShowDialog();
-	this->Close();
+	String^ configuration = L"datasource=localhost ; port=3306; username=root; password=12345; database=taxiappdb";
+	MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
+	MySqlCommand^ query = gcnew MySqlCommand("SELECT * FROM tbl_user  WHERE login='" + txtLogin->Text + "' AND password = md5('" + txtPassword->Text + "')", baseConnection);
+	MySqlDataReader^ reading;
+
+	try
+	{
+		baseConnection->Open();
+		reading = query->ExecuteReader();
+
+		if (reading->Read())
+		{
+			String^ user_role = reading->GetString("role");
+
+			MessageBox::Show(user_role);
+
+			if (user_role == "admin")
+			{
+				this->Hide();
+				Program^ program = gcnew Program();
+				program->ShowDialog();
+				this->Close();
+			}
+
+			if (user_role == "customer")
+			{
+				this->Hide();
+				Customer^ customer = gcnew Customer();
+				customer->ShowDialog();
+				this->Close();
+			}
+
+			if (user_role == "driver")
+			{
+				this->Hide();
+				DriverProgram^ driver = gcnew DriverProgram();
+				driver->ShowDialog();
+				this->Close();
+			}
+		}
+
+		else
+		{
+			MessageBox::Show("Podaj poprawne dane logowania");
+		}
+
+
+	}
+	catch (Exception^ ex)
+	{
+		MessageBox::Show(ex->Message);
+	}
+	baseConnection->Close();
 }
 private: System::Void btn_register_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->Hide();
+	
 	
 	Register^ reg= gcnew Register();
 	reg->ShowDialog();
-	this->Close();
+	
 }
 };
 }
