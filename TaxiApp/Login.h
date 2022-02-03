@@ -158,14 +158,26 @@ namespace TaxiApp {
 		this->Close();
 	}
 private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ e) {
-	String^ configuration = L"datasource=localhost ; port=3306; username=root; password=zaq1@WSX; database=taxiappdb";
+	String^ configuration = L"datasource=localhost ; port=3306; username=root; password=12345; database=taxiappdb";
 	MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
 	MySqlCommand^ query = gcnew MySqlCommand("SELECT * FROM tbl_user  WHERE login='" + txtLogin->Text + "' AND password = md5('" + txtPassword->Text + "')", baseConnection);
 	MySqlDataReader^ reading;
+	MySqlCommand^ querydriver = gcnew MySqlCommand("SELECT * FROM tbl_user, tbl_driver WHERE tbl_user.user_id=tbl_driver.user_id AND login='" + txtLogin->Text + "' ", baseConnection);
+	MySqlDataReader^ readingdriver;
+
+	baseConnection->Open();
+
+	readingdriver = querydriver->ExecuteReader();
+	int id_driver;
+	if (readingdriver->Read())
+
+	{
+		id_driver = readingdriver->GetInt32("driver_id");
+	}
+	readingdriver->Close();
 
 	try
 	{
-		baseConnection->Open();
 		reading = query->ExecuteReader();
 
 		if (reading->Read())
@@ -192,11 +204,17 @@ private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ 
 
 			if (user_role == "driver")
 			{
-				this->Hide();
-				DriverProgram^ driver = gcnew DriverProgram();
-				driver->ShowDialog();
-				this->Close();
-			}
+				 int id_user = reading->GetInt32(0);
+
+				
+
+
+					this->Hide();
+					DriverProgram^ driver = gcnew DriverProgram(id_driver, id_user);
+					driver->ShowDialog();
+					this->Close();
+				}
+			
 		}
 
 		else
