@@ -82,7 +82,7 @@ namespace TaxiApp {
 	private: System::Windows::Forms::Label^ label9;
 	private: System::Windows::Forms::Label^ label8;
 	private: System::Windows::Forms::Label^ label14;
-	private: System::Windows::Forms::DateTimePicker^ dtp_birthdate_driver;
+
 
 
 	private: System::Windows::Forms::TextBox^ txt_reg_email_driver;
@@ -96,14 +96,23 @@ namespace TaxiApp {
 
 
 	private: System::Windows::Forms::Label^ label15;
-	private: System::Windows::Forms::CheckBox^ checkBox1;
+
+
+
+
+
+
+	private: System::Windows::Forms::CheckedListBox^ checkedListBox1;
+	private: System::Windows::Forms::TextBox^ txt_pesel_driver;
+
+
 
 
 	private:
 		/// <summary>
 		/// Wymagana zmienna projektanta.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -130,12 +139,12 @@ namespace TaxiApp {
 			this->txt_reg_password = (gcnew System::Windows::Forms::TextBox());
 			this->txt_reg_login = (gcnew System::Windows::Forms::TextBox());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+			this->checkedListBox1 = (gcnew System::Windows::Forms::CheckedListBox());
 			this->label16 = (gcnew System::Windows::Forms::Label());
 			this->btn_register_as_driver = (gcnew System::Windows::Forms::Button());
 			this->txt_reg_phone_driver = (gcnew System::Windows::Forms::TextBox());
 			this->label15 = (gcnew System::Windows::Forms::Label());
 			this->label14 = (gcnew System::Windows::Forms::Label());
-			this->dtp_birthdate_driver = (gcnew System::Windows::Forms::DateTimePicker());
 			this->txt_reg_email_driver = (gcnew System::Windows::Forms::TextBox());
 			this->txt_reg_surname_driver = (gcnew System::Windows::Forms::TextBox());
 			this->txt_reg_name_driver = (gcnew System::Windows::Forms::TextBox());
@@ -148,7 +157,7 @@ namespace TaxiApp {
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
+			this->txt_pesel_driver = (gcnew System::Windows::Forms::TextBox());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			this->tabPage2->SuspendLayout();
@@ -191,7 +200,7 @@ namespace TaxiApp {
 			// 
 			// btn_register_as_custumer
 			// 
-			this->btn_register_as_custumer->Location = System::Drawing::Point(95, 238);
+			this->btn_register_as_custumer->Location = System::Drawing::Point(142, 243);
 			this->btn_register_as_custumer->Name = L"btn_register_as_custumer";
 			this->btn_register_as_custumer->Size = System::Drawing::Size(182, 30);
 			this->btn_register_as_custumer->TabIndex = 14;
@@ -202,7 +211,7 @@ namespace TaxiApp {
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(118, 157);
+			this->label7->Location = System::Drawing::Point(165, 162);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(53, 13);
 			this->label7->TabIndex = 13;
@@ -210,7 +219,7 @@ namespace TaxiApp {
 			// 
 			// txt_reg_phone
 			// 
-			this->txt_reg_phone->Location = System::Drawing::Point(177, 211);
+			this->txt_reg_phone->Location = System::Drawing::Point(224, 216);
 			this->txt_reg_phone->Name = L"txt_reg_phone";
 			this->txt_reg_phone->Size = System::Drawing::Size(100, 20);
 			this->txt_reg_phone->TabIndex = 12;
@@ -218,7 +227,7 @@ namespace TaxiApp {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(145, 130);
+			this->label6->Location = System::Drawing::Point(192, 135);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(26, 13);
 			this->label6->TabIndex = 11;
@@ -227,7 +236,7 @@ namespace TaxiApp {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(92, 211);
+			this->label5->Location = System::Drawing::Point(139, 216);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(79, 13);
 			this->label5->TabIndex = 10;
@@ -236,7 +245,7 @@ namespace TaxiApp {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(139, 184);
+			this->label4->Location = System::Drawing::Point(186, 189);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(32, 13);
 			this->label4->TabIndex = 9;
@@ -245,7 +254,7 @@ namespace TaxiApp {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(96, 103);
+			this->label3->Location = System::Drawing::Point(143, 108);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(75, 13);
 			this->label3->TabIndex = 8;
@@ -254,7 +263,7 @@ namespace TaxiApp {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(135, 76);
+			this->label2->Location = System::Drawing::Point(182, 81);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(36, 13);
 			this->label2->TabIndex = 7;
@@ -263,7 +272,7 @@ namespace TaxiApp {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(138, 49);
+			this->label1->Location = System::Drawing::Point(185, 54);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(33, 13);
 			this->label1->TabIndex = 6;
@@ -272,28 +281,28 @@ namespace TaxiApp {
 			// 
 			// txt_reg_email
 			// 
-			this->txt_reg_email->Location = System::Drawing::Point(177, 184);
+			this->txt_reg_email->Location = System::Drawing::Point(224, 189);
 			this->txt_reg_email->Name = L"txt_reg_email";
 			this->txt_reg_email->Size = System::Drawing::Size(100, 20);
 			this->txt_reg_email->TabIndex = 5;
 			// 
 			// txt_reg_surname
 			// 
-			this->txt_reg_surname->Location = System::Drawing::Point(177, 157);
+			this->txt_reg_surname->Location = System::Drawing::Point(224, 162);
 			this->txt_reg_surname->Name = L"txt_reg_surname";
 			this->txt_reg_surname->Size = System::Drawing::Size(100, 20);
 			this->txt_reg_surname->TabIndex = 4;
 			// 
 			// txt_reg_name
 			// 
-			this->txt_reg_name->Location = System::Drawing::Point(177, 130);
+			this->txt_reg_name->Location = System::Drawing::Point(224, 135);
 			this->txt_reg_name->Name = L"txt_reg_name";
 			this->txt_reg_name->Size = System::Drawing::Size(100, 20);
 			this->txt_reg_name->TabIndex = 3;
 			// 
 			// txt_reg_repeat_password
 			// 
-			this->txt_reg_repeat_password->Location = System::Drawing::Point(177, 103);
+			this->txt_reg_repeat_password->Location = System::Drawing::Point(224, 108);
 			this->txt_reg_repeat_password->Name = L"txt_reg_repeat_password";
 			this->txt_reg_repeat_password->PasswordChar = '*';
 			this->txt_reg_repeat_password->Size = System::Drawing::Size(100, 20);
@@ -301,7 +310,7 @@ namespace TaxiApp {
 			// 
 			// txt_reg_password
 			// 
-			this->txt_reg_password->Location = System::Drawing::Point(177, 76);
+			this->txt_reg_password->Location = System::Drawing::Point(224, 81);
 			this->txt_reg_password->Name = L"txt_reg_password";
 			this->txt_reg_password->PasswordChar = '*';
 			this->txt_reg_password->Size = System::Drawing::Size(100, 20);
@@ -309,20 +318,20 @@ namespace TaxiApp {
 			// 
 			// txt_reg_login
 			// 
-			this->txt_reg_login->Location = System::Drawing::Point(177, 50);
+			this->txt_reg_login->Location = System::Drawing::Point(224, 55);
 			this->txt_reg_login->Name = L"txt_reg_login";
 			this->txt_reg_login->Size = System::Drawing::Size(100, 20);
 			this->txt_reg_login->TabIndex = 0;
 			// 
 			// tabPage2
 			// 
-			this->tabPage2->Controls->Add(this->checkBox1);
+			this->tabPage2->Controls->Add(this->txt_pesel_driver);
+			this->tabPage2->Controls->Add(this->checkedListBox1);
 			this->tabPage2->Controls->Add(this->label16);
 			this->tabPage2->Controls->Add(this->btn_register_as_driver);
 			this->tabPage2->Controls->Add(this->txt_reg_phone_driver);
 			this->tabPage2->Controls->Add(this->label15);
 			this->tabPage2->Controls->Add(this->label14);
-			this->tabPage2->Controls->Add(this->dtp_birthdate_driver);
 			this->tabPage2->Controls->Add(this->txt_reg_email_driver);
 			this->tabPage2->Controls->Add(this->txt_reg_surname_driver);
 			this->tabPage2->Controls->Add(this->txt_reg_name_driver);
@@ -343,10 +352,21 @@ namespace TaxiApp {
 			this->tabPage2->Text = L"Zostañ kierowc¹ taxi";
 			this->tabPage2->UseVisualStyleBackColor = true;
 			// 
+			// checkedListBox1
+			// 
+			this->checkedListBox1->CheckOnClick = true;
+			this->checkedListBox1->FormattingEnabled = true;
+			this->checkedListBox1->HorizontalScrollbar = true;
+			this->checkedListBox1->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"A", L"B", L"C", L"D" });
+			this->checkedListBox1->Location = System::Drawing::Point(250, 243);
+			this->checkedListBox1->Name = L"checkedListBox1";
+			this->checkedListBox1->Size = System::Drawing::Size(100, 34);
+			this->checkedListBox1->TabIndex = 25;
+			// 
 			// label16
 			// 
 			this->label16->AutoSize = true;
-			this->label16->Location = System::Drawing::Point(22, 255);
+			this->label16->Location = System::Drawing::Point(78, 253);
 			this->label16->Name = L"label16";
 			this->label16->Size = System::Drawing::Size(166, 13);
 			this->label16->TabIndex = 20;
@@ -355,7 +375,7 @@ namespace TaxiApp {
 			// 
 			// btn_register_as_driver
 			// 
-			this->btn_register_as_driver->Location = System::Drawing::Point(61, 300);
+			this->btn_register_as_driver->Location = System::Drawing::Point(103, 295);
 			this->btn_register_as_driver->Name = L"btn_register_as_driver";
 			this->btn_register_as_driver->Size = System::Drawing::Size(247, 42);
 			this->btn_register_as_driver->TabIndex = 18;
@@ -365,7 +385,7 @@ namespace TaxiApp {
 			// 
 			// txt_reg_phone_driver
 			// 
-			this->txt_reg_phone_driver->Location = System::Drawing::Point(163, 219);
+			this->txt_reg_phone_driver->Location = System::Drawing::Point(250, 217);
 			this->txt_reg_phone_driver->Name = L"txt_reg_phone_driver";
 			this->txt_reg_phone_driver->Size = System::Drawing::Size(100, 20);
 			this->txt_reg_phone_driver->TabIndex = 15;
@@ -373,7 +393,7 @@ namespace TaxiApp {
 			// label15
 			// 
 			this->label15->AutoSize = true;
-			this->label15->Location = System::Drawing::Point(79, 222);
+			this->label15->Location = System::Drawing::Point(166, 224);
 			this->label15->Name = L"label15";
 			this->label15->Size = System::Drawing::Size(46, 13);
 			this->label15->TabIndex = 14;
@@ -382,25 +402,16 @@ namespace TaxiApp {
 			// label14
 			// 
 			this->label14->AutoSize = true;
-			this->label14->Location = System::Drawing::Point(94, 170);
+			this->label14->Location = System::Drawing::Point(181, 168);
 			this->label14->Name = L"label14";
 			this->label14->Size = System::Drawing::Size(35, 13);
 			this->label14->TabIndex = 13;
 			this->label14->Text = L"Email:";
 			this->label14->Click += gcnew System::EventHandler(this, &Register::label14_Click);
 			// 
-			// dtp_birthdate_driver
-			// 
-			this->dtp_birthdate_driver->CustomFormat = L"yyyy-MM-dd";
-			this->dtp_birthdate_driver->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
-			this->dtp_birthdate_driver->Location = System::Drawing::Point(163, 193);
-			this->dtp_birthdate_driver->Name = L"dtp_birthdate_driver";
-			this->dtp_birthdate_driver->Size = System::Drawing::Size(200, 20);
-			this->dtp_birthdate_driver->TabIndex = 12;
-			// 
 			// txt_reg_email_driver
 			// 
-			this->txt_reg_email_driver->Location = System::Drawing::Point(163, 167);
+			this->txt_reg_email_driver->Location = System::Drawing::Point(250, 165);
 			this->txt_reg_email_driver->Name = L"txt_reg_email_driver";
 			this->txt_reg_email_driver->Size = System::Drawing::Size(100, 20);
 			this->txt_reg_email_driver->TabIndex = 11;
@@ -408,21 +419,21 @@ namespace TaxiApp {
 			// 
 			// txt_reg_surname_driver
 			// 
-			this->txt_reg_surname_driver->Location = System::Drawing::Point(163, 141);
+			this->txt_reg_surname_driver->Location = System::Drawing::Point(250, 139);
 			this->txt_reg_surname_driver->Name = L"txt_reg_surname_driver";
 			this->txt_reg_surname_driver->Size = System::Drawing::Size(100, 20);
 			this->txt_reg_surname_driver->TabIndex = 10;
 			// 
 			// txt_reg_name_driver
 			// 
-			this->txt_reg_name_driver->Location = System::Drawing::Point(163, 115);
+			this->txt_reg_name_driver->Location = System::Drawing::Point(250, 113);
 			this->txt_reg_name_driver->Name = L"txt_reg_name_driver";
 			this->txt_reg_name_driver->Size = System::Drawing::Size(100, 20);
 			this->txt_reg_name_driver->TabIndex = 9;
 			// 
 			// txt_reg_repeat_password_driver
 			// 
-			this->txt_reg_repeat_password_driver->Location = System::Drawing::Point(163, 89);
+			this->txt_reg_repeat_password_driver->Location = System::Drawing::Point(250, 87);
 			this->txt_reg_repeat_password_driver->Name = L"txt_reg_repeat_password_driver";
 			this->txt_reg_repeat_password_driver->PasswordChar = '*';
 			this->txt_reg_repeat_password_driver->Size = System::Drawing::Size(100, 20);
@@ -430,7 +441,7 @@ namespace TaxiApp {
 			// 
 			// txt_reg_password_driver
 			// 
-			this->txt_reg_password_driver->Location = System::Drawing::Point(163, 63);
+			this->txt_reg_password_driver->Location = System::Drawing::Point(250, 61);
 			this->txt_reg_password_driver->Name = L"txt_reg_password_driver";
 			this->txt_reg_password_driver->PasswordChar = '*';
 			this->txt_reg_password_driver->Size = System::Drawing::Size(100, 20);
@@ -438,7 +449,7 @@ namespace TaxiApp {
 			// 
 			// txt_reg_login_driver
 			// 
-			this->txt_reg_login_driver->Location = System::Drawing::Point(163, 37);
+			this->txt_reg_login_driver->Location = System::Drawing::Point(250, 35);
 			this->txt_reg_login_driver->Name = L"txt_reg_login_driver";
 			this->txt_reg_login_driver->Size = System::Drawing::Size(100, 20);
 			this->txt_reg_login_driver->TabIndex = 6;
@@ -446,16 +457,16 @@ namespace TaxiApp {
 			// label13
 			// 
 			this->label13->AutoSize = true;
-			this->label13->Location = System::Drawing::Point(58, 199);
+			this->label13->Location = System::Drawing::Point(179, 197);
 			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(82, 13);
+			this->label13->Size = System::Drawing::Size(33, 13);
 			this->label13->TabIndex = 5;
-			this->label13->Text = L"Data urodzenia:";
+			this->label13->Text = L"Pesel";
 			// 
 			// label12
 			// 
 			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(84, 144);
+			this->label12->Location = System::Drawing::Point(171, 142);
 			this->label12->Name = L"label12";
 			this->label12->Size = System::Drawing::Size(56, 13);
 			this->label12->TabIndex = 4;
@@ -464,7 +475,7 @@ namespace TaxiApp {
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(100, 118);
+			this->label11->Location = System::Drawing::Point(187, 116);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(29, 13);
 			this->label11->TabIndex = 3;
@@ -473,7 +484,7 @@ namespace TaxiApp {
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(79, 92);
+			this->label10->Location = System::Drawing::Point(166, 90);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(78, 13);
 			this->label10->TabIndex = 2;
@@ -482,7 +493,7 @@ namespace TaxiApp {
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(97, 66);
+			this->label9->Location = System::Drawing::Point(184, 64);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(39, 13);
 			this->label9->TabIndex = 1;
@@ -492,21 +503,18 @@ namespace TaxiApp {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(100, 40);
+			this->label8->Location = System::Drawing::Point(187, 38);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(36, 13);
 			this->label8->TabIndex = 0;
 			this->label8->Text = L"Login:";
 			// 
-			// checkBox1
+			// txt_pesel_driver
 			// 
-			this->checkBox1->AutoSize = true;
-			this->checkBox1->Location = System::Drawing::Point(210, 255);
-			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(33, 17);
-			this->checkBox1->TabIndex = 21;
-			this->checkBox1->Text = L"A";
-			this->checkBox1->UseVisualStyleBackColor = true;
+			this->txt_pesel_driver->Location = System::Drawing::Point(250, 190);
+			this->txt_pesel_driver->Name = L"txt_pesel_driver";
+			this->txt_pesel_driver->Size = System::Drawing::Size(100, 20);
+			this->txt_pesel_driver->TabIndex = 26;
 			// 
 			// Register
 			// 
@@ -527,6 +535,7 @@ namespace TaxiApp {
 #pragma endregion
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
+
 private: System::Void btn_register_as_custumer_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (txt_reg_name->Text->Length < 3 || txt_reg_surname->Text->Length < 3 || txt_reg_email->Text->Length < 3 )
 	{
@@ -613,26 +622,36 @@ private: System::Void btn_register_as_driver_Click(System::Object^ sender, Syste
 
 	try
 	{
-
 		query->CommandText = "INSERT INTO tbl_user SET login='" + txt_reg_login_driver->Text + "', password=md5('" + txt_reg_password_driver->Text + "'), email = '" + txt_reg_email_driver->Text + "', role = 'driver'; ";
-
 		query->ExecuteNonQuery();
 
-		query->CommandText = "INSERT INTO tbl_licence SET licence_id=1";
+		//Pobranie ID uzytkownika z tbl_user
+		int idUser = (int)query->LastInsertedId;
 
+		//Odczyt zaznaczonych kategorii prawa jazdy
+		int tab[4];
+		for (int i = 0; i <= 3; i++)
+		{
+			if (checkedListBox1->GetItemChecked(i))
+			{
+				tab[i] = 1;
+			}
+			else {
+				tab[i] = 0;
+			}		
+		}
+
+		query->CommandText = "INSERT INTO tbl_licence (cat_a,cat_b,cat_c,cat_d) VALUES ("+ tab[0]+" , "+tab[1]+", "+tab[2]+", "+tab[3]+")";
 		query->ExecuteNonQuery();
 
-		query->CommandText = "INSERT INTO tbl_driver SET tbl_driver.user_id=last_insert_id(), name='" + txt_reg_name_driver->Text + "', surname ='" + txt_reg_surname_driver->Text + "', birthdate='1999-01-01', tel_number='" + txt_reg_phone_driver->Text + "', busy=1";
-
+		query->CommandText = "INSERT INTO tbl_driver SET licence_id=last_insert_id(), name='" + txt_reg_name_driver->Text + "', surname ='" + txt_reg_surname_driver->Text + "', pesel="+txt_pesel_driver->Text + ", tel_number = '" + txt_reg_phone_driver->Text + "', busy = 1, user_id = " + idUser + "";
 		query->ExecuteNonQuery();
-
 
 		transaction->Commit();
 
 		MessageBox::Show("Rejestracja powiod³a siê. Mo¿esz siê zalogowaæ.");
 
 	}
-
 
 	catch (Exception^ komunikat)
 	{
