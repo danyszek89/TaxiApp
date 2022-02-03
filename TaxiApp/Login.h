@@ -158,7 +158,7 @@ namespace TaxiApp {
 		this->Close();
 	}
 private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ e) {
-	String^ configuration = L"datasource=localhost ; port=3306; username=root; password=zaq1@WSX; database=taxiappdb";
+	String^ configuration = L"datasource=localhost ; port=3306; username=root; password=12345; database=taxiappdb";
 	MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
 	MySqlCommand^ query = gcnew MySqlCommand("SELECT * FROM tbl_user  WHERE login='" + txtLogin->Text + "' AND password = md5('" + txtPassword->Text + "')", baseConnection);
 	MySqlDataReader^ reading;
