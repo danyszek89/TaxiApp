@@ -82,6 +82,7 @@ namespace TaxiApp {
 	private: System::Windows::Forms::Label^ label12;
 	private: System::Windows::Forms::DataGridView^ dGCars;
 	private: System::Windows::Forms::TabPage^ tabPage3;
+	private: System::Windows::Forms::Button^ btnCarEdit;
 
 
 	protected:
@@ -130,6 +131,7 @@ namespace TaxiApp {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->dGCustomers = (gcnew System::Windows::Forms::DataGridView());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->btnCarEdit = (gcnew System::Windows::Forms::Button());
 			this->gbCar = (gcnew System::Windows::Forms::GroupBox());
 			this->txtCarBrand = (gcnew System::Windows::Forms::TextBox());
 			this->txtCarModel = (gcnew System::Windows::Forms::TextBox());
@@ -366,6 +368,7 @@ namespace TaxiApp {
 			// 
 			// tabPage1
 			// 
+			this->tabPage1->Controls->Add(this->btnCarEdit);
 			this->tabPage1->Controls->Add(this->gbCar);
 			this->tabPage1->Controls->Add(this->btnCarAdd);
 			this->tabPage1->Controls->Add(this->btnCarDelete);
@@ -379,6 +382,16 @@ namespace TaxiApp {
 			this->tabPage1->TabIndex = 2;
 			this->tabPage1->Text = L"Samochody";
 			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// btnCarEdit
+			// 
+			this->btnCarEdit->Location = System::Drawing::Point(291, 325);
+			this->btnCarEdit->Name = L"btnCarEdit";
+			this->btnCarEdit->Size = System::Drawing::Size(88, 51);
+			this->btnCarEdit->TabIndex = 39;
+			this->btnCarEdit->Text = L"Edytuj";
+			this->btnCarEdit->UseVisualStyleBackColor = true;
+			this->btnCarEdit->Click += gcnew System::EventHandler(this, &Program::btnCarEdit_Click);
 			// 
 			// gbCar
 			// 
@@ -482,7 +495,7 @@ namespace TaxiApp {
 			// 
 			// btnCarDelete
 			// 
-			this->btnCarDelete->Location = System::Drawing::Point(224, 321);
+			this->btnCarDelete->Location = System::Drawing::Point(186, 328);
 			this->btnCarDelete->Name = L"btnCarDelete";
 			this->btnCarDelete->Size = System::Drawing::Size(75, 44);
 			this->btnCarDelete->TabIndex = 35;
@@ -512,20 +525,20 @@ namespace TaxiApp {
 			this->label12->AutoSize = true;
 			this->label12->Location = System::Drawing::Point(111, 28);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(28, 16);
+			this->label12->Size = System::Drawing::Size(73, 16);
 			this->label12->TabIndex = 32;
-			this->label12->Text = L"Car";
+			this->label12->Text = L"Samochód";
 			// 
 			// dGCars
 			// 
 			this->dGCars->AllowUserToAddRows = false;
 			this->dGCars->AllowUserToOrderColumns = true;
 			this->dGCars->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dGCars->Location = System::Drawing::Point(428, 25);
+			this->dGCars->Location = System::Drawing::Point(428, 51);
 			this->dGCars->Name = L"dGCars";
 			this->dGCars->RowHeadersWidth = 51;
 			this->dGCars->RowTemplate->Height = 24;
-			this->dGCars->Size = System::Drawing::Size(572, 387);
+			this->dGCars->Size = System::Drawing::Size(572, 361);
 			this->dGCars->TabIndex = 31;
 			this->dGCars->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Program::dGCars_CellClick);
 			// 
@@ -535,7 +548,7 @@ namespace TaxiApp {
 			this->tabPage3->Name = L"tabPage3";
 			this->tabPage3->Size = System::Drawing::Size(1073, 436);
 			this->tabPage3->TabIndex = 3;
-			this->tabPage3->Text = L"tabPage3";
+			this->tabPage3->Text = L"Kierowcy";
 			this->tabPage3->UseVisualStyleBackColor = true;
 			// 
 			// Program
@@ -889,6 +902,52 @@ private: System::Void btnCarDelete_Click(System::Object^ sender, System::EventAr
 		transaction->Rollback();
 
 	}
+	baseConnection->Close();
+}
+private: System::Void btnCarEdit_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (txtCarBrand->Text->Length < 3 || txtCarModel->Text->Length < 3)
+	{
+		MessageBox::Show("WprowadŸ dane poprawnie");
+		return;
+	}
+
+
+
+	MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
+	MySqlCommand^ query = baseConnection->CreateCommand();
+	MySqlTransaction^ transaction;
+	baseConnection->Open();
+	transaction = baseConnection->BeginTransaction(IsolationLevel::ReadCommitted);
+
+	query->Connection = baseConnection;
+	query->Transaction = transaction;
+
+	try
+	{
+
+		query->CommandText = "UPDATE tbl_car SET brand='" + txtCarBrand->Text + "', model = '" + txtCarModel->Text + "', reg_number = '" + txtCarRegNumber->Text + "', class = '" + txtCarClass->Text + "' WHERE car_id='"+record_id+"'; ";
+
+		query->ExecuteNonQuery();
+
+
+
+
+		transaction->Commit();
+
+		MessageBox::Show("Samochód zosta³ edytowany");
+
+	}
+
+
+	catch (Exception^ komunikat)
+	{
+		MessageBox::Show(komunikat->Message);
+		transaction->Rollback();
+
+	}
+	show_cars();
+	clear(gbCar);
+
 	baseConnection->Close();
 }
 };
