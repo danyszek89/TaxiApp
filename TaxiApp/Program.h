@@ -259,7 +259,7 @@ namespace TaxiApp {
 			this->gBCostumer->Controls->Add(this->label6);
 			this->gBCostumer->Controls->Add(this->label4);
 			this->gBCostumer->Controls->Add(this->label5);
-			this->gBCostumer->Location = System::Drawing::Point(17, 66);
+			this->gBCostumer->Location = System::Drawing::Point(225, 150);
 			this->gBCostumer->Name = L"gBCostumer";
 			this->gBCostumer->Size = System::Drawing::Size(306, 251);
 			this->gBCostumer->TabIndex = 30;
@@ -358,7 +358,7 @@ namespace TaxiApp {
 			// 
 			// btnCustomerEdit
 			// 
-			this->btnCustomerEdit->Location = System::Drawing::Point(245, 323);
+			this->btnCustomerEdit->Location = System::Drawing::Point(453, 407);
 			this->btnCustomerEdit->Name = L"btnCustomerEdit";
 			this->btnCustomerEdit->Size = System::Drawing::Size(97, 44);
 			this->btnCustomerEdit->TabIndex = 29;
@@ -368,7 +368,7 @@ namespace TaxiApp {
 			// 
 			// btnCustomerAdd
 			// 
-			this->btnCustomerAdd->Location = System::Drawing::Point(29, 330);
+			this->btnCustomerAdd->Location = System::Drawing::Point(237, 414);
 			this->btnCustomerAdd->Name = L"btnCustomerAdd";
 			this->btnCustomerAdd->Size = System::Drawing::Size(75, 37);
 			this->btnCustomerAdd->TabIndex = 28;
@@ -378,7 +378,7 @@ namespace TaxiApp {
 			// 
 			// btnCustomerDelete
 			// 
-			this->btnCustomerDelete->Location = System::Drawing::Point(139, 323);
+			this->btnCustomerDelete->Location = System::Drawing::Point(347, 407);
 			this->btnCustomerDelete->Name = L"btnCustomerDelete";
 			this->btnCustomerDelete->Size = System::Drawing::Size(75, 44);
 			this->btnCustomerDelete->TabIndex = 4;
@@ -388,7 +388,7 @@ namespace TaxiApp {
 			// 
 			// btnKlientSzukaj
 			// 
-			this->btnKlientSzukaj->Location = System::Drawing::Point(267, 27);
+			this->btnKlientSzukaj->Location = System::Drawing::Point(475, 111);
 			this->btnKlientSzukaj->Name = L"btnKlientSzukaj";
 			this->btnKlientSzukaj->Size = System::Drawing::Size(75, 23);
 			this->btnKlientSzukaj->TabIndex = 3;
@@ -398,7 +398,7 @@ namespace TaxiApp {
 			// 
 			// txtCustomerSearch
 			// 
-			this->txtCustomerSearch->Location = System::Drawing::Point(130, 27);
+			this->txtCustomerSearch->Location = System::Drawing::Point(338, 111);
 			this->txtCustomerSearch->Name = L"txtCustomerSearch";
 			this->txtCustomerSearch->Size = System::Drawing::Size(100, 22);
 			this->txtCustomerSearch->TabIndex = 2;
@@ -406,7 +406,7 @@ namespace TaxiApp {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(55, 30);
+			this->label1->Location = System::Drawing::Point(263, 114);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(39, 16);
 			this->label1->TabIndex = 1;
@@ -417,7 +417,7 @@ namespace TaxiApp {
 			this->dGCustomers->AllowUserToAddRows = false;
 			this->dGCustomers->AllowUserToOrderColumns = true;
 			this->dGCustomers->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dGCustomers->Location = System::Drawing::Point(372, 27);
+			this->dGCustomers->Location = System::Drawing::Point(580, 111);
 			this->dGCustomers->Name = L"dGCustomers";
 			this->dGCustomers->RowHeadersWidth = 51;
 			this->dGCustomers->RowTemplate->Height = 24;
