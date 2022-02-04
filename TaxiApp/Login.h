@@ -180,7 +180,7 @@ private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ 
 
 	readingcustomer = querycustomer->ExecuteReader();
 	int id_customer;
-	if (readingdriver->Read())
+	if (readingcustomer->Read())
 
 	{
 		id_customer = readingdriver->GetInt32("customer_id");
