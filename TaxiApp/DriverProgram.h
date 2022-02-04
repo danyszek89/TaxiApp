@@ -28,6 +28,15 @@ namespace TaxiApp {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::TabPage^ tabPage3;
+	private: System::Windows::Forms::DataGridView^ dGMyTrips;
+	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Button^ btnCalculate;
+	private: System::Windows::Forms::TextBox^ txtCostSum;
+	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::TextBox^ txtKmSum;
+	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::TextBox^ txtCount;
 	public:
 		String^ configuration = L"datasource=localhost ; port=3306; username=root; password=12345; database=taxiappdb";
 		DriverProgram(int driver, int user)
@@ -87,17 +96,29 @@ namespace TaxiApp {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->btnCalculate = (gcnew System::Windows::Forms::Button());
+			this->txtCostSum = (gcnew System::Windows::Forms::TextBox());
+			this->dGMyTrips = (gcnew System::Windows::Forms::DataGridView());
+			this->txtCount = (gcnew System::Windows::Forms::TextBox());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->txtKmSum = (gcnew System::Windows::Forms::TextBox());
+			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dGDCars))->BeginInit();
 			this->tabPage2->SuspendLayout();
 			this->groupBox1->SuspendLayout();
+			this->tabPage3->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dGMyTrips))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// tabControl1
 			// 
 			this->tabControl1->Controls->Add(this->tabPage1);
 			this->tabControl1->Controls->Add(this->tabPage2);
+			this->tabControl1->Controls->Add(this->tabPage3);
 			this->tabControl1->Location = System::Drawing::Point(184, 22);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
@@ -250,6 +271,92 @@ namespace TaxiApp {
 			this->label5->TabIndex = 0;
 			this->label5->Text = L"Stare has³o";
 			// 
+			// tabPage3
+			// 
+			this->tabPage3->Controls->Add(this->label8);
+			this->tabPage3->Controls->Add(this->txtKmSum);
+			this->tabPage3->Controls->Add(this->label7);
+			this->tabPage3->Controls->Add(this->txtCount);
+			this->tabPage3->Controls->Add(this->label6);
+			this->tabPage3->Controls->Add(this->btnCalculate);
+			this->tabPage3->Controls->Add(this->txtCostSum);
+			this->tabPage3->Controls->Add(this->dGMyTrips);
+			this->tabPage3->Location = System::Drawing::Point(4, 25);
+			this->tabPage3->Name = L"tabPage3";
+			this->tabPage3->Size = System::Drawing::Size(925, 452);
+			this->tabPage3->TabIndex = 2;
+			this->tabPage3->Text = L"Moje kursy";
+			this->tabPage3->UseVisualStyleBackColor = true;
+			this->tabPage3->Click += gcnew System::EventHandler(this, &DriverProgram::tabPage3_Click);
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(321, 144);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(117, 16);
+			this->label6->TabIndex = 3;
+			this->label6->Text = L"£¹cznie zarobione";
+			// 
+			// btnCalculate
+			// 
+			this->btnCalculate->Location = System::Drawing::Point(152, 254);
+			this->btnCalculate->Name = L"btnCalculate";
+			this->btnCalculate->Size = System::Drawing::Size(112, 23);
+			this->btnCalculate->TabIndex = 2;
+			this->btnCalculate->Text = L"Oblicz";
+			this->btnCalculate->UseVisualStyleBackColor = true;
+			this->btnCalculate->Click += gcnew System::EventHandler(this, &DriverProgram::btnCalculate_Click);
+			// 
+			// txtCostSum
+			// 
+			this->txtCostSum->Location = System::Drawing::Point(324, 184);
+			this->txtCostSum->Name = L"txtCostSum";
+			this->txtCostSum->Size = System::Drawing::Size(100, 22);
+			this->txtCostSum->TabIndex = 1;
+			// 
+			// dGMyTrips
+			// 
+			this->dGMyTrips->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dGMyTrips->Location = System::Drawing::Point(484, 50);
+			this->dGMyTrips->Name = L"dGMyTrips";
+			this->dGMyTrips->RowHeadersWidth = 51;
+			this->dGMyTrips->RowTemplate->Height = 24;
+			this->dGMyTrips->Size = System::Drawing::Size(377, 321);
+			this->dGMyTrips->TabIndex = 0;
+			// 
+			// txtCount
+			// 
+			this->txtCount->Location = System::Drawing::Point(30, 184);
+			this->txtCount->Name = L"txtCount";
+			this->txtCount->Size = System::Drawing::Size(100, 22);
+			this->txtCount->TabIndex = 4;
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(27, 144);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(91, 16);
+			this->label7->TabIndex = 5;
+			this->label7->Text = L"Liczba kursów";
+			// 
+			// txtKmSum
+			// 
+			this->txtKmSum->Location = System::Drawing::Point(182, 184);
+			this->txtKmSum->Name = L"txtKmSum";
+			this->txtKmSum->Size = System::Drawing::Size(100, 22);
+			this->txtKmSum->TabIndex = 6;
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(167, 144);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(121, 16);
+			this->label8->TabIndex = 7;
+			this->label8->Text = L"£¹cznie kilometrów";
+			// 
 			// DriverProgram
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -266,6 +373,9 @@ namespace TaxiApp {
 			this->tabPage2->ResumeLayout(false);
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
+			this->tabPage3->ResumeLayout(false);
+			this->tabPage3->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dGMyTrips))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -296,6 +406,33 @@ namespace TaxiApp {
 
 		dGDCars->Columns[0]->Visible = false;
 	}
+		   private: void show_mytrips()
+		   {
+			   MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
+			   MySqlCommand^ query = gcnew MySqlCommand("SELECT trip_id, date, distance, cost, driver_id FROM tbl_trip WHERE driver_id="+id_driver+"", baseConnection);
+
+			   try
+			   {
+				   baseConnection->Open();
+				   MySqlDataAdapter^ TaxiBase = gcnew MySqlDataAdapter();
+				   TaxiBase->SelectCommand = query;
+				   DataTable^ Tripstabela = gcnew DataTable();
+				   TaxiBase->Fill(Tripstabela);
+				   BindingSource^ sourceTaxi = gcnew BindingSource();
+				   sourceTaxi->DataSource = Tripstabela;
+				   dGMyTrips->DataSource = sourceTaxi;
+				   baseConnection->Close();
+			   }
+			   catch (Exception^ komunikat)
+			   {
+				   MessageBox::Show(komunikat->Message);
+			   }
+
+
+			   dGMyTrips->Columns[0]->Visible = false;
+			   dGMyTrips->Columns[4]->Visible = false;
+
+		   }
 	
 	private: void yourcar()
 	{
@@ -305,6 +442,9 @@ namespace TaxiApp {
 		baseConnection->Open();
 		readingcar = querycar->ExecuteReader();
 		if (readingcar->Read())
+
+
+
 		{
 
 			String^ brand = readingcar->GetString(1);
@@ -316,6 +456,8 @@ namespace TaxiApp {
 	private: System::Void DriverProgram_Load(System::Object^ sender, System::EventArgs^ e) {
 		show_cars();
 		yourcar();
+		show_mytrips();
+
 	}
 private: System::Void dGDCars_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	record_id = Convert::ToInt32(dGDCars->Rows[e->RowIndex]->Cells[0]->Value);
@@ -396,6 +538,24 @@ private: System::Void btnChangePassword_Click(System::Object^ sender, System::Ev
 	{
 		MessageBox::Show(komunikat->Message);
 	}
+
+}
+private: System::Void tabPage3_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void btnCalculate_Click(System::Object^ sender, System::EventArgs^ e) {
+	int cost_sum = 0;
+	int km_sum = 0;
+	for (int i = 0; i < dGMyTrips->Rows->Count; ++i)
+	{
+		cost_sum += Convert::ToInt32(dGMyTrips->Rows[i]->Cells["cost"]->Value);
+		km_sum += Convert::ToInt32(dGMyTrips->Rows[i]->Cells["distance"]->Value);
+
+	}
+
+	txtCostSum -> Text = Convert::ToString(cost_sum);
+	txtCount->Text = Convert::ToString(dGMyTrips->Rows->Count-1);
+	txtKmSum->Text = Convert::ToString(km_sum);
+
 
 }
 };
