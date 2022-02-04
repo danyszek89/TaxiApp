@@ -40,6 +40,8 @@ namespace TaxiApp {
 	private: System::Windows::Forms::Button^ btnMonth;
 	private: System::Windows::Forms::Button^ btnWeek;
 	private: System::Windows::Forms::Button^ btnYear;
+	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::DateTimePicker^ dateTimePicker1;
 
 	public:
 		String^ configuration = L"datasource=localhost ; port=3306; username=root; password=12345; database=taxiappdb";
@@ -101,6 +103,8 @@ namespace TaxiApp {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
+			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->btnWeek = (gcnew System::Windows::Forms::Button());
 			this->btnYear = (gcnew System::Windows::Forms::Button());
 			this->btnMonth = (gcnew System::Windows::Forms::Button());
@@ -222,7 +226,7 @@ namespace TaxiApp {
 			// 
 			// btnChangePassword
 			// 
-			this->btnChangePassword->Location = System::Drawing::Point(130, 188);
+			this->btnChangePassword->Location = System::Drawing::Point(122, 193);
 			this->btnChangePassword->Name = L"btnChangePassword";
 			this->btnChangePassword->Size = System::Drawing::Size(161, 23);
 			this->btnChangePassword->TabIndex = 6;
@@ -280,6 +284,8 @@ namespace TaxiApp {
 			// 
 			// tabPage3
 			// 
+			this->tabPage3->Controls->Add(this->dateTimePicker1);
+			this->tabPage3->Controls->Add(this->button1);
 			this->tabPage3->Controls->Add(this->btnWeek);
 			this->tabPage3->Controls->Add(this->btnYear);
 			this->tabPage3->Controls->Add(this->btnMonth);
@@ -298,6 +304,26 @@ namespace TaxiApp {
 			this->tabPage3->Text = L"Moje kursy";
 			this->tabPage3->UseVisualStyleBackColor = true;
 			this->tabPage3->Click += gcnew System::EventHandler(this, &DriverProgram::tabPage3_Click);
+			// 
+			// dateTimePicker1
+			// 
+			this->dateTimePicker1->CustomFormat = L"\"yyyy-MM-dd\"";
+			this->dateTimePicker1->Format = System::Windows::Forms::DateTimePickerFormat::Short;
+			this->dateTimePicker1->Location = System::Drawing::Point(49, 286);
+			this->dateTimePicker1->Name = L"dateTimePicker1";
+			this->dateTimePicker1->Size = System::Drawing::Size(200, 22);
+			this->dateTimePicker1->TabIndex = 12;
+			this->dateTimePicker1->Value = System::DateTime(2022, 2, 4, 0, 0, 0, 0);
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(315, 301);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->TabIndex = 11;
+			this->button1->Text = L"button1";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &DriverProgram::button1_Click);
 			// 
 			// btnWeek
 			// 
@@ -372,7 +398,7 @@ namespace TaxiApp {
 			// 
 			// btnCalculate
 			// 
-			this->btnCalculate->Location = System::Drawing::Point(152, 254);
+			this->btnCalculate->Location = System::Drawing::Point(147, 227);
 			this->btnCalculate->Name = L"btnCalculate";
 			this->btnCalculate->Size = System::Drawing::Size(112, 23);
 			this->btnCalculate->TabIndex = 2;
@@ -617,6 +643,57 @@ private: System::Void btnYear_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void btnWeek_Click(System::Object^ sender, System::EventArgs^ e) {
 	show_mytrips(week);
+
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+
+
+
+
+	MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
+	MySqlCommand^ query = baseConnection->CreateCommand();
+	MySqlTransaction^ transaction;
+	baseConnection->Open();
+	transaction = baseConnection->BeginTransaction(IsolationLevel::ReadCommitted);
+
+
+	query->Connection = baseConnection;
+	query->Transaction = transaction;
+
+
+	try
+	{
+
+
+
+
+		query->CommandText = "UPDATE tbl_trip SET date='"+dateTimePicker1->Value.Date.ToString("yyyyMMdd") + "'WHERE driver_id='" + id_driver + "'; ";
+
+		query->ExecuteNonQuery();
+
+
+	
+
+
+
+
+		transaction->Commit();
+
+	}
+
+
+
+
+	catch (Exception^ komunikat)
+	{
+
+		MessageBox::Show(komunikat->Message);
+		transaction->Rollback();
+
+	}
+	show_mytrips(year);
+
+	baseConnection->Close();
 
 }
 };

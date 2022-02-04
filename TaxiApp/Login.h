@@ -164,6 +164,8 @@ private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ 
 	MySqlDataReader^ reading;
 	MySqlCommand^ querydriver = gcnew MySqlCommand("SELECT * FROM tbl_user, tbl_driver WHERE tbl_user.user_id=tbl_driver.user_id AND login='" + txtLogin->Text + "' ", baseConnection);
 	MySqlDataReader^ readingdriver;
+	MySqlCommand^ querycustomer = gcnew MySqlCommand("SELECT * FROM tbl_user, tbl_customer WHERE tbl_user.user_id=tbl_customer.user_id AND login='" + txtLogin->Text + "' ", baseConnection);
+	MySqlDataReader^ readingcustomer;
 
 	baseConnection->Open();
 
@@ -176,6 +178,15 @@ private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ 
 	}
 	readingdriver->Close();
 
+	readingcustomer = querycustomer->ExecuteReader();
+	int id_customer;
+	if (readingdriver->Read())
+
+	{
+		id_customer = readingdriver->GetInt32("customer_id");
+	}
+	readingcustomer->Close();
+
 	try
 	{
 		reading = query->ExecuteReader();
@@ -185,6 +196,8 @@ private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ 
 			String^ user_role = reading->GetString("role");
 
 			MessageBox::Show(user_role);
+			int id_user = reading->GetInt32(0);
+
 
 			if (user_role == "admin")
 			{
@@ -197,14 +210,13 @@ private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ 
 			if (user_role == "customer")
 			{
 				this->Hide();
-				Customer^ customer = gcnew Customer();
+				Customer^ customer = gcnew Customer(id_customer, id_user);
 				customer->ShowDialog();
 				this->Close();
 			}
 
 			if (user_role == "driver")
 			{
-				 int id_user = reading->GetInt32(0);
 
 				
 
