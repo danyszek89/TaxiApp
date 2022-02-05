@@ -28,6 +28,21 @@ namespace TaxiApp {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::TabPage^ tabPage3;
+	private: System::Windows::Forms::DataGridView^ dGMyTrips;
+	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Button^ btnCalculate;
+	private: System::Windows::Forms::TextBox^ txtCostSum;
+	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::TextBox^ txtKmSum;
+	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::TextBox^ txtCount;
+	private: System::Windows::Forms::Button^ btnMonth;
+	private: System::Windows::Forms::Button^ btnWeek;
+	private: System::Windows::Forms::Button^ btnYear;
+	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::DateTimePicker^ dateTimePicker1;
+
 	public:
 		String^ configuration = L"datasource=localhost ; port=3306; username=root; password=12345; database=taxiappdb";
 		DriverProgram(int driver, int user)
@@ -87,17 +102,34 @@ namespace TaxiApp {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
+			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->btnWeek = (gcnew System::Windows::Forms::Button());
+			this->btnYear = (gcnew System::Windows::Forms::Button());
+			this->btnMonth = (gcnew System::Windows::Forms::Button());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->txtKmSum = (gcnew System::Windows::Forms::TextBox());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->txtCount = (gcnew System::Windows::Forms::TextBox());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->btnCalculate = (gcnew System::Windows::Forms::Button());
+			this->txtCostSum = (gcnew System::Windows::Forms::TextBox());
+			this->dGMyTrips = (gcnew System::Windows::Forms::DataGridView());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dGDCars))->BeginInit();
 			this->tabPage2->SuspendLayout();
 			this->groupBox1->SuspendLayout();
+			this->tabPage3->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dGMyTrips))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// tabControl1
 			// 
 			this->tabControl1->Controls->Add(this->tabPage1);
 			this->tabControl1->Controls->Add(this->tabPage2);
+			this->tabControl1->Controls->Add(this->tabPage3);
 			this->tabControl1->Location = System::Drawing::Point(184, 22);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
@@ -194,7 +226,7 @@ namespace TaxiApp {
 			// 
 			// btnChangePassword
 			// 
-			this->btnChangePassword->Location = System::Drawing::Point(130, 188);
+			this->btnChangePassword->Location = System::Drawing::Point(122, 193);
 			this->btnChangePassword->Name = L"btnChangePassword";
 			this->btnChangePassword->Size = System::Drawing::Size(161, 23);
 			this->btnChangePassword->TabIndex = 6;
@@ -250,6 +282,147 @@ namespace TaxiApp {
 			this->label5->TabIndex = 0;
 			this->label5->Text = L"Stare has³o";
 			// 
+			// tabPage3
+			// 
+			this->tabPage3->Controls->Add(this->dateTimePicker1);
+			this->tabPage3->Controls->Add(this->button1);
+			this->tabPage3->Controls->Add(this->btnWeek);
+			this->tabPage3->Controls->Add(this->btnYear);
+			this->tabPage3->Controls->Add(this->btnMonth);
+			this->tabPage3->Controls->Add(this->label8);
+			this->tabPage3->Controls->Add(this->txtKmSum);
+			this->tabPage3->Controls->Add(this->label7);
+			this->tabPage3->Controls->Add(this->txtCount);
+			this->tabPage3->Controls->Add(this->label6);
+			this->tabPage3->Controls->Add(this->btnCalculate);
+			this->tabPage3->Controls->Add(this->txtCostSum);
+			this->tabPage3->Controls->Add(this->dGMyTrips);
+			this->tabPage3->Location = System::Drawing::Point(4, 25);
+			this->tabPage3->Name = L"tabPage3";
+			this->tabPage3->Size = System::Drawing::Size(925, 452);
+			this->tabPage3->TabIndex = 2;
+			this->tabPage3->Text = L"Moje kursy";
+			this->tabPage3->UseVisualStyleBackColor = true;
+			this->tabPage3->Click += gcnew System::EventHandler(this, &DriverProgram::tabPage3_Click);
+			// 
+			// dateTimePicker1
+			// 
+			this->dateTimePicker1->CustomFormat = L"\"yyyy-MM-dd\"";
+			this->dateTimePicker1->Format = System::Windows::Forms::DateTimePickerFormat::Short;
+			this->dateTimePicker1->Location = System::Drawing::Point(49, 286);
+			this->dateTimePicker1->Name = L"dateTimePicker1";
+			this->dateTimePicker1->Size = System::Drawing::Size(200, 22);
+			this->dateTimePicker1->TabIndex = 12;
+			this->dateTimePicker1->Value = System::DateTime(2022, 2, 4, 0, 0, 0, 0);
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(315, 301);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->TabIndex = 11;
+			this->button1->Text = L"button1";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &DriverProgram::button1_Click);
+			// 
+			// btnWeek
+			// 
+			this->btnWeek->Location = System::Drawing::Point(762, 367);
+			this->btnWeek->Name = L"btnWeek";
+			this->btnWeek->Size = System::Drawing::Size(133, 33);
+			this->btnWeek->TabIndex = 10;
+			this->btnWeek->Text = L"Tydzieñ";
+			this->btnWeek->UseVisualStyleBackColor = true;
+			this->btnWeek->Click += gcnew System::EventHandler(this, &DriverProgram::btnWeek_Click);
+			// 
+			// btnYear
+			// 
+			this->btnYear->Location = System::Drawing::Point(484, 367);
+			this->btnYear->Name = L"btnYear";
+			this->btnYear->Size = System::Drawing::Size(133, 33);
+			this->btnYear->TabIndex = 9;
+			this->btnYear->Text = L"Rok";
+			this->btnYear->UseVisualStyleBackColor = true;
+			this->btnYear->Click += gcnew System::EventHandler(this, &DriverProgram::btnYear_Click);
+			// 
+			// btnMonth
+			// 
+			this->btnMonth->Location = System::Drawing::Point(623, 367);
+			this->btnMonth->Name = L"btnMonth";
+			this->btnMonth->Size = System::Drawing::Size(133, 33);
+			this->btnMonth->TabIndex = 8;
+			this->btnMonth->Text = L"Miesi¹c";
+			this->btnMonth->UseVisualStyleBackColor = true;
+			this->btnMonth->Click += gcnew System::EventHandler(this, &DriverProgram::btnMonth_Click);
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(167, 144);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(121, 16);
+			this->label8->TabIndex = 7;
+			this->label8->Text = L"£¹cznie kilometrów";
+			// 
+			// txtKmSum
+			// 
+			this->txtKmSum->Location = System::Drawing::Point(182, 184);
+			this->txtKmSum->Name = L"txtKmSum";
+			this->txtKmSum->Size = System::Drawing::Size(100, 22);
+			this->txtKmSum->TabIndex = 6;
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(27, 144);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(91, 16);
+			this->label7->TabIndex = 5;
+			this->label7->Text = L"Liczba kursów";
+			// 
+			// txtCount
+			// 
+			this->txtCount->Location = System::Drawing::Point(30, 184);
+			this->txtCount->Name = L"txtCount";
+			this->txtCount->Size = System::Drawing::Size(100, 22);
+			this->txtCount->TabIndex = 4;
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(321, 144);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(117, 16);
+			this->label6->TabIndex = 3;
+			this->label6->Text = L"£¹cznie zarobione";
+			// 
+			// btnCalculate
+			// 
+			this->btnCalculate->Location = System::Drawing::Point(147, 227);
+			this->btnCalculate->Name = L"btnCalculate";
+			this->btnCalculate->Size = System::Drawing::Size(112, 23);
+			this->btnCalculate->TabIndex = 2;
+			this->btnCalculate->Text = L"Oblicz";
+			this->btnCalculate->UseVisualStyleBackColor = true;
+			this->btnCalculate->Click += gcnew System::EventHandler(this, &DriverProgram::btnCalculate_Click);
+			// 
+			// txtCostSum
+			// 
+			this->txtCostSum->Location = System::Drawing::Point(324, 184);
+			this->txtCostSum->Name = L"txtCostSum";
+			this->txtCostSum->Size = System::Drawing::Size(100, 22);
+			this->txtCostSum->TabIndex = 1;
+			// 
+			// dGMyTrips
+			// 
+			this->dGMyTrips->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dGMyTrips->Location = System::Drawing::Point(508, 40);
+			this->dGMyTrips->Name = L"dGMyTrips";
+			this->dGMyTrips->RowHeadersWidth = 51;
+			this->dGMyTrips->RowTemplate->Height = 24;
+			this->dGMyTrips->Size = System::Drawing::Size(377, 321);
+			this->dGMyTrips->TabIndex = 0;
+			// 
 			// DriverProgram
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -266,6 +439,9 @@ namespace TaxiApp {
 			this->tabPage2->ResumeLayout(false);
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
+			this->tabPage3->ResumeLayout(false);
+			this->tabPage3->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dGMyTrips))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -296,6 +472,40 @@ namespace TaxiApp {
 
 		dGDCars->Columns[0]->Visible = false;
 	}
+		   String^ week = "NOW() - INTERVAL 7 DAY";
+		   String^ month = "NOW() - INTERVAL 30 DAY";
+		   String^ year = "NOW() - INTERVAL 365 DAY";
+
+
+
+
+		   private: void show_mytrips(String ^period)
+		   {
+			   MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
+			   MySqlCommand^ query = gcnew MySqlCommand("SELECT trip_id, date, distance, cost, driver_id FROM tbl_trip WHERE driver_id="+id_driver+" AND date > "+period+" ", baseConnection);
+
+			   try
+			   {
+				   baseConnection->Open();
+				   MySqlDataAdapter^ TaxiBase = gcnew MySqlDataAdapter();
+				   TaxiBase->SelectCommand = query;
+				   DataTable^ Tripstabela = gcnew DataTable();
+				   TaxiBase->Fill(Tripstabela);
+				   BindingSource^ sourceTaxi = gcnew BindingSource();
+				   sourceTaxi->DataSource = Tripstabela;
+				   dGMyTrips->DataSource = sourceTaxi;
+				   baseConnection->Close();
+			   }
+			   catch (Exception^ komunikat)
+			   {
+				   MessageBox::Show(komunikat->Message);
+			   }
+
+
+			   dGMyTrips->Columns[0]->Visible = false;
+			   dGMyTrips->Columns[4]->Visible = false;
+
+		   }
 	
 	private: void yourcar()
 	{
@@ -305,6 +515,9 @@ namespace TaxiApp {
 		baseConnection->Open();
 		readingcar = querycar->ExecuteReader();
 		if (readingcar->Read())
+
+
+
 		{
 
 			String^ brand = readingcar->GetString(1);
@@ -316,6 +529,8 @@ namespace TaxiApp {
 	private: System::Void DriverProgram_Load(System::Object^ sender, System::EventArgs^ e) {
 		show_cars();
 		yourcar();
+		show_mytrips(year);
+
 	}
 private: System::Void dGDCars_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	record_id = Convert::ToInt32(dGDCars->Rows[e->RowIndex]->Cells[0]->Value);
@@ -396,6 +611,89 @@ private: System::Void btnChangePassword_Click(System::Object^ sender, System::Ev
 	{
 		MessageBox::Show(komunikat->Message);
 	}
+
+}
+private: System::Void tabPage3_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void btnCalculate_Click(System::Object^ sender, System::EventArgs^ e) {
+	int cost_sum = 0;
+	int km_sum = 0;
+	DateTime data;
+	for (int i = 0; i < dGMyTrips->Rows->Count; ++i)
+	{
+		
+		cost_sum += Convert::ToInt32(dGMyTrips->Rows[i]->Cells["cost"]->Value);
+		km_sum += Convert::ToInt32(dGMyTrips->Rows[i]->Cells["distance"]->Value);
+
+
+	}
+
+	txtCostSum -> Text = Convert::ToString(cost_sum);
+	txtCount->Text = Convert::ToString(dGMyTrips->Rows->Count-1);
+	txtKmSum->Text = Convert::ToString(km_sum);
+
+
+}
+private: System::Void btnMonth_Click(System::Object^ sender, System::EventArgs^ e) {
+	show_mytrips(month);
+}
+private: System::Void btnYear_Click(System::Object^ sender, System::EventArgs^ e) {
+	show_mytrips(year);
+
+}
+private: System::Void btnWeek_Click(System::Object^ sender, System::EventArgs^ e) {
+	show_mytrips(week);
+
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+
+
+
+
+	MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
+	MySqlCommand^ query = baseConnection->CreateCommand();
+	MySqlTransaction^ transaction;
+	baseConnection->Open();
+	transaction = baseConnection->BeginTransaction(IsolationLevel::ReadCommitted);
+
+
+	query->Connection = baseConnection;
+	query->Transaction = transaction;
+
+
+	try
+	{
+
+
+
+
+		query->CommandText = "UPDATE tbl_trip SET date='"+dateTimePicker1->Value.Date.ToString("yyyyMMdd") + "'WHERE driver_id='" + id_driver + "'; ";
+
+		query->ExecuteNonQuery();
+
+
+	
+
+
+
+
+		transaction->Commit();
+
+	}
+
+
+
+
+	catch (Exception^ komunikat)
+	{
+
+		MessageBox::Show(komunikat->Message);
+		transaction->Rollback();
+
+	}
+	show_mytrips(year);
+
+	baseConnection->Close();
 
 }
 };

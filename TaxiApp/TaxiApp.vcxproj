@@ -150,6 +150,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Customer.resx">
+      <DependentUpon>Customer.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DriverProgram.resx">
       <DependentUpon>DriverProgram.h</DependentUpon>
     </EmbeddedResource>

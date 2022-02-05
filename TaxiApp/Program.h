@@ -83,6 +83,38 @@ namespace TaxiApp {
 	private: System::Windows::Forms::DataGridView^ dGCars;
 	private: System::Windows::Forms::TabPage^ tabPage3;
 	private: System::Windows::Forms::Button^ btnCarEdit;
+	private: System::Windows::Forms::DataGridView^ dGDrivers;
+	private: System::Windows::Forms::GroupBox^ gbDrivers;
+
+	private: System::Windows::Forms::Label^ label20;
+	private: System::Windows::Forms::TextBox^ txt_pesel_driver;
+
+
+	private: System::Windows::Forms::TextBox^ txt_phone_driver;
+	private: System::Windows::Forms::Label^ label16;
+	private: System::Windows::Forms::TextBox^ txt_email_driver;
+	private: System::Windows::Forms::Label^ label17;
+	private: System::Windows::Forms::TextBox^ txt_surname_driver;
+	private: System::Windows::Forms::Label^ label11;
+	private: System::Windows::Forms::TextBox^ txt_name_driver;
+	private: System::Windows::Forms::Label^ label15;
+	private: System::Windows::Forms::Label^ label13;
+
+	private: System::Windows::Forms::Label^ label14;
+	private: System::Windows::Forms::TextBox^ txt_login_driver;
+	private: System::Windows::Forms::Button^ btnDriverSearch;
+	private: System::Windows::Forms::TextBox^ txtDriverSearch;
+	private: System::Windows::Forms::Label^ Kierowca;
+	private: System::Windows::Forms::Button^ btnDriverEdit;
+
+	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Button^ btnDriverDelete;
+	private: System::Windows::Forms::CheckBox^ checkBoxD;
+	private: System::Windows::Forms::CheckBox^ checkBoxC;
+	private: System::Windows::Forms::CheckBox^ checkBoxB;
+	private: System::Windows::Forms::CheckBox^ checkBoxA;
+
+
 
 
 	protected:
@@ -148,6 +180,31 @@ namespace TaxiApp {
 			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->dGCars = (gcnew System::Windows::Forms::DataGridView());
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
+			this->btnDriverSearch = (gcnew System::Windows::Forms::Button());
+			this->txtDriverSearch = (gcnew System::Windows::Forms::TextBox());
+			this->Kierowca = (gcnew System::Windows::Forms::Label());
+			this->btnDriverEdit = (gcnew System::Windows::Forms::Button());
+			this->gbDrivers = (gcnew System::Windows::Forms::GroupBox());
+			this->checkBoxD = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBoxC = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBoxB = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBoxA = (gcnew System::Windows::Forms::CheckBox());
+			this->label20 = (gcnew System::Windows::Forms::Label());
+			this->txt_pesel_driver = (gcnew System::Windows::Forms::TextBox());
+			this->txt_phone_driver = (gcnew System::Windows::Forms::TextBox());
+			this->label16 = (gcnew System::Windows::Forms::Label());
+			this->txt_email_driver = (gcnew System::Windows::Forms::TextBox());
+			this->label17 = (gcnew System::Windows::Forms::Label());
+			this->txt_surname_driver = (gcnew System::Windows::Forms::TextBox());
+			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->txt_name_driver = (gcnew System::Windows::Forms::TextBox());
+			this->label15 = (gcnew System::Windows::Forms::Label());
+			this->label13 = (gcnew System::Windows::Forms::Label());
+			this->label14 = (gcnew System::Windows::Forms::Label());
+			this->txt_login_driver = (gcnew System::Windows::Forms::TextBox());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->dGDrivers = (gcnew System::Windows::Forms::DataGridView());
+			this->btnDriverDelete = (gcnew System::Windows::Forms::Button());
 			this->tabControl1->SuspendLayout();
 			this->tabPage2->SuspendLayout();
 			this->gBCostumer->SuspendLayout();
@@ -155,6 +212,9 @@ namespace TaxiApp {
 			this->tabPage1->SuspendLayout();
 			this->gbCar->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dGCars))->BeginInit();
+			this->tabPage3->SuspendLayout();
+			this->gbDrivers->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dGDrivers))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// tabControl1
@@ -165,7 +225,7 @@ namespace TaxiApp {
 			this->tabControl1->Location = System::Drawing::Point(30, 12);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(1081, 465);
+			this->tabControl1->Size = System::Drawing::Size(1349, 681);
 			this->tabControl1->TabIndex = 0;
 			// 
 			// tabPage2
@@ -181,7 +241,7 @@ namespace TaxiApp {
 			this->tabPage2->Location = System::Drawing::Point(4, 25);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(1073, 436);
+			this->tabPage2->Size = System::Drawing::Size(1341, 652);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Klienci";
 			this->tabPage2->UseVisualStyleBackColor = true;
@@ -199,7 +259,7 @@ namespace TaxiApp {
 			this->gBCostumer->Controls->Add(this->label6);
 			this->gBCostumer->Controls->Add(this->label4);
 			this->gBCostumer->Controls->Add(this->label5);
-			this->gBCostumer->Location = System::Drawing::Point(17, 66);
+			this->gBCostumer->Location = System::Drawing::Point(225, 150);
 			this->gBCostumer->Name = L"gBCostumer";
 			this->gBCostumer->Size = System::Drawing::Size(306, 251);
 			this->gBCostumer->TabIndex = 30;
@@ -298,7 +358,7 @@ namespace TaxiApp {
 			// 
 			// btnCustomerEdit
 			// 
-			this->btnCustomerEdit->Location = System::Drawing::Point(245, 323);
+			this->btnCustomerEdit->Location = System::Drawing::Point(453, 407);
 			this->btnCustomerEdit->Name = L"btnCustomerEdit";
 			this->btnCustomerEdit->Size = System::Drawing::Size(97, 44);
 			this->btnCustomerEdit->TabIndex = 29;
@@ -308,7 +368,7 @@ namespace TaxiApp {
 			// 
 			// btnCustomerAdd
 			// 
-			this->btnCustomerAdd->Location = System::Drawing::Point(29, 330);
+			this->btnCustomerAdd->Location = System::Drawing::Point(237, 414);
 			this->btnCustomerAdd->Name = L"btnCustomerAdd";
 			this->btnCustomerAdd->Size = System::Drawing::Size(75, 37);
 			this->btnCustomerAdd->TabIndex = 28;
@@ -318,7 +378,7 @@ namespace TaxiApp {
 			// 
 			// btnCustomerDelete
 			// 
-			this->btnCustomerDelete->Location = System::Drawing::Point(139, 323);
+			this->btnCustomerDelete->Location = System::Drawing::Point(347, 407);
 			this->btnCustomerDelete->Name = L"btnCustomerDelete";
 			this->btnCustomerDelete->Size = System::Drawing::Size(75, 44);
 			this->btnCustomerDelete->TabIndex = 4;
@@ -328,7 +388,7 @@ namespace TaxiApp {
 			// 
 			// btnKlientSzukaj
 			// 
-			this->btnKlientSzukaj->Location = System::Drawing::Point(267, 27);
+			this->btnKlientSzukaj->Location = System::Drawing::Point(475, 111);
 			this->btnKlientSzukaj->Name = L"btnKlientSzukaj";
 			this->btnKlientSzukaj->Size = System::Drawing::Size(75, 23);
 			this->btnKlientSzukaj->TabIndex = 3;
@@ -338,7 +398,7 @@ namespace TaxiApp {
 			// 
 			// txtCustomerSearch
 			// 
-			this->txtCustomerSearch->Location = System::Drawing::Point(130, 27);
+			this->txtCustomerSearch->Location = System::Drawing::Point(338, 111);
 			this->txtCustomerSearch->Name = L"txtCustomerSearch";
 			this->txtCustomerSearch->Size = System::Drawing::Size(100, 22);
 			this->txtCustomerSearch->TabIndex = 2;
@@ -346,7 +406,7 @@ namespace TaxiApp {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(55, 30);
+			this->label1->Location = System::Drawing::Point(263, 114);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(39, 16);
 			this->label1->TabIndex = 1;
@@ -357,7 +417,7 @@ namespace TaxiApp {
 			this->dGCustomers->AllowUserToAddRows = false;
 			this->dGCustomers->AllowUserToOrderColumns = true;
 			this->dGCustomers->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dGCustomers->Location = System::Drawing::Point(372, 27);
+			this->dGCustomers->Location = System::Drawing::Point(580, 111);
 			this->dGCustomers->Name = L"dGCustomers";
 			this->dGCustomers->RowHeadersWidth = 51;
 			this->dGCustomers->RowTemplate->Height = 24;
@@ -378,7 +438,7 @@ namespace TaxiApp {
 			this->tabPage1->Controls->Add(this->dGCars);
 			this->tabPage1->Location = System::Drawing::Point(4, 25);
 			this->tabPage1->Name = L"tabPage1";
-			this->tabPage1->Size = System::Drawing::Size(1073, 436);
+			this->tabPage1->Size = System::Drawing::Size(1341, 652);
 			this->tabPage1->TabIndex = 2;
 			this->tabPage1->Text = L"Samochody";
 			this->tabPage1->UseVisualStyleBackColor = true;
@@ -544,18 +604,277 @@ namespace TaxiApp {
 			// 
 			// tabPage3
 			// 
+			this->tabPage3->Controls->Add(this->btnDriverSearch);
+			this->tabPage3->Controls->Add(this->txtDriverSearch);
+			this->tabPage3->Controls->Add(this->Kierowca);
+			this->tabPage3->Controls->Add(this->btnDriverEdit);
+			this->tabPage3->Controls->Add(this->gbDrivers);
+			this->tabPage3->Controls->Add(this->button2);
+			this->tabPage3->Controls->Add(this->dGDrivers);
+			this->tabPage3->Controls->Add(this->btnDriverDelete);
 			this->tabPage3->Location = System::Drawing::Point(4, 25);
 			this->tabPage3->Name = L"tabPage3";
-			this->tabPage3->Size = System::Drawing::Size(1073, 436);
+			this->tabPage3->Size = System::Drawing::Size(1341, 652);
 			this->tabPage3->TabIndex = 3;
 			this->tabPage3->Text = L"Kierowcy";
 			this->tabPage3->UseVisualStyleBackColor = true;
+			// 
+			// btnDriverSearch
+			// 
+			this->btnDriverSearch->Location = System::Drawing::Point(381, 51);
+			this->btnDriverSearch->Name = L"btnDriverSearch";
+			this->btnDriverSearch->Size = System::Drawing::Size(75, 23);
+			this->btnDriverSearch->TabIndex = 50;
+			this->btnDriverSearch->Text = L"Szukaj";
+			this->btnDriverSearch->UseVisualStyleBackColor = true;
+			this->btnDriverSearch->Click += gcnew System::EventHandler(this, &Program::btnDriverSearch_Click);
+			// 
+			// txtDriverSearch
+			// 
+			this->txtDriverSearch->Location = System::Drawing::Point(244, 51);
+			this->txtDriverSearch->Name = L"txtDriverSearch";
+			this->txtDriverSearch->Size = System::Drawing::Size(100, 22);
+			this->txtDriverSearch->TabIndex = 49;
+			// 
+			// Kierowca
+			// 
+			this->Kierowca->AutoSize = true;
+			this->Kierowca->Location = System::Drawing::Point(169, 54);
+			this->Kierowca->Name = L"Kierowca";
+			this->Kierowca->Size = System::Drawing::Size(73, 16);
+			this->Kierowca->TabIndex = 48;
+			this->Kierowca->Text = L"Samochód";
+			// 
+			// btnDriverEdit
+			// 
+			this->btnDriverEdit->Location = System::Drawing::Point(273, 512);
+			this->btnDriverEdit->Name = L"btnDriverEdit";
+			this->btnDriverEdit->Size = System::Drawing::Size(88, 51);
+			this->btnDriverEdit->TabIndex = 47;
+			this->btnDriverEdit->Text = L"Edytuj";
+			this->btnDriverEdit->UseVisualStyleBackColor = true;
+			this->btnDriverEdit->Click += gcnew System::EventHandler(this, &Program::btnDriverEdit_Click);
+			// 
+			// gbDrivers
+			// 
+			this->gbDrivers->Controls->Add(this->checkBoxD);
+			this->gbDrivers->Controls->Add(this->checkBoxC);
+			this->gbDrivers->Controls->Add(this->checkBoxB);
+			this->gbDrivers->Controls->Add(this->checkBoxA);
+			this->gbDrivers->Controls->Add(this->label20);
+			this->gbDrivers->Controls->Add(this->txt_pesel_driver);
+			this->gbDrivers->Controls->Add(this->txt_phone_driver);
+			this->gbDrivers->Controls->Add(this->label16);
+			this->gbDrivers->Controls->Add(this->txt_email_driver);
+			this->gbDrivers->Controls->Add(this->label17);
+			this->gbDrivers->Controls->Add(this->txt_surname_driver);
+			this->gbDrivers->Controls->Add(this->label11);
+			this->gbDrivers->Controls->Add(this->txt_name_driver);
+			this->gbDrivers->Controls->Add(this->label15);
+			this->gbDrivers->Controls->Add(this->label13);
+			this->gbDrivers->Controls->Add(this->label14);
+			this->gbDrivers->Controls->Add(this->txt_login_driver);
+			this->gbDrivers->Location = System::Drawing::Point(64, 98);
+			this->gbDrivers->Name = L"gbDrivers";
+			this->gbDrivers->Size = System::Drawing::Size(442, 391);
+			this->gbDrivers->TabIndex = 45;
+			this->gbDrivers->TabStop = false;
+			this->gbDrivers->Text = L"groupBox1";
+			// 
+			// checkBoxD
+			// 
+			this->checkBoxD->AutoSize = true;
+			this->checkBoxD->Location = System::Drawing::Point(239, 342);
+			this->checkBoxD->Name = L"checkBoxD";
+			this->checkBoxD->Size = System::Drawing::Size(100, 20);
+			this->checkBoxD->TabIndex = 48;
+			this->checkBoxD->Text = L"Kategoria D";
+			this->checkBoxD->UseVisualStyleBackColor = true;
+			// 
+			// checkBoxC
+			// 
+			this->checkBoxC->AutoSize = true;
+			this->checkBoxC->Location = System::Drawing::Point(239, 309);
+			this->checkBoxC->Name = L"checkBoxC";
+			this->checkBoxC->Size = System::Drawing::Size(99, 20);
+			this->checkBoxC->TabIndex = 47;
+			this->checkBoxC->Text = L"Kategoria C";
+			this->checkBoxC->UseVisualStyleBackColor = true;
+			// 
+			// checkBoxB
+			// 
+			this->checkBoxB->AutoSize = true;
+			this->checkBoxB->Location = System::Drawing::Point(239, 283);
+			this->checkBoxB->Name = L"checkBoxB";
+			this->checkBoxB->Size = System::Drawing::Size(99, 20);
+			this->checkBoxB->TabIndex = 46;
+			this->checkBoxB->Text = L"Kategoria B";
+			this->checkBoxB->UseVisualStyleBackColor = true;
+			// 
+			// checkBoxA
+			// 
+			this->checkBoxA->AutoSize = true;
+			this->checkBoxA->Location = System::Drawing::Point(239, 257);
+			this->checkBoxA->Name = L"checkBoxA";
+			this->checkBoxA->Size = System::Drawing::Size(99, 20);
+			this->checkBoxA->TabIndex = 45;
+			this->checkBoxA->Text = L"Kategoria A";
+			this->checkBoxA->UseVisualStyleBackColor = true;
+			// 
+			// label20
+			// 
+			this->label20->AutoSize = true;
+			this->label20->Location = System::Drawing::Point(102, 48);
+			this->label20->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label20->Name = L"label20";
+			this->label20->Size = System::Drawing::Size(43, 16);
+			this->label20->TabIndex = 27;
+			this->label20->Text = L"Login:";
+			// 
+			// txt_pesel_driver
+			// 
+			this->txt_pesel_driver->Location = System::Drawing::Point(212, 195);
+			this->txt_pesel_driver->Margin = System::Windows::Forms::Padding(4);
+			this->txt_pesel_driver->Name = L"txt_pesel_driver";
+			this->txt_pesel_driver->Size = System::Drawing::Size(132, 22);
+			this->txt_pesel_driver->TabIndex = 44;
+			// 
+			// txt_phone_driver
+			// 
+			this->txt_phone_driver->Location = System::Drawing::Point(212, 228);
+			this->txt_phone_driver->Margin = System::Windows::Forms::Padding(4);
+			this->txt_phone_driver->Name = L"txt_phone_driver";
+			this->txt_phone_driver->Size = System::Drawing::Size(132, 22);
+			this->txt_phone_driver->TabIndex = 41;
+			// 
+			// label16
+			// 
+			this->label16->AutoSize = true;
+			this->label16->Location = System::Drawing::Point(21, 302);
+			this->label16->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label16->Name = L"label16";
+			this->label16->Size = System::Drawing::Size(211, 16);
+			this->label16->TabIndex = 42;
+			this->label16->Text = L"Posiadane kategorie prawa jazdy:";
+			// 
+			// txt_email_driver
+			// 
+			this->txt_email_driver->Location = System::Drawing::Point(212, 164);
+			this->txt_email_driver->Margin = System::Windows::Forms::Padding(4);
+			this->txt_email_driver->Name = L"txt_email_driver";
+			this->txt_email_driver->Size = System::Drawing::Size(132, 22);
+			this->txt_email_driver->TabIndex = 38;
+			// 
+			// label17
+			// 
+			this->label17->AutoSize = true;
+			this->label17->Location = System::Drawing::Point(102, 86);
+			this->label17->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label17->Name = L"label17";
+			this->label17->Size = System::Drawing::Size(35, 16);
+			this->label17->TabIndex = 30;
+			this->label17->Text = L"Imie:";
+			// 
+			// txt_surname_driver
+			// 
+			this->txt_surname_driver->Location = System::Drawing::Point(209, 129);
+			this->txt_surname_driver->Margin = System::Windows::Forms::Padding(4);
+			this->txt_surname_driver->Name = L"txt_surname_driver";
+			this->txt_surname_driver->Size = System::Drawing::Size(132, 22);
+			this->txt_surname_driver->TabIndex = 37;
+			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Location = System::Drawing::Point(105, 132);
+			this->label11->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(68, 16);
+			this->label11->TabIndex = 31;
+			this->label11->Text = L"Nazwisko:";
+			// 
+			// txt_name_driver
+			// 
+			this->txt_name_driver->Location = System::Drawing::Point(209, 86);
+			this->txt_name_driver->Margin = System::Windows::Forms::Padding(4);
+			this->txt_name_driver->Name = L"txt_name_driver";
+			this->txt_name_driver->Size = System::Drawing::Size(132, 22);
+			this->txt_name_driver->TabIndex = 36;
+			// 
+			// label15
+			// 
+			this->label15->AutoSize = true;
+			this->label15->Location = System::Drawing::Point(95, 233);
+			this->label15->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label15->Name = L"label15";
+			this->label15->Size = System::Drawing::Size(56, 16);
+			this->label15->TabIndex = 40;
+			this->label15->Text = L"Telefon:";
+			// 
+			// label13
+			// 
+			this->label13->AutoSize = true;
+			this->label13->Location = System::Drawing::Point(105, 201);
+			this->label13->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label13->Name = L"label13";
+			this->label13->Size = System::Drawing::Size(42, 16);
+			this->label13->TabIndex = 32;
+			this->label13->Text = L"Pesel";
+			// 
+			// label14
+			// 
+			this->label14->AutoSize = true;
+			this->label14->Location = System::Drawing::Point(107, 170);
+			this->label14->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label14->Name = L"label14";
+			this->label14->Size = System::Drawing::Size(44, 16);
+			this->label14->TabIndex = 39;
+			this->label14->Text = L"Email:";
+			// 
+			// txt_login_driver
+			// 
+			this->txt_login_driver->Location = System::Drawing::Point(209, 45);
+			this->txt_login_driver->Margin = System::Windows::Forms::Padding(4);
+			this->txt_login_driver->Name = L"txt_login_driver";
+			this->txt_login_driver->Size = System::Drawing::Size(132, 22);
+			this->txt_login_driver->TabIndex = 33;
+			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(169, 506);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(75, 65);
+			this->button2->TabIndex = 46;
+			this->button2->Text = L"Dodaj";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &Program::button2_Click);
+			// 
+			// dGDrivers
+			// 
+			this->dGDrivers->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dGDrivers->Location = System::Drawing::Point(528, 72);
+			this->dGDrivers->Name = L"dGDrivers";
+			this->dGDrivers->RowHeadersWidth = 51;
+			this->dGDrivers->RowTemplate->Height = 24;
+			this->dGDrivers->Size = System::Drawing::Size(770, 388);
+			this->dGDrivers->TabIndex = 0;
+			this->dGDrivers->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Program::dGDrivers_CellClick);
+			// 
+			// btnDriverDelete
+			// 
+			this->btnDriverDelete->Location = System::Drawing::Point(390, 515);
+			this->btnDriverDelete->Name = L"btnDriverDelete";
+			this->btnDriverDelete->Size = System::Drawing::Size(75, 44);
+			this->btnDriverDelete->TabIndex = 45;
+			this->btnDriverDelete->Text = L"Usuñ";
+			this->btnDriverDelete->UseVisualStyleBackColor = true;
+			this->btnDriverDelete->Click += gcnew System::EventHandler(this, &Program::btnDriverDelete_Click);
 			// 
 			// Program
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1195, 518);
+			this->ClientSize = System::Drawing::Size(1404, 705);
 			this->Controls->Add(this->tabControl1);
 			this->Name = L"Program";
 			this->Text = L"Program";
@@ -571,6 +890,11 @@ namespace TaxiApp {
 			this->gbCar->ResumeLayout(false);
 			this->gbCar->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dGCars))->EndInit();
+			this->tabPage3->ResumeLayout(false);
+			this->tabPage3->PerformLayout();
+			this->gbDrivers->ResumeLayout(false);
+			this->gbDrivers->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dGDrivers))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -578,6 +902,7 @@ namespace TaxiApp {
 
 #pragma endregion
 		int record_id;
+		int recordlicence_id;
 		 private: Void clear(Control^ controls)
 		 {
 			 for each (Control ^ element in controls->Controls)
@@ -599,10 +924,10 @@ namespace TaxiApp {
 				 baseConnection->Open();
 				 MySqlDataAdapter^ TaxiBase = gcnew MySqlDataAdapter();
 				 TaxiBase->SelectCommand = query;
-				 DataTable^ Utabela = gcnew DataTable();
-				 TaxiBase->Fill(Utabela);
+				 DataTable^ Ctabela = gcnew DataTable();
+				 TaxiBase->Fill(Ctabela);
 				 BindingSource^ sourceTaxi = gcnew BindingSource();
-				 sourceTaxi->DataSource = Utabela;
+				 sourceTaxi->DataSource = Ctabela;
 				 dGCustomers->DataSource = sourceTaxi;
 				 baseConnection->Close();
 			 }
@@ -638,7 +963,7 @@ private: System::Void btnCustomerDelete_Click(System::Object^ sender, System::Ev
 
 		transaction->Commit();
 
-		if (MessageBox::Show("Czy na pewno usun¹æ u¿ytkownika?", "Uwaga!!!", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
+		if (MessageBox::Show("Czy na pewno usun¹æ klienta?", "Uwaga!!!", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
 		{
 		
 				query->CommandText = "DELETE FROM tbl_customer WHERE user_id = " + record_id + " ;";
@@ -777,6 +1102,7 @@ private: System::Void tabPage2_Click(System::Object^ sender, System::EventArgs^ 
 private: System::Void Program_Load(System::Object^ sender, System::EventArgs^ e) {
 	show_customers();
 	show_cars();
+	show_drivers();
 }
 private: System::Void label10_Click(System::Object^ sender, System::EventArgs^ e) {
 }
@@ -948,6 +1274,249 @@ private: System::Void btnCarEdit_Click(System::Object^ sender, System::EventArgs
 	show_cars();
 	clear(gbCar);
 
+	baseConnection->Close();
+}
+	   int cat_a;
+	   int cat_b;
+	   int cat_c;
+	   int cat_d;
+
+	   private: Void category()
+	   {
+
+		   if (checkBoxA->Checked)
+		   {
+			   cat_a = 1;
+		   }
+		   else
+		   {
+			   cat_a = 0;
+		   }
+		   if (checkBoxB->Checked)
+		   {
+			   cat_b = 1;
+		   }
+		   else
+		   {
+			   cat_b = 0;
+		   }
+		   if (checkBoxC->Checked)
+		   {
+			   cat_c = 1;
+		   }
+		   else
+		   {
+			   cat_c = 0;
+		   }
+		   if (checkBoxD->Checked)
+		   {
+			   cat_d = 1;
+		   }
+		   else
+		   {
+			   cat_d = 0;
+		   }
+	   }
+
+		private: void show_drivers()
+		{
+			MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
+			MySqlCommand^ query = gcnew MySqlCommand("SELECT tbl_user.user_id, tbl_user.login, tbl_user.email, tbl_driver.name, tbl_driver.surname, tbl_driver.pesel, tbl_driver.tel_number, tbl_licence.cat_a, tbl_licence.cat_b, tbl_licence.cat_c,tbl_licence.cat_d, tbl_driver.licence_id FROM tbl_user, tbl_driver, tbl_licence WHERE tbl_user.user_id=tbl_driver.user_id AND tbl_licence.licence_id = tbl_driver.licence_id AND concat(name,  '',surname, login) LIKE '%" + txtDriverSearch->Text + "%'; ", baseConnection);
+
+			try
+			{
+				baseConnection->Open();
+				MySqlDataAdapter^ TaxiBase = gcnew MySqlDataAdapter();
+				TaxiBase->SelectCommand = query;
+				DataTable^ Drivertabela = gcnew DataTable();
+				TaxiBase->Fill(Drivertabela);
+				BindingSource^ sourceTaxi = gcnew BindingSource();
+				sourceTaxi->DataSource = Drivertabela;
+				dGDrivers->DataSource = sourceTaxi;
+				baseConnection->Close();
+			}
+			catch (Exception^ komunikat)
+			{
+				MessageBox::Show(komunikat->Message);
+			}
+
+
+			dGDrivers->Columns[0]->Visible = false;
+			dGDrivers->Columns[7]->Visible = false;
+			dGDrivers->Columns[8]->Visible = false;
+			dGDrivers->Columns[9]->Visible = false;
+			dGDrivers->Columns[10]->Visible = false;
+			dGDrivers->Columns[11]->Visible = false;
+
+
+
+
+
+		}
+
+private: System::Void btnDriverSearch_Click(System::Object^ sender, System::EventArgs^ e) {
+	show_drivers();
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (txt_name_driver->Text->Length < 3 || txt_surname_driver->Text->Length < 3 || txt_email_driver->Text->Length < 3)
+	{
+		MessageBox::Show("WprowadŸ dane poprawnie");
+		return;
+	}
+
+
+	MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
+	MySqlCommand^ query = baseConnection->CreateCommand();
+	MySqlTransaction^ transaction;
+	baseConnection->Open();
+	transaction = baseConnection->BeginTransaction(IsolationLevel::ReadCommitted);
+
+	query->Connection = baseConnection;
+	query->Transaction = transaction;
+
+	try
+	{
+		query->CommandText = "INSERT INTO tbl_user SET login='" + txt_login_driver->Text + "', password=md5('" + txt_login_driver->Text + "'), email = '" + txt_email_driver->Text + "', role = 'driver'; ";
+		query->ExecuteNonQuery();
+
+		int idUser = (int)query->LastInsertedId;
+
+		//Odczyt zaznaczonych kategorii prawa jazdy
+		category();
+
+		query->CommandText = "INSERT INTO tbl_licence (cat_a,cat_b,cat_c,cat_d) VALUES (" + cat_a + " , " + cat_b + ", " + cat_c + ", " + cat_d + ")";
+		query->ExecuteNonQuery();
+
+		query->CommandText = "INSERT INTO tbl_driver SET licence_id=last_insert_id(), name='" + txt_name_driver->Text + "', surname ='" + txt_surname_driver->Text + "', pesel=" + txt_pesel_driver->Text + ", tel_number = '" + txt_phone_driver->Text + "', busy = 1, user_id = " + idUser + "";
+		query->ExecuteNonQuery();
+
+		transaction->Commit();
+
+		MessageBox::Show("Kierowca zosta³ dodany");
+
+	}
+
+	catch (Exception^ komunikat)
+	{
+		MessageBox::Show(komunikat->Message);
+		transaction->Rollback();
+
+	}
+	show_drivers();
+	clear(gbDrivers);
+
+	baseConnection->Close();
+
+}
+private: System::Void dGDrivers_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	record_id = Convert::ToInt32(dGDrivers->Rows[e->RowIndex]->Cells[0]->Value);
+	txt_login_driver->Text = dGDrivers->Rows[e->RowIndex]->Cells["login"]->Value->ToString();
+	txt_email_driver->Text = dGDrivers->Rows[e->RowIndex]->Cells["email"]->Value->ToString();
+	txt_name_driver->Text = dGDrivers->Rows[e->RowIndex]->Cells["name"]->Value->ToString();
+	txt_surname_driver->Text = dGDrivers->Rows[e->RowIndex]->Cells["surname"]->Value->ToString();
+	txt_phone_driver->Text = dGDrivers->Rows[e->RowIndex]->Cells["tel_number"]->Value->ToString();
+	txt_pesel_driver->Text = dGDrivers->Rows[e->RowIndex]->Cells["pesel"]->Value->ToString();
+	checkBoxA->Checked = Convert::ToBoolean(dGDrivers->Rows[e->RowIndex]->Cells["cat_a"]->Value);
+	checkBoxB->Checked = Convert::ToBoolean(dGDrivers->Rows[e->RowIndex]->Cells["cat_b"]->Value);
+	checkBoxC->Checked = Convert::ToBoolean(dGDrivers->Rows[e->RowIndex]->Cells["cat_c"]->Value);
+	checkBoxD->Checked = Convert::ToBoolean(dGDrivers->Rows[e->RowIndex]->Cells["cat_d"]->Value);
+	recordlicence_id = Convert::ToInt32(dGDrivers->Rows[e->RowIndex]->Cells["licence_id"]->Value);
+
+
+
+
+}
+private: System::Void btnDriverDelete_Click(System::Object^ sender, System::EventArgs^ e) {
+	MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
+	MySqlCommand^ query = baseConnection->CreateCommand();
+	MySqlTransaction^ transaction;
+	baseConnection->Open();
+	transaction = baseConnection->BeginTransaction(IsolationLevel::ReadCommitted);
+
+	query->Connection = baseConnection;
+	query->Transaction = transaction;
+
+	try {
+
+		transaction->Commit();
+
+		if (MessageBox::Show("Czy na pewno usun¹æ kierowce?", "Uwaga!!!", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
+		{
+
+			
+
+			query->CommandText = "DELETE FROM tbl_driver WHERE user_id = " + record_id + " ;";
+			query->ExecuteNonQuery();
+
+			query->CommandText = "DELETE FROM tbl_licence WHERE licence_id = " + recordlicence_id + ";";
+			query->ExecuteNonQuery();
+
+
+		}
+		query->CommandText = "DELETE FROM tbl_user WHERE user_id = " + record_id + " ;";
+		query->ExecuteNonQuery();
+		MessageBox::Show("Dane  zosta³y usuniête");
+		show_drivers();
+		clear(gbDrivers);
+
+
+
+	}
+	catch (Exception^ komunikat)
+	{
+		MessageBox::Show(komunikat->Message);
+		transaction->Rollback();
+
+	}
+	baseConnection->Close();
+}
+private: System::Void btnDriverEdit_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (txt_name_driver->Text->Length < 3 || txt_surname_driver->Text->Length < 3 || txt_email_driver->Text->Length < 3)
+	{
+		MessageBox::Show("WprowadŸ dane poprawnie");
+		return;
+	}
+
+
+	MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
+	MySqlCommand^ query = baseConnection->CreateCommand();
+	MySqlTransaction^ transaction;
+	baseConnection->Open();
+	transaction = baseConnection->BeginTransaction(IsolationLevel::ReadCommitted);
+
+	query->Connection = baseConnection;
+	query->Transaction = transaction;
+
+	try
+	{
+		query->CommandText = "UPDATE tbl_user SET login='" + txt_login_driver->Text + "', email = '" + txt_email_driver->Text + "' WHERE user_id='"+record_id+"'; ";
+		query->ExecuteNonQuery();
+
+
+		category();
+
+
+		query->CommandText = "UPDATE tbl_licence SET cat_a=" + cat_a + ", cat_b= " + cat_b + ",cat_c=" + cat_c + ",cat_d = " + cat_d + " WHERE licence_id='" + recordlicence_id + "'";
+		query->ExecuteNonQuery();
+
+
+		query->CommandText = "UPDATE  tbl_driver SET name='" + txt_name_driver->Text + "', surname ='" + txt_surname_driver->Text + "', pesel=" + txt_pesel_driver->Text + ", tel_number = '" + txt_phone_driver->Text + "' WHERE user_id='" + record_id + "'";
+		query->ExecuteNonQuery();
+
+		transaction->Commit();
+
+		MessageBox::Show("Kierowca zosta³ edytowany");
+
+	}
+
+	catch (Exception^ komunikat)
+	{
+		MessageBox::Show(komunikat->Message);
+		transaction->Rollback();
+
+	}
+	clear(gbDrivers);
+	show_drivers();
 	baseConnection->Close();
 }
 };
