@@ -82,6 +82,7 @@ namespace TaxiApp {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Customer::typeid));
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
@@ -222,6 +223,7 @@ namespace TaxiApp {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(782, 387);
 			this->Controls->Add(this->tabControl1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"Customer";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
@@ -247,6 +249,9 @@ namespace TaxiApp {
 			if (query->ExecuteNonQuery())
 			{
 				MessageBox::Show("Has³o zosta³o zmienione");
+				txtOldPasswordCustomer->Text = "";
+				txtNewPasswordCustomer->Text = "";
+				txtRepeatPasswordCustomer->Text = "";			
 			}
 
 			else
@@ -260,6 +265,8 @@ namespace TaxiApp {
 		{
 			MessageBox::Show(komunikat->Message);
 		}
+		
+		
 
 	}
 };

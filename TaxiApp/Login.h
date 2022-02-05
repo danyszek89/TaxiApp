@@ -279,7 +279,8 @@ private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ 
 
 		else
 		{
-			MessageBox::Show("Podaj poprawne dane logowania");
+			MessageBox::Show("Podaj poprawne dane! " "", "B³êdne dane logowania", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
+			//MessageBox::Show("Podaj poprawne dane logowania");
 		}
 
 

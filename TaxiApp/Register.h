@@ -125,6 +125,7 @@ namespace TaxiApp {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Register::typeid));
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
 			this->button2 = (gcnew System::Windows::Forms::Button());
@@ -325,6 +326,7 @@ namespace TaxiApp {
 			this->txt_reg_email->Name = L"txt_reg_email";
 			this->txt_reg_email->Size = System::Drawing::Size(165, 20);
 			this->txt_reg_email->TabIndex = 5;
+			this->txt_reg_email->TextChanged += gcnew System::EventHandler(this, &Register::txt_reg_email_TextChanged);
 			// 
 			// txt_reg_surname
 			// 
@@ -594,6 +596,7 @@ namespace TaxiApp {
 			this->BackColor = System::Drawing::Color::White;
 			this->ClientSize = System::Drawing::Size(682, 450);
 			this->Controls->Add(this->tabControl1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"Register";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"TaxiApp - Rejestracja";
@@ -612,13 +615,15 @@ namespace TaxiApp {
 private: System::Void btn_register_as_custumer_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (txt_reg_name->Text->Length < 3 || txt_reg_surname->Text->Length < 3 || txt_reg_email->Text->Length < 3 )
 	{
-		MessageBox::Show("WprowadŸ dane poprawnie");
+		MessageBox::Show("WprowadŸ poprawne dane " "", "B³¹d", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
+		//MessageBox::Show("WprowadŸ dane poprawnie");
 		return;
 	}
 
 	if (txt_reg_password->Text != txt_reg_repeat_password->Text)
 	{
-		MessageBox::Show("Has³a nie s¹ takie same");
+		MessageBox::Show("Wprowadzaone has³a nie pasuj¹ " "", "B³¹d", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
+		//MessageBox::Show("Has³a nie s¹ takie same");
 		return;
 	}
 
@@ -646,7 +651,9 @@ private: System::Void btn_register_as_custumer_Click(System::Object^ sender, Sys
 
 		transaction->Commit();
 
-		MessageBox::Show("Rejestracja powiod³a siê. Mo¿esz siê zalogowaæ.");
+		MessageBox::Show("Rejestracja powiod³a siê. Konto klienta zosta³o utworzeone. " "", "Informacja", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
+
+		//MessageBox::Show("Rejestracja powiod³a siê. Mo¿esz siê zalogowaæ.");
 
 	}
 
@@ -674,7 +681,8 @@ private: System::Void label16_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void btn_register_as_driver_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (txt_reg_name_driver->Text->Length < 3 || txt_reg_surname_driver->Text->Length < 3 || txt_reg_email_driver->Text->Length < 3)
 	{
-		MessageBox::Show("WprowadŸ dane poprawnie");
+		MessageBox::Show("Czy na pewno chcesz siê zarejestrowaæ? " "", "Rejestracja", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes;
+		//MessageBox::Show("WprowadŸ dane poprawnie");
 		return;
 	}
 
@@ -742,6 +750,8 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
+}
+private: System::Void txt_reg_email_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
