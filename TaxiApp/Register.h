@@ -651,7 +651,7 @@ private: System::Void btn_register_as_custumer_Click(System::Object^ sender, Sys
 
 		transaction->Commit();
 
-		MessageBox::Show("Rejestracja powiod³a siê. Konto klienta zosta³o utworzeone. " "", "Informacja", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
+		MessageBox::Show("Rejestracja powiod³a siê. Konto klienta zosta³o utworzone. " "", "Informacja", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
 
 		//MessageBox::Show("Rejestracja powiod³a siê. Mo¿esz siê zalogowaæ.");
 
