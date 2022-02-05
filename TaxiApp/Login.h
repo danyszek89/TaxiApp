@@ -47,8 +47,14 @@ namespace TaxiApp {
 	private: System::Windows::Forms::TextBox^ txtLogin;
 	private: System::Windows::Forms::TextBox^ txtPassword;
 	private: System::Windows::Forms::Button^ btnLogin;
-	private: System::Windows::Forms::Button^ btnCancel;
-	private: System::Windows::Forms::Button^ btn_register;
+
+
+
+
+	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::LinkLabel^ linkLabel1;
+	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
 	private:
 		/// <summary>
@@ -63,102 +69,141 @@ namespace TaxiApp {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Login::typeid));
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->txtLogin = (gcnew System::Windows::Forms::TextBox());
 			this->txtPassword = (gcnew System::Windows::Forms::TextBox());
 			this->btnLogin = (gcnew System::Windows::Forms::Button());
-			this->btnCancel = (gcnew System::Windows::Forms::Button());
-			this->btn_register = (gcnew System::Windows::Forms::Button());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->linkLabel1 = (gcnew System::Windows::Forms::LinkLabel());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(60, 30);
+			this->label1->Location = System::Drawing::Point(116, 110);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(36, 13);
+			this->label1->Size = System::Drawing::Size(187, 13);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"Login:";
+			this->label1->Text = L"WprowadŸ swoj¹ nazwê u¿ytkownika:";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(57, 66);
+			this->label2->Location = System::Drawing::Point(116, 156);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(39, 13);
+			this->label2->Size = System::Drawing::Size(91, 13);
 			this->label2->TabIndex = 1;
-			this->label2->Text = L"Has³o:";
+			this->label2->Text = L"WprowadŸ has³o:";
 			// 
 			// txtLogin
 			// 
-			this->txtLogin->Location = System::Drawing::Point(99, 30);
+			this->txtLogin->Location = System::Drawing::Point(119, 126);
 			this->txtLogin->Name = L"txtLogin";
-			this->txtLogin->Size = System::Drawing::Size(142, 20);
+			this->txtLogin->Size = System::Drawing::Size(204, 20);
 			this->txtLogin->TabIndex = 2;
 			// 
 			// txtPassword
 			// 
-			this->txtPassword->Location = System::Drawing::Point(99, 66);
+			this->txtPassword->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->txtPassword->Location = System::Drawing::Point(119, 172);
 			this->txtPassword->Name = L"txtPassword";
 			this->txtPassword->PasswordChar = '*';
-			this->txtPassword->Size = System::Drawing::Size(142, 20);
+			this->txtPassword->Size = System::Drawing::Size(204, 20);
 			this->txtPassword->TabIndex = 3;
 			// 
 			// btnLogin
 			// 
-			this->btnLogin->Location = System::Drawing::Point(54, 113);
+			this->btnLogin->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(29)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->btnLogin->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnLogin->ForeColor = System::Drawing::Color::White;
+			this->btnLogin->Location = System::Drawing::Point(119, 209);
 			this->btnLogin->Name = L"btnLogin";
-			this->btnLogin->Size = System::Drawing::Size(75, 23);
+			this->btnLogin->Size = System::Drawing::Size(204, 31);
 			this->btnLogin->TabIndex = 4;
 			this->btnLogin->Text = L"Zaloguj";
-			this->btnLogin->UseVisualStyleBackColor = true;
+			this->btnLogin->UseVisualStyleBackColor = false;
 			this->btnLogin->Click += gcnew System::EventHandler(this, &Login::btnLogin_Click);
 			// 
-			// btnCancel
+			// label5
 			// 
-			this->btnCancel->Location = System::Drawing::Point(166, 113);
-			this->btnCancel->Name = L"btnCancel";
-			this->btnCancel->Size = System::Drawing::Size(75, 23);
-			this->btnCancel->TabIndex = 5;
-			this->btnCancel->Text = L"Anuluj";
-			this->btnCancel->UseVisualStyleBackColor = true;
-			this->btnCancel->Click += gcnew System::EventHandler(this, &Login::btnCancel_Click);
+			this->label5->AutoSize = true;
+			this->label5->Location = System::Drawing::Point(126, 259);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(86, 13);
+			this->label5->TabIndex = 9;
+			this->label5->Text = L"Nie masz konta\?";
 			// 
-			// btn_register
+			// linkLabel1
 			// 
-			this->btn_register->Location = System::Drawing::Point(54, 157);
-			this->btn_register->Name = L"btn_register";
-			this->btn_register->Size = System::Drawing::Size(187, 23);
-			this->btn_register->TabIndex = 6;
-			this->btn_register->Text = L"Zarejestruj siê!";
-			this->btn_register->UseVisualStyleBackColor = true;
-			this->btn_register->Click += gcnew System::EventHandler(this, &Login::btn_register_Click);
+			this->linkLabel1->AutoSize = true;
+			this->linkLabel1->LinkColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(29)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->linkLabel1->Location = System::Drawing::Point(234, 259);
+			this->linkLabel1->Name = L"linkLabel1";
+			this->linkLabel1->Size = System::Drawing::Size(73, 13);
+			this->linkLabel1->TabIndex = 10;
+			this->linkLabel1->TabStop = true;
+			this->linkLabel1->Text = L"Utwórz konto!";
+			this->linkLabel1->LinkClicked += gcnew System::Windows::Forms::LinkLabelLinkClickedEventHandler(this, &Login::linkLabel1_LinkClicked);
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(189, 369);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(69, 13);
+			this->label6->TabIndex = 11;
+			this->label6->Text = L"Version 1.0.2";
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Cursor = System::Windows::Forms::Cursors::Default;
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->InitialImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.InitialImage")));
+			this->pictureBox1->Location = System::Drawing::Point(119, 32);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(197, 57);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
+			this->pictureBox1->TabIndex = 12;
+			this->pictureBox1->TabStop = false;
 			// 
 			// Login
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(303, 218);
-			this->Controls->Add(this->btn_register);
-			this->Controls->Add(this->btnCancel);
+			this->BackColor = System::Drawing::Color::White;
+			this->ClientSize = System::Drawing::Size(440, 391);
+			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->label6);
+			this->Controls->Add(this->linkLabel1);
+			this->Controls->Add(this->label5);
 			this->Controls->Add(this->btnLogin);
 			this->Controls->Add(this->txtPassword);
 			this->Controls->Add(this->txtLogin);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"Login";
-			this->Text = L"Login";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+			this->Text = L"TaxiApp - Logowanie";
+			this->Load += gcnew System::EventHandler(this, &Login::Login_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
 	private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
-		this->Close();
+		//this->Close();
 	}
 private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ e) {
-	String^ configuration = L"datasource=localhost ; port=3306; username=root; password=12345; database=taxiappdb";
+	String^ configuration = L"datasource=localhost ; port=3306; username=root; password=zaq1@WSX; database=taxiappdb";
 	MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
 	MySqlCommand^ query = gcnew MySqlCommand("SELECT * FROM tbl_user  WHERE login='" + txtLogin->Text + "' AND password = md5('" + txtPassword->Text + "')", baseConnection);
 	MySqlDataReader^ reading;
@@ -183,7 +228,10 @@ private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ 
 	if (readingcustomer->Read())
 
 	{
-		id_customer = readingdriver->GetInt32("customer_id");
+		id_customer = readingcustomer->GetInt32("customer_id");
+		String^ test = Convert::ToString(id_customer);
+		MessageBox::Show(test);
+		id_customer = readingcustomer->GetInt32("customer_id");
 	}
 	readingcustomer->Close();
 
@@ -245,9 +293,15 @@ private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ 
 private: System::Void btn_register_Click(System::Object^ sender, System::EventArgs^ e) {
 	
 	
-	Register^ reg= gcnew Register();
-	reg->ShowDialog();
+	//Register^ reg= gcnew Register();
+	//reg->ShowDialog();
 	
+}
+private: System::Void Login_Load(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void linkLabel1_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
+	Register^ reg = gcnew Register();
+	reg->ShowDialog();
 }
 };
 }

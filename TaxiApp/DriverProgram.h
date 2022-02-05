@@ -10,7 +10,6 @@ namespace TaxiApp {
 	using namespace System::Drawing;
 	using namespace MySql::Data::MySqlClient;
 
-
 	/// <summary>
 	/// Podsumowanie informacji o DriverProgram
 	/// </summary>
@@ -20,7 +19,7 @@ namespace TaxiApp {
 		int id_driver;
 		int id_user;
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::GroupBox^ groupBox1;
+
 	private: System::Windows::Forms::Button^ btnChangePassword;
 	private: System::Windows::Forms::TextBox^ txtRepeatPassword;
 	private: System::Windows::Forms::TextBox^ txtNewPassword;
@@ -42,9 +41,10 @@ namespace TaxiApp {
 	private: System::Windows::Forms::Button^ btnYear;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::DateTimePicker^ dateTimePicker1;
+	private: System::Windows::Forms::Label^ label17;
 
 	public:
-		String^ configuration = L"datasource=localhost ; port=3306; username=root; password=12345; database=taxiappdb";
+		String^ configuration = L"datasource=localhost ; port=3306; username=root; password=zaq1@WSX; database=taxiappdb";
 		DriverProgram(int driver, int user)
 		{
 			InitializeComponent();
@@ -94,7 +94,6 @@ namespace TaxiApp {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->dGDCars = (gcnew System::Windows::Forms::DataGridView());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
-			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->btnChangePassword = (gcnew System::Windows::Forms::Button());
 			this->txtRepeatPassword = (gcnew System::Windows::Forms::TextBox());
 			this->txtNewPassword = (gcnew System::Windows::Forms::TextBox());
@@ -116,11 +115,11 @@ namespace TaxiApp {
 			this->btnCalculate = (gcnew System::Windows::Forms::Button());
 			this->txtCostSum = (gcnew System::Windows::Forms::TextBox());
 			this->dGMyTrips = (gcnew System::Windows::Forms::DataGridView());
+			this->label17 = (gcnew System::Windows::Forms::Label());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dGDCars))->BeginInit();
 			this->tabPage2->SuspendLayout();
-			this->groupBox1->SuspendLayout();
 			this->tabPage3->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dGMyTrips))->BeginInit();
 			this->SuspendLayout();
@@ -130,10 +129,12 @@ namespace TaxiApp {
 			this->tabControl1->Controls->Add(this->tabPage1);
 			this->tabControl1->Controls->Add(this->tabPage2);
 			this->tabControl1->Controls->Add(this->tabPage3);
-			this->tabControl1->Location = System::Drawing::Point(184, 22);
+			this->tabControl1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->tabControl1->Location = System::Drawing::Point(0, 0);
+			this->tabControl1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(933, 481);
+			this->tabControl1->Size = System::Drawing::Size(1053, 573);
 			this->tabControl1->TabIndex = 34;
 			// 
 			// tabPage1
@@ -142,10 +143,11 @@ namespace TaxiApp {
 			this->tabPage1->Controls->Add(this->btnCarChoose);
 			this->tabPage1->Controls->Add(this->label1);
 			this->tabPage1->Controls->Add(this->dGDCars);
-			this->tabPage1->Location = System::Drawing::Point(4, 25);
+			this->tabPage1->Location = System::Drawing::Point(4, 22);
+			this->tabPage1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->tabPage1->Name = L"tabPage1";
-			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage1->Size = System::Drawing::Size(925, 452);
+			this->tabPage1->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->tabPage1->Size = System::Drawing::Size(1045, 547);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Wybierz samochód";
 			this->tabPage1->UseVisualStyleBackColor = true;
@@ -155,21 +157,27 @@ namespace TaxiApp {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label2->Location = System::Drawing::Point(71, 34);
+			this->label2->Location = System::Drawing::Point(53, 28);
+			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(194, 25);
+			this->label2->Size = System::Drawing::Size(158, 20);
 			this->label2->TabIndex = 34;
 			this->label2->Text = L"Twój samochód to:";
 			this->label2->Click += gcnew System::EventHandler(this, &DriverProgram::label2_Click);
 			// 
 			// btnCarChoose
 			// 
-			this->btnCarChoose->Location = System::Drawing::Point(787, 126);
+			this->btnCarChoose->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(29)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->btnCarChoose->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnCarChoose->ForeColor = System::Drawing::Color::White;
+			this->btnCarChoose->Location = System::Drawing::Point(57, 169);
+			this->btnCarChoose->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnCarChoose->Name = L"btnCarChoose";
-			this->btnCarChoose->Size = System::Drawing::Size(103, 70);
+			this->btnCarChoose->Size = System::Drawing::Size(171, 47);
 			this->btnCarChoose->TabIndex = 33;
 			this->btnCarChoose->Text = L"Wybierz";
-			this->btnCarChoose->UseVisualStyleBackColor = true;
+			this->btnCarChoose->UseVisualStyleBackColor = false;
 			this->btnCarChoose->Click += gcnew System::EventHandler(this, &DriverProgram::btnCarChoose_Click);
 			// 
 			// label1
@@ -177,9 +185,10 @@ namespace TaxiApp {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label1->Location = System::Drawing::Point(19, 68);
+			this->label1->Location = System::Drawing::Point(14, 55);
+			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(301, 25);
+			this->label1->Size = System::Drawing::Size(242, 20);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Nie masz wybranego samochodu";
 			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -189,98 +198,102 @@ namespace TaxiApp {
 			this->dGDCars->AllowUserToAddRows = false;
 			this->dGDCars->AllowUserToOrderColumns = true;
 			this->dGDCars->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dGDCars->Location = System::Drawing::Point(361, 20);
+			this->dGDCars->Location = System::Drawing::Point(526, 35);
+			this->dGDCars->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->dGDCars->Name = L"dGDCars";
 			this->dGDCars->RowHeadersWidth = 51;
 			this->dGDCars->RowTemplate->Height = 24;
-			this->dGDCars->Size = System::Drawing::Size(403, 387);
+			this->dGDCars->Size = System::Drawing::Size(489, 486);
 			this->dGDCars->TabIndex = 32;
 			this->dGDCars->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &DriverProgram::dGDCars_CellClick);
 			// 
 			// tabPage2
 			// 
-			this->tabPage2->Controls->Add(this->groupBox1);
-			this->tabPage2->Location = System::Drawing::Point(4, 25);
+			this->tabPage2->Controls->Add(this->label17);
+			this->tabPage2->Controls->Add(this->btnChangePassword);
+			this->tabPage2->Controls->Add(this->txtRepeatPassword);
+			this->tabPage2->Controls->Add(this->txtOldPassword);
+			this->tabPage2->Controls->Add(this->txtNewPassword);
+			this->tabPage2->Controls->Add(this->label5);
+			this->tabPage2->Controls->Add(this->label4);
+			this->tabPage2->Controls->Add(this->label3);
+			this->tabPage2->Location = System::Drawing::Point(4, 22);
+			this->tabPage2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->tabPage2->Name = L"tabPage2";
-			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(925, 452);
+			this->tabPage2->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->tabPage2->Size = System::Drawing::Size(1045, 547);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Zmieñ has³o";
 			this->tabPage2->UseVisualStyleBackColor = true;
 			// 
-			// groupBox1
-			// 
-			this->groupBox1->Controls->Add(this->btnChangePassword);
-			this->groupBox1->Controls->Add(this->txtRepeatPassword);
-			this->groupBox1->Controls->Add(this->txtNewPassword);
-			this->groupBox1->Controls->Add(this->txtOldPassword);
-			this->groupBox1->Controls->Add(this->label3);
-			this->groupBox1->Controls->Add(this->label4);
-			this->groupBox1->Controls->Add(this->label5);
-			this->groupBox1->Location = System::Drawing::Point(264, 97);
-			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(396, 259);
-			this->groupBox1->TabIndex = 8;
-			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"Zmiana has³a";
-			// 
 			// btnChangePassword
 			// 
-			this->btnChangePassword->Location = System::Drawing::Point(122, 193);
+			this->btnChangePassword->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(29)),
+				static_cast<System::Int32>(static_cast<System::Byte>(161)), static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->btnChangePassword->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnChangePassword->ForeColor = System::Drawing::Color::White;
+			this->btnChangePassword->Location = System::Drawing::Point(356, 237);
+			this->btnChangePassword->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnChangePassword->Name = L"btnChangePassword";
-			this->btnChangePassword->Size = System::Drawing::Size(161, 23);
+			this->btnChangePassword->Size = System::Drawing::Size(262, 32);
 			this->btnChangePassword->TabIndex = 6;
 			this->btnChangePassword->Text = L"Zmieñ has³o";
-			this->btnChangePassword->UseVisualStyleBackColor = true;
+			this->btnChangePassword->UseVisualStyleBackColor = false;
 			this->btnChangePassword->Click += gcnew System::EventHandler(this, &DriverProgram::btnChangePassword_Click);
 			// 
 			// txtRepeatPassword
 			// 
-			this->txtRepeatPassword->Location = System::Drawing::Point(155, 126);
+			this->txtRepeatPassword->Location = System::Drawing::Point(453, 194);
+			this->txtRepeatPassword->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtRepeatPassword->Name = L"txtRepeatPassword";
-			this->txtRepeatPassword->Size = System::Drawing::Size(198, 22);
+			this->txtRepeatPassword->Size = System::Drawing::Size(165, 20);
 			this->txtRepeatPassword->TabIndex = 5;
 			// 
 			// txtNewPassword
 			// 
-			this->txtNewPassword->Location = System::Drawing::Point(155, 73);
+			this->txtNewPassword->Location = System::Drawing::Point(453, 157);
+			this->txtNewPassword->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtNewPassword->Name = L"txtNewPassword";
-			this->txtNewPassword->Size = System::Drawing::Size(198, 22);
+			this->txtNewPassword->Size = System::Drawing::Size(165, 20);
 			this->txtNewPassword->TabIndex = 4;
 			// 
 			// txtOldPassword
 			// 
-			this->txtOldPassword->Location = System::Drawing::Point(155, 27);
+			this->txtOldPassword->Location = System::Drawing::Point(453, 121);
+			this->txtOldPassword->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtOldPassword->Name = L"txtOldPassword";
-			this->txtOldPassword->Size = System::Drawing::Size(198, 22);
+			this->txtOldPassword->Size = System::Drawing::Size(165, 20);
 			this->txtOldPassword->TabIndex = 3;
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(21, 126);
+			this->label3->Location = System::Drawing::Point(353, 197);
+			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(93, 16);
+			this->label3->Size = System::Drawing::Size(78, 13);
 			this->label3->TabIndex = 2;
-			this->label3->Text = L"Powtórz has³o";
+			this->label3->Text = L"Powtórz has³o:";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(18, 76);
+			this->label4->Location = System::Drawing::Point(363, 160);
+			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(81, 16);
+			this->label4->Size = System::Drawing::Size(68, 13);
 			this->label4->TabIndex = 1;
-			this->label4->Text = L"Nowe has³o";
+			this->label4->Text = L"Nowe has³o:";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(21, 27);
+			this->label5->Location = System::Drawing::Point(366, 124);
+			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(78, 16);
+			this->label5->Size = System::Drawing::Size(65, 13);
 			this->label5->TabIndex = 0;
-			this->label5->Text = L"Stare has³o";
+			this->label5->Text = L"Stare has³o:";
 			// 
 			// tabPage3
 			// 
@@ -297,9 +310,10 @@ namespace TaxiApp {
 			this->tabPage3->Controls->Add(this->btnCalculate);
 			this->tabPage3->Controls->Add(this->txtCostSum);
 			this->tabPage3->Controls->Add(this->dGMyTrips);
-			this->tabPage3->Location = System::Drawing::Point(4, 25);
+			this->tabPage3->Location = System::Drawing::Point(4, 22);
+			this->tabPage3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->tabPage3->Name = L"tabPage3";
-			this->tabPage3->Size = System::Drawing::Size(925, 452);
+			this->tabPage3->Size = System::Drawing::Size(1045, 547);
 			this->tabPage3->TabIndex = 2;
 			this->tabPage3->Text = L"Moje kursy";
 			this->tabPage3->UseVisualStyleBackColor = true;
@@ -309,136 +323,181 @@ namespace TaxiApp {
 			// 
 			this->dateTimePicker1->CustomFormat = L"\"yyyy-MM-dd\"";
 			this->dateTimePicker1->Format = System::Windows::Forms::DateTimePickerFormat::Short;
-			this->dateTimePicker1->Location = System::Drawing::Point(49, 286);
+			this->dateTimePicker1->Location = System::Drawing::Point(61, 232);
+			this->dateTimePicker1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
-			this->dateTimePicker1->Size = System::Drawing::Size(200, 22);
+			this->dateTimePicker1->Size = System::Drawing::Size(151, 20);
 			this->dateTimePicker1->TabIndex = 12;
 			this->dateTimePicker1->Value = System::DateTime(2022, 2, 4, 0, 0, 0, 0);
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(315, 301);
+			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(29)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button1->ForeColor = System::Drawing::Color::White;
+			this->button1->Location = System::Drawing::Point(252, 228);
+			this->button1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->Size = System::Drawing::Size(67, 24);
 			this->button1->TabIndex = 11;
 			this->button1->Text = L"button1";
-			this->button1->UseVisualStyleBackColor = true;
+			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &DriverProgram::button1_Click);
 			// 
 			// btnWeek
 			// 
-			this->btnWeek->Location = System::Drawing::Point(762, 367);
+			this->btnWeek->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(29)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->btnWeek->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnWeek->ForeColor = System::Drawing::Color::White;
+			this->btnWeek->Location = System::Drawing::Point(340, 367);
+			this->btnWeek->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnWeek->Name = L"btnWeek";
-			this->btnWeek->Size = System::Drawing::Size(133, 33);
+			this->btnWeek->Size = System::Drawing::Size(100, 27);
 			this->btnWeek->TabIndex = 10;
 			this->btnWeek->Text = L"Tydzieñ";
-			this->btnWeek->UseVisualStyleBackColor = true;
+			this->btnWeek->UseVisualStyleBackColor = false;
 			this->btnWeek->Click += gcnew System::EventHandler(this, &DriverProgram::btnWeek_Click);
 			// 
 			// btnYear
 			// 
-			this->btnYear->Location = System::Drawing::Point(484, 367);
+			this->btnYear->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(29)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->btnYear->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnYear->ForeColor = System::Drawing::Color::White;
+			this->btnYear->Location = System::Drawing::Point(72, 367);
+			this->btnYear->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnYear->Name = L"btnYear";
-			this->btnYear->Size = System::Drawing::Size(133, 33);
+			this->btnYear->Size = System::Drawing::Size(100, 27);
 			this->btnYear->TabIndex = 9;
 			this->btnYear->Text = L"Rok";
-			this->btnYear->UseVisualStyleBackColor = true;
+			this->btnYear->UseVisualStyleBackColor = false;
 			this->btnYear->Click += gcnew System::EventHandler(this, &DriverProgram::btnYear_Click);
 			// 
 			// btnMonth
 			// 
-			this->btnMonth->Location = System::Drawing::Point(623, 367);
+			this->btnMonth->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(29)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->btnMonth->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnMonth->ForeColor = System::Drawing::Color::White;
+			this->btnMonth->Location = System::Drawing::Point(203, 367);
+			this->btnMonth->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnMonth->Name = L"btnMonth";
-			this->btnMonth->Size = System::Drawing::Size(133, 33);
+			this->btnMonth->Size = System::Drawing::Size(100, 27);
 			this->btnMonth->TabIndex = 8;
 			this->btnMonth->Text = L"Miesi¹c";
-			this->btnMonth->UseVisualStyleBackColor = true;
+			this->btnMonth->UseVisualStyleBackColor = false;
 			this->btnMonth->Click += gcnew System::EventHandler(this, &DriverProgram::btnMonth_Click);
 			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(167, 144);
+			this->label8->Location = System::Drawing::Point(125, 117);
+			this->label8->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(121, 16);
+			this->label8->Size = System::Drawing::Size(98, 13);
 			this->label8->TabIndex = 7;
 			this->label8->Text = L"£¹cznie kilometrów";
 			// 
 			// txtKmSum
 			// 
-			this->txtKmSum->Location = System::Drawing::Point(182, 184);
+			this->txtKmSum->Location = System::Drawing::Point(136, 150);
+			this->txtKmSum->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtKmSum->Name = L"txtKmSum";
-			this->txtKmSum->Size = System::Drawing::Size(100, 22);
+			this->txtKmSum->Size = System::Drawing::Size(76, 20);
 			this->txtKmSum->TabIndex = 6;
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(27, 144);
+			this->label7->Location = System::Drawing::Point(20, 117);
+			this->label7->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(91, 16);
+			this->label7->Size = System::Drawing::Size(75, 13);
 			this->label7->TabIndex = 5;
 			this->label7->Text = L"Liczba kursów";
 			// 
 			// txtCount
 			// 
-			this->txtCount->Location = System::Drawing::Point(30, 184);
+			this->txtCount->Location = System::Drawing::Point(22, 150);
+			this->txtCount->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtCount->Name = L"txtCount";
-			this->txtCount->Size = System::Drawing::Size(100, 22);
+			this->txtCount->Size = System::Drawing::Size(76, 20);
 			this->txtCount->TabIndex = 4;
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(321, 144);
+			this->label6->Location = System::Drawing::Point(241, 117);
+			this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(117, 16);
+			this->label6->Size = System::Drawing::Size(94, 13);
 			this->label6->TabIndex = 3;
 			this->label6->Text = L"£¹cznie zarobione";
 			// 
 			// btnCalculate
 			// 
-			this->btnCalculate->Location = System::Drawing::Point(147, 227);
+			this->btnCalculate->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(29)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->btnCalculate->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnCalculate->ForeColor = System::Drawing::Color::White;
+			this->btnCalculate->Location = System::Drawing::Point(347, 147);
+			this->btnCalculate->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnCalculate->Name = L"btnCalculate";
-			this->btnCalculate->Size = System::Drawing::Size(112, 23);
+			this->btnCalculate->Size = System::Drawing::Size(93, 25);
 			this->btnCalculate->TabIndex = 2;
 			this->btnCalculate->Text = L"Oblicz";
-			this->btnCalculate->UseVisualStyleBackColor = true;
+			this->btnCalculate->UseVisualStyleBackColor = false;
 			this->btnCalculate->Click += gcnew System::EventHandler(this, &DriverProgram::btnCalculate_Click);
 			// 
 			// txtCostSum
 			// 
-			this->txtCostSum->Location = System::Drawing::Point(324, 184);
+			this->txtCostSum->Location = System::Drawing::Point(243, 150);
+			this->txtCostSum->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtCostSum->Name = L"txtCostSum";
-			this->txtCostSum->Size = System::Drawing::Size(100, 22);
+			this->txtCostSum->Size = System::Drawing::Size(76, 20);
 			this->txtCostSum->TabIndex = 1;
 			// 
 			// dGMyTrips
 			// 
 			this->dGMyTrips->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dGMyTrips->Location = System::Drawing::Point(508, 40);
+			this->dGMyTrips->Location = System::Drawing::Point(526, 35);
+			this->dGMyTrips->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->dGMyTrips->Name = L"dGMyTrips";
 			this->dGMyTrips->RowHeadersWidth = 51;
 			this->dGMyTrips->RowTemplate->Height = 24;
-			this->dGMyTrips->Size = System::Drawing::Size(377, 321);
+			this->dGMyTrips->Size = System::Drawing::Size(489, 486);
 			this->dGMyTrips->TabIndex = 0;
+			// 
+			// label17
+			// 
+			this->label17->AutoSize = true;
+			this->label17->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label17->Location = System::Drawing::Point(431, 49);
+			this->label17->Name = L"label17";
+			this->label17->Size = System::Drawing::Size(152, 28);
+			this->label17->TabIndex = 17;
+			this->label17->Text = L"Zmiana has³a:";
 			// 
 			// DriverProgram
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1377, 604);
+			this->ClientSize = System::Drawing::Size(1053, 573);
 			this->Controls->Add(this->tabControl1);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"DriverProgram";
-			this->Text = L"DriverProgram";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+			this->Text = L"TaxiApp - Kierowca";
 			this->Load += gcnew System::EventHandler(this, &DriverProgram::DriverProgram_Load);
 			this->tabControl1->ResumeLayout(false);
 			this->tabPage1->ResumeLayout(false);
 			this->tabPage1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dGDCars))->EndInit();
 			this->tabPage2->ResumeLayout(false);
-			this->groupBox1->ResumeLayout(false);
-			this->groupBox1->PerformLayout();
+			this->tabPage2->PerformLayout();
 			this->tabPage3->ResumeLayout(false);
 			this->tabPage3->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dGMyTrips))->EndInit();
@@ -602,7 +661,7 @@ private: System::Void btnChangePassword_Click(System::Object^ sender, System::Ev
 
 		else
 		{
-			MessageBox::Show("Has³o niepoprane");
+			MessageBox::Show("Has³o niepoprawne");
 		}
 		baseConnection->Close();
 
