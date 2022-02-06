@@ -1784,11 +1784,6 @@ private: System::Void btnCarEdit_Click(System::Object^ sender, System::EventArgs
 			dGDrivers->Columns[9]->Visible = false;
 			dGDrivers->Columns[10]->Visible = false;
 			dGDrivers->Columns[11]->Visible = false;
-
-
-
-
-
 		}
 
 private: System::Void btnDriverSearch_Click(System::Object^ sender, System::EventArgs^ e) {

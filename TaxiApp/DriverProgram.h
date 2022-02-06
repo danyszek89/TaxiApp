@@ -504,9 +504,6 @@ namespace TaxiApp {
 		   String^ month = "NOW() - INTERVAL 30 DAY";
 		   String^ year = "NOW() - INTERVAL 365 DAY";
 
-
-
-
 		   private: void show_mytrips(String ^period)
 		   {
 			   MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
