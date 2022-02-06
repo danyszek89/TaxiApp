@@ -161,7 +161,6 @@ namespace TaxiApp {
 			this->label2->Size = System::Drawing::Size(194, 25);
 			this->label2->TabIndex = 34;
 			this->label2->Text = L"Twój samochód to:";
-			this->label2->Click += gcnew System::EventHandler(this, &DriverProgram::label2_Click);
 			// 
 			// btnCarChoose
 			// 
@@ -255,6 +254,7 @@ namespace TaxiApp {
 			this->txtRepeatPassword->Location = System::Drawing::Point(604, 239);
 			this->txtRepeatPassword->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->txtRepeatPassword->Name = L"txtRepeatPassword";
+			this->txtRepeatPassword->PasswordChar = '*';
 			this->txtRepeatPassword->Size = System::Drawing::Size(219, 22);
 			this->txtRepeatPassword->TabIndex = 5;
 			// 
@@ -263,6 +263,7 @@ namespace TaxiApp {
 			this->txtOldPassword->Location = System::Drawing::Point(604, 149);
 			this->txtOldPassword->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->txtOldPassword->Name = L"txtOldPassword";
+			this->txtOldPassword->PasswordChar = '*';
 			this->txtOldPassword->Size = System::Drawing::Size(219, 22);
 			this->txtOldPassword->TabIndex = 3;
 			// 
@@ -271,6 +272,7 @@ namespace TaxiApp {
 			this->txtNewPassword->Location = System::Drawing::Point(604, 193);
 			this->txtNewPassword->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->txtNewPassword->Name = L"txtNewPassword";
+			this->txtNewPassword->PasswordChar = '*';
 			this->txtNewPassword->Size = System::Drawing::Size(219, 22);
 			this->txtNewPassword->TabIndex = 4;
 			// 
@@ -321,7 +323,6 @@ namespace TaxiApp {
 			this->tabPage3->TabIndex = 2;
 			this->tabPage3->Text = L"Moje kursy";
 			this->tabPage3->UseVisualStyleBackColor = true;
-			this->tabPage3->Click += gcnew System::EventHandler(this, &DriverProgram::tabPage3_Click);
 			// 
 			// btnWeek
 			// 
@@ -379,6 +380,7 @@ namespace TaxiApp {
 			// 
 			// txtKmSum
 			// 
+			this->txtKmSum->Enabled = false;
 			this->txtKmSum->Location = System::Drawing::Point(181, 185);
 			this->txtKmSum->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->txtKmSum->Name = L"txtKmSum";
@@ -396,6 +398,7 @@ namespace TaxiApp {
 			// 
 			// txtCount
 			// 
+			this->txtCount->Enabled = false;
 			this->txtCount->Location = System::Drawing::Point(29, 185);
 			this->txtCount->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->txtCount->Name = L"txtCount";
@@ -428,6 +431,7 @@ namespace TaxiApp {
 			// 
 			// txtCostSum
 			// 
+			this->txtCostSum->Enabled = false;
 			this->txtCostSum->Location = System::Drawing::Point(324, 185);
 			this->txtCostSum->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->txtCostSum->Name = L"txtCostSum";
@@ -506,7 +510,7 @@ namespace TaxiApp {
 		   private: void show_mytrips(String ^period)
 		   {
 			   MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
-			   MySqlCommand^ query = gcnew MySqlCommand("SELECT trip_id, date, distance, cost, driver_id FROM tbl_trip WHERE driver_id="+id_driver+" AND date > "+period+" ", baseConnection);
+			   MySqlCommand^ query = gcnew MySqlCommand("SELECT trip_id, date as 'data', distance as 'dystans', cost as 'koszt', driver_id FROM tbl_trip WHERE driver_id = "+id_driver+" AND date > "+period+" ", baseConnection);
 
 			   try
 			   {
@@ -540,10 +544,7 @@ namespace TaxiApp {
 		readingcar = querycar->ExecuteReader();
 		if (readingcar->Read())
 
-
-
 		{
-
 			String^ brand = readingcar->GetString(1);
 			String^ model = readingcar->GetString(2);
 
@@ -574,9 +575,6 @@ private: System::Void btnCarChoose_Click(System::Object^ sender, System::EventAr
 	try
 	{
 
-
-
-
 		query->CommandText = "UPDATE tbl_car SET driver_id= NULL WHERE driver_id='" + id_driver + "'; ";
 
 		query->ExecuteNonQuery();
@@ -586,15 +584,9 @@ private: System::Void btnCarChoose_Click(System::Object^ sender, System::EventAr
 
 		query->ExecuteNonQuery();
 
-
-
-
 		transaction->Commit();
 
 	}
-
-
-
 
 	catch (Exception^ komunikat)
 	{
@@ -606,12 +598,23 @@ private: System::Void btnCarChoose_Click(System::Object^ sender, System::EventAr
 	show_cars();
 	yourcar();
 
-
 	baseConnection->Close();
 }
-private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
-}
+
 private: System::Void btnChangePassword_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (txtNewPassword->Text != txtRepeatPassword->Text)
+	{
+		MessageBox::Show("Has³a nie s¹ takie same");
+		return;
+	}
+
+	if (txtNewPassword->Text == txtOldPassword->Text)
+	{
+		MessageBox::Show("Nowe has³o nie mo¿e takie same jak stare");
+		return;
+	}
+
+
 	MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
 	MySqlCommand^ query = gcnew MySqlCommand(" UPDATE tbl_user SET password = md5('" + txtNewPassword->Text + "') WHERE user_id = " + id_user + "  AND password = md5('" + txtOldPassword->Text + "')", baseConnection);
 
@@ -637,8 +640,7 @@ private: System::Void btnChangePassword_Click(System::Object^ sender, System::Ev
 	}
 
 }
-private: System::Void tabPage3_Click(System::Object^ sender, System::EventArgs^ e) {
-}
+
 private: System::Void btnCalculate_Click(System::Object^ sender, System::EventArgs^ e) {
 	int cost_sum = 0;
 	int km_sum = 0;
@@ -646,17 +648,13 @@ private: System::Void btnCalculate_Click(System::Object^ sender, System::EventAr
 	for (int i = 0; i < dGMyTrips->Rows->Count; ++i)
 	{
 		
-		cost_sum += Convert::ToInt32(dGMyTrips->Rows[i]->Cells["cost"]->Value);
-		km_sum += Convert::ToInt32(dGMyTrips->Rows[i]->Cells["distance"]->Value);
-
-
+		cost_sum += Convert::ToInt32(dGMyTrips->Rows[i]->Cells["koszt"]->Value);
+		km_sum += Convert::ToInt32(dGMyTrips->Rows[i]->Cells["dystans"]->Value);
 	}
 
-	txtCostSum -> Text = Convert::ToString(cost_sum);
+	txtCostSum -> Text = Convert::ToString(cost_sum)+" z³";
 	txtCount->Text = Convert::ToString(dGMyTrips->Rows->Count-1);
-	txtKmSum->Text = Convert::ToString(km_sum);
-
-
+	txtKmSum->Text = Convert::ToString(km_sum)+" km";
 }
 private: System::Void btnMonth_Click(System::Object^ sender, System::EventArgs^ e) {
 	show_mytrips(month);

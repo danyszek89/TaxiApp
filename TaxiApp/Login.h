@@ -229,8 +229,6 @@ private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ 
 
 	{
 		id_customer = readingcustomer->GetInt32("customer_id");
-		String^ test = Convert::ToString(id_customer);
-		MessageBox::Show(test);
 		id_customer = readingcustomer->GetInt32("customer_id");
 	}
 	readingcustomer->Close();
@@ -243,7 +241,6 @@ private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ 
 		{
 			String^ user_role = reading->GetString("role");
 
-			MessageBox::Show(user_role);
 			int id_user = reading->GetInt32(0);
 
 
