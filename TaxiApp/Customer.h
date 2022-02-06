@@ -1,5 +1,6 @@
 #pragma once
 
+
 namespace TaxiApp {
 
 	using namespace System;
@@ -60,7 +61,7 @@ namespace TaxiApp {
 
 
 
-		   String^ configuration = L"datasource=localhost ; port=3306; username=root; password=12345; database=taxiappdb";
+		   String^ configuration = L"datasource=localhost ; port=3306; username=root; password=zaq1@WSX; database=taxiappdb";
 		Customer(int customer, int user)
 		{
 			InitializeComponent();
@@ -145,10 +146,10 @@ namespace TaxiApp {
 			this->tabControl1->Controls->Add(this->tabPage2);
 			this->tabControl1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->tabControl1->Location = System::Drawing::Point(0, 0);
-			this->tabControl1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->tabControl1->Margin = System::Windows::Forms::Padding(2);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(1357, 713);
+			this->tabControl1->Size = System::Drawing::Size(1018, 579);
 			this->tabControl1->TabIndex = 0;
 			// 
 			// tabPage1
@@ -172,11 +173,11 @@ namespace TaxiApp {
 			this->tabPage1->Controls->Add(this->label10);
 			this->tabPage1->Controls->Add(this->dateTimePicker);
 			this->tabPage1->Controls->Add(this->dGTripDriver);
-			this->tabPage1->Location = System::Drawing::Point(4, 25);
-			this->tabPage1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->tabPage1->Location = System::Drawing::Point(4, 22);
+			this->tabPage1->Margin = System::Windows::Forms::Padding(2);
 			this->tabPage1->Name = L"tabPage1";
-			this->tabPage1->Padding = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->tabPage1->Size = System::Drawing::Size(1349, 684);
+			this->tabPage1->Padding = System::Windows::Forms::Padding(2);
+			this->tabPage1->Size = System::Drawing::Size(1010, 553);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Rezerwacja";
 			this->tabPage1->UseVisualStyleBackColor = true;
@@ -184,179 +185,250 @@ namespace TaxiApp {
 			// 
 			// btnFuture
 			// 
-			this->btnFuture->Location = System::Drawing::Point(304, 339);
+			this->btnFuture->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(29)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->btnFuture->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnFuture->ForeColor = System::Drawing::Color::White;
+			this->btnFuture->Location = System::Drawing::Point(508, 275);
+			this->btnFuture->Margin = System::Windows::Forms::Padding(2);
 			this->btnFuture->Name = L"btnFuture";
-			this->btnFuture->Size = System::Drawing::Size(122, 33);
+			this->btnFuture->Size = System::Drawing::Size(138, 29);
 			this->btnFuture->TabIndex = 40;
 			this->btnFuture->Text = L"Przysz³e";
-			this->btnFuture->UseVisualStyleBackColor = true;
+			this->btnFuture->UseVisualStyleBackColor = false;
 			this->btnFuture->Click += gcnew System::EventHandler(this, &Customer::btnFuture_Click);
 			// 
 			// btnArchive
 			// 
-			this->btnArchive->Location = System::Drawing::Point(197, 337);
+			this->btnArchive->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(29)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->btnArchive->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnArchive->ForeColor = System::Drawing::Color::White;
+			this->btnArchive->Location = System::Drawing::Point(650, 275);
+			this->btnArchive->Margin = System::Windows::Forms::Padding(2);
 			this->btnArchive->Name = L"btnArchive";
-			this->btnArchive->Size = System::Drawing::Size(101, 36);
+			this->btnArchive->Size = System::Drawing::Size(138, 29);
 			this->btnArchive->TabIndex = 39;
 			this->btnArchive->Text = L"Archiwalne";
-			this->btnArchive->UseVisualStyleBackColor = true;
+			this->btnArchive->UseVisualStyleBackColor = false;
 			this->btnArchive->Click += gcnew System::EventHandler(this, &Customer::btnArchive_Click);
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(79, 340);
+			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label4->Location = System::Drawing::Point(54, 277);
+			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(112, 16);
+			this->label4->Size = System::Drawing::Size(145, 21);
 			this->label4->TabIndex = 38;
-			this->label4->Text = L"Twoje rezerwacje";
+			this->label4->Text = L"Twoje rezerwacje:";
 			// 
 			// btnCancelTrip
 			// 
-			this->btnCancelTrip->Location = System::Drawing::Point(1076, 460);
+			this->btnCancelTrip->BackColor = System::Drawing::Color::DarkOrange;
+			this->btnCancelTrip->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnCancelTrip->ForeColor = System::Drawing::Color::Black;
+			this->btnCancelTrip->Location = System::Drawing::Point(366, 275);
+			this->btnCancelTrip->Margin = System::Windows::Forms::Padding(2);
 			this->btnCancelTrip->Name = L"btnCancelTrip";
-			this->btnCancelTrip->Size = System::Drawing::Size(137, 84);
+			this->btnCancelTrip->Size = System::Drawing::Size(138, 29);
 			this->btnCancelTrip->TabIndex = 37;
-			this->btnCancelTrip->Text = L"Zrezygnuj";
-			this->btnCancelTrip->UseVisualStyleBackColor = true;
+			this->btnCancelTrip->Text = L"Anuluj rezerwacjê";
+			this->btnCancelTrip->UseVisualStyleBackColor = false;
 			this->btnCancelTrip->Click += gcnew System::EventHandler(this, &Customer::btnCancelTrip_Click);
 			// 
 			// dGTrips
 			// 
+			this->dGTrips->AllowUserToAddRows = false;
+			this->dGTrips->AllowUserToDeleteRows = false;
+			this->dGTrips->AllowUserToResizeColumns = false;
+			this->dGTrips->AllowUserToResizeRows = false;
+			this->dGTrips->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::AllCells;
+			this->dGTrips->AutoSizeRowsMode = System::Windows::Forms::DataGridViewAutoSizeRowsMode::AllCells;
 			this->dGTrips->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dGTrips->Location = System::Drawing::Point(64, 379);
+			this->dGTrips->Location = System::Drawing::Point(48, 308);
+			this->dGTrips->Margin = System::Windows::Forms::Padding(2);
 			this->dGTrips->Name = L"dGTrips";
+			this->dGTrips->ReadOnly = true;
 			this->dGTrips->RowHeadersWidth = 51;
 			this->dGTrips->RowTemplate->Height = 24;
-			this->dGTrips->Size = System::Drawing::Size(987, 259);
+			this->dGTrips->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::CellSelect;
+			this->dGTrips->ShowCellErrors = false;
+			this->dGTrips->ShowCellToolTips = false;
+			this->dGTrips->ShowEditingIcon = false;
+			this->dGTrips->ShowRowErrors = false;
+			this->dGTrips->Size = System::Drawing::Size(740, 210);
 			this->dGTrips->TabIndex = 36;
 			this->dGTrips->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Customer::dGTrips_CellClick);
+			this->dGTrips->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Customer::dGTrips_CellContentClick_1);
 			// 
 			// txtTime
 			// 
-			this->txtTime->Location = System::Drawing::Point(236, 111);
-			this->txtTime->Mask = L"90:00";
+			this->txtTime->Location = System::Drawing::Point(133, 78);
+			this->txtTime->Margin = System::Windows::Forms::Padding(2);
+			this->txtTime->Mask = L"00:00";
 			this->txtTime->Name = L"txtTime";
-			this->txtTime->Size = System::Drawing::Size(100, 22);
+			this->txtTime->Size = System::Drawing::Size(223, 20);
 			this->txtTime->TabIndex = 35;
 			this->txtTime->ValidatingType = System::DateTime::typeid;
 			// 
 			// btnTripAdd
 			// 
-			this->btnTripAdd->Location = System::Drawing::Point(392, 285);
+			this->btnTripAdd->BackColor = System::Drawing::Color::Gold;
+			this->btnTripAdd->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnTripAdd->ForeColor = System::Drawing::Color::Black;
+			this->btnTripAdd->Location = System::Drawing::Point(133, 225);
+			this->btnTripAdd->Margin = System::Windows::Forms::Padding(2);
 			this->btnTripAdd->Name = L"btnTripAdd";
-			this->btnTripAdd->Size = System::Drawing::Size(177, 41);
+			this->btnTripAdd->Size = System::Drawing::Size(223, 29);
 			this->btnTripAdd->TabIndex = 34;
 			this->btnTripAdd->Text = L"Zarezerwuj";
-			this->btnTripAdd->UseVisualStyleBackColor = true;
+			this->btnTripAdd->UseVisualStyleBackColor = false;
 			this->btnTripAdd->Click += gcnew System::EventHandler(this, &Customer::btnTripAdd_Click);
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(592, 46);
+			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label7->Location = System::Drawing::Point(433, 21);
+			this->label7->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(126, 16);
+			this->label7->Size = System::Drawing::Size(169, 21);
 			this->label7->TabIndex = 33;
-			this->label7->Text = L"Kierowcy do wyboru";
+			this->label7->Text = L"Kierowcy do wyboru:";
 			// 
 			// txtDistance
 			// 
-			this->txtDistance->Location = System::Drawing::Point(236, 211);
+			this->txtDistance->Location = System::Drawing::Point(133, 127);
+			this->txtDistance->Margin = System::Windows::Forms::Padding(2);
 			this->txtDistance->Name = L"txtDistance";
-			this->txtDistance->Size = System::Drawing::Size(100, 22);
+			this->txtDistance->Size = System::Drawing::Size(223, 20);
 			this->txtDistance->TabIndex = 32;
+			this->txtDistance->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Customer::txtDistance_KeyPress);
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(113, 217);
+			this->label6->Location = System::Drawing::Point(77, 130);
+			this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(56, 16);
+			this->label6->Size = System::Drawing::Size(48, 13);
 			this->label6->TabIndex = 31;
-			this->label6->Text = L"Dystans";
+			this->label6->Text = L"Dystans:";
 			// 
 			// txtCost
 			// 
 			this->txtCost->Enabled = false;
-			this->txtCost->Location = System::Drawing::Point(245, 256);
+			this->txtCost->Location = System::Drawing::Point(133, 151);
+			this->txtCost->Margin = System::Windows::Forms::Padding(2);
 			this->txtCost->Name = L"txtCost";
-			this->txtCost->Size = System::Drawing::Size(100, 22);
+			this->txtCost->Size = System::Drawing::Size(223, 20);
 			this->txtCost->TabIndex = 30;
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(113, 259);
+			this->label5->Location = System::Drawing::Point(89, 154);
+			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(39, 16);
+			this->label5->Size = System::Drawing::Size(36, 13);
 			this->label5->TabIndex = 29;
-			this->label5->Text = L"Koszt";
+			this->label5->Text = L"Koszt:";
 			this->label5->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(109, 173);
+			this->label8->Location = System::Drawing::Point(87, 105);
+			this->label8->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(42, 16);
+			this->label8->Size = System::Drawing::Size(38, 13);
 			this->label8->TabIndex = 28;
-			this->label8->Text = L"Strefa";
+			this->label8->Text = L"Strefa:";
 			// 
 			// comboBox
 			// 
 			this->comboBox->FormattingEnabled = true;
 			this->comboBox->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Strefa_1", L"Strefa_2" });
-			this->comboBox->Location = System::Drawing::Point(236, 165);
+			this->comboBox->Location = System::Drawing::Point(133, 102);
+			this->comboBox->Margin = System::Windows::Forms::Padding(2);
 			this->comboBox->Name = L"comboBox";
-			this->comboBox->Size = System::Drawing::Size(121, 24);
+			this->comboBox->Size = System::Drawing::Size(223, 21);
 			this->comboBox->TabIndex = 27;
 			// 
 			// btnCustomerCalculate
 			// 
-			this->btnCustomerCalculate->Location = System::Drawing::Point(374, 256);
+			this->btnCustomerCalculate->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(29)),
+				static_cast<System::Int32>(static_cast<System::Byte>(161)), static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->btnCustomerCalculate->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnCustomerCalculate->ForeColor = System::Drawing::Color::White;
+			this->btnCustomerCalculate->Location = System::Drawing::Point(133, 175);
+			this->btnCustomerCalculate->Margin = System::Windows::Forms::Padding(2);
 			this->btnCustomerCalculate->Name = L"btnCustomerCalculate";
-			this->btnCustomerCalculate->Size = System::Drawing::Size(75, 23);
+			this->btnCustomerCalculate->Size = System::Drawing::Size(223, 29);
 			this->btnCustomerCalculate->TabIndex = 26;
 			this->btnCustomerCalculate->Text = L"Oblicz";
-			this->btnCustomerCalculate->UseVisualStyleBackColor = true;
+			this->btnCustomerCalculate->UseVisualStyleBackColor = false;
 			this->btnCustomerCalculate->Click += gcnew System::EventHandler(this, &Customer::btnCustomerCalculate_Click);
 			// 
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(109, 117);
+			this->label9->Location = System::Drawing::Point(76, 81);
+			this->label9->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(60, 16);
+			this->label9->Size = System::Drawing::Size(49, 13);
 			this->label9->TabIndex = 25;
 			this->label9->Text = L"Godzina:";
 			// 
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(106, 65);
+			this->label10->Location = System::Drawing::Point(92, 60);
+			this->label10->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(36, 16);
+			this->label10->Size = System::Drawing::Size(33, 13);
 			this->label10->TabIndex = 24;
-			this->label10->Text = L"Data";
+			this->label10->Text = L"Data:";
 			// 
 			// dateTimePicker
 			// 
-			this->dateTimePicker->Location = System::Drawing::Point(221, 65);
+			this->dateTimePicker->Location = System::Drawing::Point(133, 54);
+			this->dateTimePicker->Margin = System::Windows::Forms::Padding(2);
 			this->dateTimePicker->Name = L"dateTimePicker";
-			this->dateTimePicker->Size = System::Drawing::Size(200, 22);
+			this->dateTimePicker->Size = System::Drawing::Size(223, 20);
 			this->dateTimePicker->TabIndex = 23;
+			this->dateTimePicker->ValueChanged += gcnew System::EventHandler(this, &Customer::dateTimePicker_ValueChanged);
 			// 
 			// dGTripDriver
 			// 
+			this->dGTripDriver->AllowUserToAddRows = false;
+			this->dGTripDriver->AllowUserToDeleteRows = false;
+			this->dGTripDriver->AllowUserToResizeColumns = false;
+			this->dGTripDriver->AllowUserToResizeRows = false;
+			this->dGTripDriver->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::AllCells;
+			this->dGTripDriver->AutoSizeRowsMode = System::Windows::Forms::DataGridViewAutoSizeRowsMode::AllCells;
 			this->dGTripDriver->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dGTripDriver->Location = System::Drawing::Point(595, 65);
+			this->dGTripDriver->ImeMode = System::Windows::Forms::ImeMode::Off;
+			this->dGTripDriver->Location = System::Drawing::Point(426, 53);
+			this->dGTripDriver->Margin = System::Windows::Forms::Padding(2);
 			this->dGTripDriver->Name = L"dGTripDriver";
-			this->dGTripDriver->RowHeadersWidth = 51;
+			this->dGTripDriver->ReadOnly = true;
+			this->dGTripDriver->RowHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::Single;
+			this->dGTripDriver->RowHeadersWidthSizeMode = System::Windows::Forms::DataGridViewRowHeadersWidthSizeMode::AutoSizeToAllHeaders;
 			this->dGTripDriver->RowTemplate->Height = 24;
-			this->dGTripDriver->Size = System::Drawing::Size(652, 237);
+			this->dGTripDriver->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::CellSelect;
+			this->dGTripDriver->ShowCellErrors = false;
+			this->dGTripDriver->ShowCellToolTips = false;
+			this->dGTripDriver->ShowEditingIcon = false;
+			this->dGTripDriver->ShowRowErrors = false;
+			this->dGTripDriver->Size = System::Drawing::Size(536, 151);
 			this->dGTripDriver->TabIndex = 22;
 			this->dGTripDriver->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Customer::dGTripDriver_CellClick);
+			this->dGTripDriver->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Customer::dGTripDriver_CellContentClick);
 			// 
 			// tabPage2
 			// 
@@ -368,11 +440,11 @@ namespace TaxiApp {
 			this->tabPage2->Controls->Add(this->label3);
 			this->tabPage2->Controls->Add(this->label2);
 			this->tabPage2->Controls->Add(this->txtNewPasswordCustomer);
-			this->tabPage2->Location = System::Drawing::Point(4, 25);
-			this->tabPage2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->tabPage2->Location = System::Drawing::Point(4, 22);
+			this->tabPage2->Margin = System::Windows::Forms::Padding(2);
 			this->tabPage2->Name = L"tabPage2";
-			this->tabPage2->Padding = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->tabPage2->Size = System::Drawing::Size(1349, 684);
+			this->tabPage2->Padding = System::Windows::Forms::Padding(2);
+			this->tabPage2->Size = System::Drawing::Size(1010, 553);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Zmieñ has³o";
 			this->tabPage2->UseVisualStyleBackColor = true;
@@ -382,10 +454,9 @@ namespace TaxiApp {
 			this->label17->AutoSize = true;
 			this->label17->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label17->Location = System::Drawing::Point(637, 195);
-			this->label17->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label17->Location = System::Drawing::Point(428, 137);
 			this->label17->Name = L"label17";
-			this->label17->Size = System::Drawing::Size(193, 35);
+			this->label17->Size = System::Drawing::Size(152, 28);
 			this->label17->TabIndex = 16;
 			this->label17->Text = L"Zmiana has³a:";
 			// 
@@ -395,10 +466,9 @@ namespace TaxiApp {
 				static_cast<System::Int32>(static_cast<System::Byte>(161)), static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->btnChangePasswordCustomer->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnChangePasswordCustomer->ForeColor = System::Drawing::Color::White;
-			this->btnChangePasswordCustomer->Location = System::Drawing::Point(566, 402);
-			this->btnChangePasswordCustomer->Margin = System::Windows::Forms::Padding(4);
+			this->btnChangePasswordCustomer->Location = System::Drawing::Point(374, 306);
 			this->btnChangePasswordCustomer->Name = L"btnChangePasswordCustomer";
-			this->btnChangePasswordCustomer->Size = System::Drawing::Size(347, 37);
+			this->btnChangePasswordCustomer->Size = System::Drawing::Size(260, 30);
 			this->btnChangePasswordCustomer->TabIndex = 6;
 			this->btnChangePasswordCustomer->Text = L"ZMIEÑ";
 			this->btnChangePasswordCustomer->UseVisualStyleBackColor = false;
@@ -407,68 +477,62 @@ namespace TaxiApp {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(548, 276);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Location = System::Drawing::Point(361, 203);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(101, 16);
+			this->label1->Size = System::Drawing::Size(82, 13);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Aktualne has³o:";
 			// 
 			// txtOldPasswordCustomer
 			// 
-			this->txtOldPasswordCustomer->Location = System::Drawing::Point(693, 272);
-			this->txtOldPasswordCustomer->Margin = System::Windows::Forms::Padding(4);
+			this->txtOldPasswordCustomer->Location = System::Drawing::Point(469, 200);
 			this->txtOldPasswordCustomer->Name = L"txtOldPasswordCustomer";
 			this->txtOldPasswordCustomer->PasswordChar = '*';
-			this->txtOldPasswordCustomer->Size = System::Drawing::Size(219, 22);
+			this->txtOldPasswordCustomer->Size = System::Drawing::Size(166, 20);
 			this->txtOldPasswordCustomer->TabIndex = 3;
 			// 
 			// txtRepeatPasswordCustomer
 			// 
-			this->txtRepeatPasswordCustomer->Location = System::Drawing::Point(693, 344);
-			this->txtRepeatPasswordCustomer->Margin = System::Windows::Forms::Padding(4);
+			this->txtRepeatPasswordCustomer->Location = System::Drawing::Point(469, 255);
 			this->txtRepeatPasswordCustomer->Name = L"txtRepeatPasswordCustomer";
 			this->txtRepeatPasswordCustomer->PasswordChar = '*';
-			this->txtRepeatPasswordCustomer->Size = System::Drawing::Size(219, 22);
+			this->txtRepeatPasswordCustomer->Size = System::Drawing::Size(166, 20);
 			this->txtRepeatPasswordCustomer->TabIndex = 5;
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(542, 347);
-			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label3->Location = System::Drawing::Point(357, 258);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(107, 16);
+			this->label3->Size = System::Drawing::Size(86, 13);
 			this->label3->TabIndex = 2;
 			this->label3->Text = L"PotwierdŸ has³o:";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(566, 309);
-			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label2->Location = System::Drawing::Point(374, 231);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(84, 16);
+			this->label2->Size = System::Drawing::Size(68, 13);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Nowe has³o:";
 			// 
 			// txtNewPasswordCustomer
 			// 
-			this->txtNewPasswordCustomer->Location = System::Drawing::Point(693, 306);
-			this->txtNewPasswordCustomer->Margin = System::Windows::Forms::Padding(4);
+			this->txtNewPasswordCustomer->Location = System::Drawing::Point(469, 228);
 			this->txtNewPasswordCustomer->Name = L"txtNewPasswordCustomer";
 			this->txtNewPasswordCustomer->PasswordChar = '*';
-			this->txtNewPasswordCustomer->Size = System::Drawing::Size(219, 22);
+			this->txtNewPasswordCustomer->Size = System::Drawing::Size(166, 20);
 			this->txtNewPasswordCustomer->TabIndex = 4;
 			// 
 			// Customer
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1357, 713);
+			this->ClientSize = System::Drawing::Size(1018, 579);
 			this->Controls->Add(this->tabControl1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"Customer";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"TaxiApp - Klient";
@@ -484,6 +548,10 @@ namespace TaxiApp {
 
 		}
 #pragma endregion
+
+
+
+
 	private: System::Void tabPage1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void btnChangePasswordCustomer_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -525,16 +593,25 @@ namespace TaxiApp {
 		comboBox->SelectedIndex = 0;
 		showtripdriver();
 		show_mytrips(future);
+		dGTripDriver->Rows[0]->Selected=true;
 
 
 	}
 
+
+
 		   private: void calculate()
 		   {
-			   if (txtDistance->Text->Length < 1 || txtTime->Text->Length < 4)
+			   if (!(txtDistance->Text->Length == 0))
 			   {
-				   MessageBox::Show("Podaj poprawne dane");
+				   if (Int16::Parse(txtDistance->Text) < 4)
+				   {
+
+					   MessageBox::Show("Planowana trasa musi byæ wiêksza ni¿ 4 km!");
+					   return;
+				   }
 			   }
+
 			   int cost;
 			   String^ distance = txtDistance->Text;
 			   try
@@ -563,16 +640,21 @@ private: System::Void txtDistance_TextChanged(System::Object^ sender, System::Ev
 }
 private: System::Void comboBox_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 }
-private: System::Void btnCustomerCalculate_Click(System::Object^ sender, System::EventArgs^ e) {
-	calculate();
+private: System::Void btnCustomerCalculate_Click(System::Object^ sender, System::EventArgs^ e) {	
+	//dGTripDriver->Rows[1]->Selected = true;	//WALIDACJA
+	
+
+		calculate();
 }
+
+
 
 
 
 	   private: void showtripdriver()
 	   {
 		   MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
-		   MySqlCommand^ query = gcnew MySqlCommand("SELECT tbl_driver.driver_id, tbl_driver.name, tbl_driver.surname, tbl_user.email, tbl_driver.tel_number, tbl_licence.cat_a, tbl_licence.cat_b, tbl_licence.cat_c,tbl_licence.cat_d, tbl_driver.licence_id FROM tbl_user, tbl_driver, tbl_licence WHERE tbl_user.user_id=tbl_driver.user_id AND tbl_licence.licence_id = tbl_driver.licence_id; ", baseConnection);
+		   MySqlCommand^ query = gcnew MySqlCommand("SELECT tbl_driver.driver_id, tbl_driver.name AS Imie, tbl_driver.surname AS Nazwisko, tbl_user.email AS Email, tbl_driver.tel_number AS Telefon, tbl_licence.cat_a AS KatA, tbl_licence.cat_b AS KatB, tbl_licence.cat_c AS KatC,tbl_licence.cat_d AS KatD, tbl_driver.licence_id FROM tbl_user, tbl_driver, tbl_licence WHERE tbl_user.user_id=tbl_driver.user_id AND tbl_licence.licence_id = tbl_driver.licence_id; ", baseConnection);
 
 		   try
 		   {
@@ -597,7 +679,6 @@ private: System::Void btnCustomerCalculate_Click(System::Object^ sender, System:
 	   }
 
 
-
 private: System::Void btnTripAdd_Click(System::Object^ sender, System::EventArgs^ e) {
 	int zone;
 
@@ -610,12 +691,6 @@ private: System::Void btnTripAdd_Click(System::Object^ sender, System::EventArgs
 		zone = 2;
 	}
 
-	if (txtDistance->Text->Length < 1 || txtTime->Text->Length < 4)
-	{
-		MessageBox::Show("Podaj poprawne dane");
-	}
-
-
 	MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
 	MySqlCommand^ query = baseConnection->CreateCommand();
 	MySqlTransaction^ transaction;
@@ -627,18 +702,34 @@ private: System::Void btnTripAdd_Click(System::Object^ sender, System::EventArgs
 
 	try
 	{
+		DateTime data = DateTime::ParseExact((txtTime->Text +":00"), "HH:mm:ss", System::Globalization::CultureInfo::CurrentCulture);
+		
+		DateTime resDate = dateTimePicker->Value;
+	
+		TimeSpan ts(Int16::Parse(txtTime->Text->Substring(0, 2)), Int16::Parse(txtTime->Text->Substring(3, 2)),00);
+		resDate = resDate.Date + ts;
+		txtTime->Text->Substring(0, 2);
+		if (!(resDate > DateTime::Now && comboBox->SelectedIndex != -1 && txtDistance->Text != "" && driver_record_id != 0) )
+		{
+			
+			MessageBox::Show("Wype³nij wszystkie pola. Pamiêtaj o wyborze kierowcy. " "", "Informacja", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
 
-		query->CommandText = "INSERT INTO tbl_trip SET zone = '" + zone + "', distance='" + txtDistance->Text + "', date = '" + dateTimePicker->Value.Date.ToString("yyyyMMdd") + "', driver_id = '" + driver_record_id + "', customer_id = '" + id_customer + "', cost='" + txtCost->Text + "', start_time='" + txtTime->Text + "' ; ";
+		}
+		else
+		{		
+			//MessageBox::Show("Wybrales kierowce");
 
-		query->ExecuteNonQuery();
+			query->CommandText = "INSERT INTO tbl_trip SET zone = '" + zone + "', distance='" + txtDistance->Text + "', date = '" + dateTimePicker->Value.Date.ToString("yyyyMMdd") + "', driver_id = '" + driver_record_id + "', customer_id = '" + id_customer + "', cost='" + txtCost->Text + "', start_time='" + txtTime->Text + "' ; ";
 
+			query->ExecuteNonQuery();
 
+			transaction->Commit();
 
+			MessageBox::Show("Rezerwacja zosta³a dokonana");
+		}
+	
 
-		transaction->Commit();
-
-		MessageBox::Show("Rezerwacja zosta³a dokonana");
-
+	
 	}
 
 
@@ -655,6 +746,7 @@ private: System::Void btnTripAdd_Click(System::Object^ sender, System::EventArgs
 private: System::Void dGTripDriver_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 
 	driver_record_id = Convert::ToInt32(dGTripDriver->Rows[e->RowIndex]->Cells[0]->Value);
+	
 
 }
 
@@ -664,7 +756,7 @@ private: System::Void dGTripDriver_CellClick(System::Object^ sender, System::Win
 		 private: void show_mytrips(String^ period)
 		 {
 			 MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
-			 MySqlCommand^ query = gcnew MySqlCommand("SELECT tbl_trip.trip_id,  tbl_trip.date, tbl_trip.start_time,tbl_trip.zone, tbl_trip.distance, tbl_trip.cost, tbl_trip.driver_id, tbl_trip.customer_id FROM tbl_trip WHERE tbl_trip.customer_id='" + id_customer + "' AND " + period + "; ", baseConnection);
+			 MySqlCommand^ query = gcnew MySqlCommand("SELECT tbl_trip.trip_id,  tbl_trip.date AS Data, tbl_trip.start_time AS Godzina,tbl_trip.zone AS Strefa, tbl_trip.distance AS Dystans, tbl_trip.cost AS Koszt, tbl_trip.driver_id NumerKierowcy, tbl_trip.customer_id AS NumerKlienta FROM tbl_trip WHERE tbl_trip.customer_id='" + id_customer + "' AND " + period + "; ", baseConnection);
 
 			 try
 			 {
@@ -703,7 +795,7 @@ private: System::Void btnCancelTrip_Click(System::Object^ sender, System::EventA
 
 		transaction->Commit();
 
-		if (MessageBox::Show("Czy na pewno chcesz zrezygnowaæ?", "Uwaga!!!", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
+		if (MessageBox::Show("Czy na pewno chcesz anulowaæ zaznaczony kurs?", "Uwaga!", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
 		{
 
 			query->CommandText = "DELETE FROM tbl_trip WHERE trip_id = " + trip_record_id + " ;";
@@ -711,8 +803,12 @@ private: System::Void btnCancelTrip_Click(System::Object^ sender, System::EventA
 
 
 		}
+		else {
+			return;
+		}
+		MessageBox::Show("Zrezygnowa³eœ z rezerwacji. " "", "Informacja", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
 
-		MessageBox::Show("Zrezygnowa³eœ z rezerwacji");
+		//MessageBox::Show("Zrezygnowa³eœ z rezerwacji");
 		show_mytrips(future);
 
 
@@ -740,6 +836,22 @@ private: System::Void btnFuture_Click(System::Object^ sender, System::EventArgs^
 }
 
 private: System::Void btnCustomerCalculate_Click_1(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void dGTrips_CellContentClick_1(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+}
+private: System::Void dGTripDriver_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	
+}
+private: System::Void dateTimePicker_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void txtDistance_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	//Kacper mistrz <3
+	if (!Char::IsControl(e->KeyChar) && !Char::IsDigit(e->KeyChar) &&
+		(e->KeyChar != '.'))
+	{
+		e->Handled = true;
+	}
+
 }
 };
 }

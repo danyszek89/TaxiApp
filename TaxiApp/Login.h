@@ -106,6 +106,7 @@ namespace TaxiApp {
 			this->txtLogin->Name = L"txtLogin";
 			this->txtLogin->Size = System::Drawing::Size(204, 20);
 			this->txtLogin->TabIndex = 2;
+			this->txtLogin->Text = L"patryk";
 			// 
 			// txtPassword
 			// 
@@ -115,6 +116,7 @@ namespace TaxiApp {
 			this->txtPassword->PasswordChar = '*';
 			this->txtPassword->Size = System::Drawing::Size(204, 20);
 			this->txtPassword->TabIndex = 3;
+			this->txtPassword->Text = L"asd";
 			// 
 			// btnLogin
 			// 
@@ -122,7 +124,8 @@ namespace TaxiApp {
 				static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->btnLogin->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnLogin->ForeColor = System::Drawing::Color::White;
-			this->btnLogin->Location = System::Drawing::Point(119, 209);
+			this->btnLogin->Location = System::Drawing::Point(119, 206);
+			this->btnLogin->Margin = System::Windows::Forms::Padding(0);
 			this->btnLogin->Name = L"btnLogin";
 			this->btnLogin->Size = System::Drawing::Size(204, 31);
 			this->btnLogin->TabIndex = 4;
@@ -133,7 +136,7 @@ namespace TaxiApp {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(126, 259);
+			this->label5->Location = System::Drawing::Point(133, 259);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(86, 13);
 			this->label5->TabIndex = 9;
@@ -203,7 +206,7 @@ namespace TaxiApp {
 		//this->Close();
 	}
 private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ e) {
-	String^ configuration = L"datasource=localhost ; port=3306; username=root; password=12345; database=taxiappdb";
+	String^ configuration = L"datasource=localhost ; port=3306; username=root; password=zaq1@WSX; database=taxiappdb";
 	MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
 	MySqlCommand^ query = gcnew MySqlCommand("SELECT * FROM tbl_user  WHERE login='" + txtLogin->Text + "' AND password = md5('" + txtPassword->Text + "')", baseConnection);
 	MySqlDataReader^ reading;
@@ -230,7 +233,7 @@ private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ 
 	{
 		id_customer = readingcustomer->GetInt32("customer_id");
 		String^ test = Convert::ToString(id_customer);
-		MessageBox::Show(test);
+		//MessageBox::Show(test);
 		id_customer = readingcustomer->GetInt32("customer_id");
 	}
 	readingcustomer->Close();
@@ -243,7 +246,7 @@ private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ 
 		{
 			String^ user_role = reading->GetString("role");
 
-			MessageBox::Show(user_role);
+			//MessageBox::Show(user_role);
 			int id_user = reading->GetInt32(0);
 
 
