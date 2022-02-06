@@ -329,7 +329,7 @@ namespace TaxiApp {
 				static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->btnWeek->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnWeek->ForeColor = System::Drawing::Color::White;
-			this->btnWeek->Location = System::Drawing::Point(453, 452);
+			this->btnWeek->Location = System::Drawing::Point(462, 357);
 			this->btnWeek->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnWeek->Name = L"btnWeek";
 			this->btnWeek->Size = System::Drawing::Size(133, 33);
@@ -344,7 +344,7 @@ namespace TaxiApp {
 				static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->btnYear->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnYear->ForeColor = System::Drawing::Color::White;
-			this->btnYear->Location = System::Drawing::Point(96, 452);
+			this->btnYear->Location = System::Drawing::Point(105, 357);
 			this->btnYear->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnYear->Name = L"btnYear";
 			this->btnYear->Size = System::Drawing::Size(133, 33);
@@ -359,7 +359,7 @@ namespace TaxiApp {
 				static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->btnMonth->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnMonth->ForeColor = System::Drawing::Color::White;
-			this->btnMonth->Location = System::Drawing::Point(271, 452);
+			this->btnMonth->Location = System::Drawing::Point(280, 357);
 			this->btnMonth->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnMonth->Name = L"btnMonth";
 			this->btnMonth->Size = System::Drawing::Size(133, 33);

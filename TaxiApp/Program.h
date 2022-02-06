@@ -1801,6 +1801,12 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 		return;
 	}
 
+	if (txt_pesel_driver->Text->Length != 11)
+	{
+		MessageBox::Show("PESEL musi zawieraæ 11 cyfr");
+		return;
+	}
+
 
 	MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
 	MySqlCommand^ query = baseConnection->CreateCommand();
