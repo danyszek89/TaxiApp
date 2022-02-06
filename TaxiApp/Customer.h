@@ -555,6 +555,17 @@ namespace TaxiApp {
 	private: System::Void tabPage1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void btnChangePasswordCustomer_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (txtNewPasswordCustomer->Text != txtRepeatPasswordCustomer->Text)
+		{
+			MessageBox::Show("Has³a nie s¹ takie same");
+			return;
+		}
+
+		if (txtNewPasswordCustomer->Text == txtOldPasswordCustomer->Text)
+		{
+			MessageBox::Show("Nowe has³o nie mo¿e takie same jak stare");
+			return;
+		}
 
 		MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
 		MySqlCommand^ query = gcnew MySqlCommand(" UPDATE tbl_user SET password = md5('" + txtNewPasswordCustomer->Text + "') WHERE user_id = " + id_user + "  AND password = md5('" + txtOldPasswordCustomer->Text + "')", baseConnection);

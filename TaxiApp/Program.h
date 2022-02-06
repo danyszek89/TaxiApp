@@ -993,6 +993,7 @@ namespace TaxiApp {
 			this->tabPage3->TabIndex = 3;
 			this->tabPage3->Text = L"Kierowcy";
 			this->tabPage3->UseVisualStyleBackColor = true;
+			this->tabPage3->Click += gcnew System::EventHandler(this, &Program::tabPage3_Click);
 			// 
 			// btnDriverSearch
 			// 
@@ -1384,14 +1385,24 @@ private: System::Void btnCustomerDelete_Click(System::Object^ sender, System::Ev
 
 		if (MessageBox::Show("Czy na pewno usun¹æ klienta?", "Uwaga!!!", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
 		{
+			
+			query->CommandText = "DELETE FROM tbl_trip WHERE customer_id = " + customer_record_id + " ;";
+			query->ExecuteNonQuery();
+
 
 			query->CommandText = "DELETE FROM tbl_customer WHERE user_id = " + record_id + " ;";
 			query->ExecuteNonQuery();
 
 
+			query->CommandText = "DELETE FROM tbl_user WHERE user_id = " + record_id + " ;";
+			query->ExecuteNonQuery();
+
+		
+		
+
+
 		}
-		query->CommandText = "DELETE FROM tbl_user WHERE user_id = " + record_id + " ;";
-		query->ExecuteNonQuery();
+		
 		MessageBox::Show("Dane  zosta³y usuniête");
 		show_customers(txtCustomerSearch, dGCustomers);
 		clear(gBCostumer);
@@ -1409,6 +1420,7 @@ private: System::Void btnCustomerDelete_Click(System::Object^ sender, System::Ev
 }
 private: System::Void dGCustomers_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	record_id = Convert::ToInt32(dGCustomers->Rows[e->RowIndex]->Cells[0]->Value);
+	customer_record_id = Convert::ToInt32(dGCustomers->Rows[e->RowIndex]->Cells[1]->Value);
 	txt_cust_login->Text = dGCustomers->Rows[e->RowIndex]->Cells["login"]->Value->ToString();
 	txt_cust_email->Text = dGCustomers->Rows[e->RowIndex]->Cells["email"]->Value->ToString();
 	txt_cust_name->Text = dGCustomers->Rows[e->RowIndex]->Cells["name"]->Value->ToString();
@@ -1772,11 +1784,6 @@ private: System::Void btnCarEdit_Click(System::Object^ sender, System::EventArgs
 			dGDrivers->Columns[9]->Visible = false;
 			dGDrivers->Columns[10]->Visible = false;
 			dGDrivers->Columns[11]->Visible = false;
-
-
-
-
-
 		}
 
 private: System::Void btnDriverSearch_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1786,6 +1793,12 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	if (txt_name_driver->Text->Length < 3 || txt_surname_driver->Text->Length < 3 || txt_email_driver->Text->Length < 3)
 	{
 		MessageBox::Show("WprowadŸ dane poprawnie");
+		return;
+	}
+
+	if (txt_pesel_driver->Text->Length != 11)
+	{
+		MessageBox::Show("PESEL musi zawieraæ 11 cyfr");
 		return;
 	}
 
@@ -1835,6 +1848,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void dGDrivers_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	record_id = Convert::ToInt32(dGDrivers->Rows[e->RowIndex]->Cells[0]->Value);
+	driver_record_id = Convert::ToInt32(dGDrivers->Rows[e->RowIndex]->Cells[1]->Value);
 	txt_login_driver->Text = dGDrivers->Rows[e->RowIndex]->Cells["login"]->Value->ToString();
 	txt_email_driver->Text = dGDrivers->Rows[e->RowIndex]->Cells["email"]->Value->ToString();
 	txt_name_driver->Text = dGDrivers->Rows[e->RowIndex]->Cells["name"]->Value->ToString();
@@ -1867,19 +1881,35 @@ private: System::Void btnDriverDelete_Click(System::Object^ sender, System::Even
 
 		if (MessageBox::Show("Czy na pewno usun¹æ kierowce?", "Uwaga!!!", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes)
 		{
+			query->CommandText = "UPDATE tbl_car SET driver_id= NULL WHERE driver_id='" +driver_record_id + "'; ";
+			query->ExecuteNonQuery();
 
 
+			query->CommandText = "DELETE FROM tbl_trip WHERE driver_id = " + driver_record_id + " ;";
+			query->ExecuteNonQuery();
 
 			query->CommandText = "DELETE FROM tbl_driver WHERE user_id = " + record_id + " ;";
 			query->ExecuteNonQuery();
 
-			query->CommandText = "DELETE FROM tbl_licence WHERE licence_id = " + recordlicence_id + ";";
+			query->CommandText = "DELETE FROM tbl_licence WHERE licence_id = " + recordlicence_id + " ;";
 			query->ExecuteNonQuery();
 
 
+
+			query->CommandText = "DELETE FROM tbl_user WHERE user_id = " + record_id + " ;";
+			query->ExecuteNonQuery();
+
+
+			
+
+
+			
+
+		
+
+
 		}
-		query->CommandText = "DELETE FROM tbl_user WHERE user_id = " + record_id + " ;";
-		query->ExecuteNonQuery();
+		
 		MessageBox::Show("Dane  zosta³y usuniête");
 		show_drivers(txtDriverSearch, dGDrivers);
 		clear(gbDrivers);
@@ -2192,5 +2222,7 @@ private: System::Void btnTripEdit_Click(System::Object^ sender, System::EventArg
 private: System::Void btnCalculate_ClientSizeChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 
+private: System::Void tabPage3_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
