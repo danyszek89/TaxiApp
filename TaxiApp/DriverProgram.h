@@ -44,7 +44,7 @@ namespace TaxiApp {
 	private: System::Windows::Forms::Label^ label17;
 
 	public:
-		String^ configuration = L"datasource=localhost ; port=3306; username=root; password=zaq1@WSX; database=taxiappdb";
+		String^ configuration = L"datasource=localhost ; port=3306; username=root; password=12345; database=taxiappdb";
 		DriverProgram(int driver, int user)
 		{
 			InitializeComponent();
