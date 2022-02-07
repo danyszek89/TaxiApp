@@ -61,7 +61,7 @@ namespace TaxiApp {
 
 
 
-		   String^ configuration = L"datasource=localhost ; port=3306; username=root; password=zaq1@WSX; database=taxiappdb";
+		   String^ configuration = L"datasource=localhost ; port=3306; username=root; password=123123; database=taxiappdb";
 		Customer(int customer, int user)
 		{
 			InitializeComponent();
@@ -604,7 +604,9 @@ namespace TaxiApp {
 		comboBox->SelectedIndex = 0;
 		showtripdriver();
 		show_mytrips(future);
-		dGTripDriver->Rows[0]->Selected=true;
+		if (dGTripDriver->RowCount != 0) {
+			dGTripDriver->Rows[0]->Selected = true;
+		}
 
 
 	}

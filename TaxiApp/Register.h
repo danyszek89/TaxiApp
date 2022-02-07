@@ -17,7 +17,7 @@ namespace TaxiApp {
 	public ref class Register : public System::Windows::Forms::Form
 	{
 	public:
-		String^ configuration = L"datasource=localhost ; port=3306; username=root; password=zaq1@WSX; database=taxiappdb";
+		String^ configuration = L"datasource=localhost ; port=3306; username=root; password=123123; database=taxiappdb";
 
 		Register(void)
 		{
@@ -261,9 +261,12 @@ namespace TaxiApp {
 			// txt_reg_phone
 			// 
 			this->txt_reg_phone->Location = System::Drawing::Point(298, 244);
+			this->txt_reg_phone->MaxLength = 9;
 			this->txt_reg_phone->Name = L"txt_reg_phone";
 			this->txt_reg_phone->Size = System::Drawing::Size(165, 20);
 			this->txt_reg_phone->TabIndex = 12;
+			this->txt_reg_phone->TextChanged += gcnew System::EventHandler(this, &Register::txt_reg_phone_TextChanged);
+			this->txt_reg_phone->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Register::txt_reg_phone_KeyPress);
 			// 
 			// label6
 			// 
@@ -334,6 +337,7 @@ namespace TaxiApp {
 			this->txt_reg_surname->Name = L"txt_reg_surname";
 			this->txt_reg_surname->Size = System::Drawing::Size(165, 20);
 			this->txt_reg_surname->TabIndex = 4;
+			this->txt_reg_surname->TextChanged += gcnew System::EventHandler(this, &Register::txt_reg_surname_TextChanged);
 			// 
 			// txt_reg_name
 			// 
@@ -341,6 +345,7 @@ namespace TaxiApp {
 			this->txt_reg_name->Name = L"txt_reg_name";
 			this->txt_reg_name->Size = System::Drawing::Size(165, 20);
 			this->txt_reg_name->TabIndex = 3;
+			this->txt_reg_name->TextChanged += gcnew System::EventHandler(this, &Register::txt_reg_name_TextChanged);
 			// 
 			// txt_reg_repeat_password
 			// 
@@ -349,6 +354,7 @@ namespace TaxiApp {
 			this->txt_reg_repeat_password->PasswordChar = '*';
 			this->txt_reg_repeat_password->Size = System::Drawing::Size(165, 20);
 			this->txt_reg_repeat_password->TabIndex = 2;
+			this->txt_reg_repeat_password->TextChanged += gcnew System::EventHandler(this, &Register::txt_reg_repeat_password_TextChanged);
 			// 
 			// txt_reg_password
 			// 
@@ -357,6 +363,7 @@ namespace TaxiApp {
 			this->txt_reg_password->PasswordChar = '*';
 			this->txt_reg_password->Size = System::Drawing::Size(165, 20);
 			this->txt_reg_password->TabIndex = 1;
+			this->txt_reg_password->TextChanged += gcnew System::EventHandler(this, &Register::txt_reg_password_TextChanged);
 			// 
 			// txt_reg_login
 			// 
@@ -364,6 +371,7 @@ namespace TaxiApp {
 			this->txt_reg_login->Name = L"txt_reg_login";
 			this->txt_reg_login->Size = System::Drawing::Size(165, 20);
 			this->txt_reg_login->TabIndex = 0;
+			this->txt_reg_login->TextChanged += gcnew System::EventHandler(this, &Register::txt_reg_login_TextChanged);
 			// 
 			// tabPage2
 			// 
@@ -622,7 +630,8 @@ private: System::Void btn_register_as_custumer_Click(System::Object^ sender, Sys
 
 	query->Connection = baseConnection;
 	query->Transaction = transaction;
-
+	String^ err_msg = "";
+	bool valid1 = true;
 	if (txt_reg_login->Text->Length >= 3)
 	{
 		query->CommandText = "SELECT * FROM tbl_user WHERE login='" + txt_reg_login->Text + "' ; ";
@@ -630,76 +639,104 @@ private: System::Void btn_register_as_custumer_Click(System::Object^ sender, Sys
 		bool rezultat = result->HasRows;
 		if (rezultat)
 		{
-			MessageBox::Show("Login istnieje! " "", "B³¹d", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
-			return;
+			err_msg = err_msg + "Podany login ju¿ istnieje. ";
+			valid1 = false;
+			txt_reg_login->BackColor = Color::Red;
 		}
 		result->Close();
 		query->ExecuteNonQuery();
 	}
 	else
 	{
-		MessageBox::Show("Login musi sk³adaæ siê z co najmniej 3 znaków. " "", "B³¹d", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
+		err_msg = err_msg + "Podany login jest za krótki. ";
+		valid1 = false;
+		txt_reg_login->BackColor = Color::Red;
 	}
 
 	if (txt_reg_password->Text->Length < 6 || txt_reg_password->Text->Length >20)
 	{
-		MessageBox::Show("Has³o musi spe³niaæ nastêpuj¹ce wymagania: od 6 do 20 znaków." "", "B³¹d", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
+		err_msg = err_msg + "Has³o musi spe³niaæ nastêpuj¹ce wymagania: od 6 do 20 znaków. ";
+		valid1 = false;
+		txt_reg_password->BackColor = Color::Red;
 	}
 
 
-	if (txt_reg_name->Text->Length < 3 || txt_reg_surname->Text->Length < 3 || txt_reg_email->Text->Length < 3 )
+	if (txt_reg_name->Text->Length < 3)
 	{
-		MessageBox::Show("WprowadŸ poprawne dane " "", "B³¹d", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
-		//MessageBox::Show("WprowadŸ dane poprawnie");
-		return;
+		err_msg = err_msg + "Imie jest za krótkie. ";
+		valid1 = false;
+		txt_reg_name->BackColor = Color::Red;
+	}
+
+	if (txt_reg_surname->Text->Length < 3)
+	{
+		err_msg = err_msg + "Nazwisko jest za krótkie. ";
+		valid1 = false;
+		txt_reg_surname->BackColor = Color::Red;
 	}
 
 	if (txt_reg_password->Text != txt_reg_repeat_password->Text)
 	{
-		MessageBox::Show("Wprowadzaone has³a nie pasuj¹ " "", "B³¹d", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
-		//MessageBox::Show("Has³a nie s¹ takie same");
-		return;
+		err_msg = err_msg + "Podane has³a siê ró¿ni¹. ";
+		valid1 = false;
+		txt_reg_password->BackColor = Color::Red;
+		txt_reg_repeat_password->BackColor = Color::Red;
 	}
-
-
-	/*MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
-	MySqlCommand^ query = baseConnection->CreateCommand();
-	MySqlTransaction^ transaction;
-	baseConnection->Open();
-	transaction = baseConnection->BeginTransaction(IsolationLevel::ReadCommitted);
-
-	query->Connection = baseConnection;
-	query->Transaction = transaction;*/
-
-	try
+	query->Cancel();
+	query->CommandText = "SELECT * FROM tbl_user WHERE email='" + txt_reg_email->Text + "' ; ";
+	MySqlDataReader^ result = query->ExecuteReader();
+	bool rezultat = result->HasRows;
+	if (rezultat)
 	{
-
-		query->CommandText = "INSERT INTO tbl_user SET login='" + txt_reg_login->Text + "', password=md5('" + txt_reg_password->Text + "'), email = '" + txt_reg_email->Text + "', role = 'customer'; ";
-
-		query->ExecuteNonQuery();
-
-		query->CommandText = "INSERT INTO tbl_customer SET  tbl_customer.user_id=last_insert_id(), name='" + txt_reg_name->Text + "', surname ='" + txt_reg_surname->Text + "', tel_number='" + txt_reg_phone->Text + "'";
-
-		query->ExecuteNonQuery();
-
-
-		transaction->Commit();
-
-		MessageBox::Show("Rejestracja powiod³a siê. Konto klienta zosta³o utworzone. " "", "Informacja", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
-
-		//MessageBox::Show("Rejestracja powiod³a siê. Mo¿esz siê zalogowaæ.");
-
+		err_msg = err_msg + "Na podany email ju¿ zarejestrowano konto. ";
+		valid1 = false;
+		txt_reg_email->BackColor = Color::Red;
 	}
+	result->Close();
 
-
-	catch (Exception^ komunikat)
+	if (txt_reg_phone->Text->Length != 9)
 	{
-		MessageBox::Show(komunikat->Message);
-		transaction->Rollback();
-
+		err_msg = err_msg + "Z³y format numeru telefonu. ";
+		valid1 = false;
+		txt_reg_phone->BackColor = Color::Red;
 	}
 
-	this->Hide();
+	String^ email = txt_reg_email->Text;
+	if (!(email->Contains("@"))||email[email->Length - 1]=='@' || email[0] == '@'){
+		err_msg = err_msg + "Nie poprawny format adresu email. ";
+			valid1 = false;
+			txt_reg_email->BackColor = Color::Red;
+	}
+
+	if(valid1){
+		try
+		{
+
+			query->CommandText = "INSERT INTO tbl_user SET login='" + txt_reg_login->Text + "', password=md5('" + txt_reg_password->Text + "'), email = '" + txt_reg_email->Text + "', role = 'customer'; ";
+
+			query->ExecuteNonQuery();
+
+			query->CommandText = "INSERT INTO tbl_customer SET  tbl_customer.user_id=last_insert_id(), name='" + txt_reg_name->Text + "', surname ='" + txt_reg_surname->Text + "', tel_number='" + txt_reg_phone->Text + "'";
+
+			query->ExecuteNonQuery();
+
+			transaction->Commit();
+
+			MessageBox::Show("Rejestracja powiod³a siê. Konto klienta zosta³o utworzone. " "", "Informacja", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
+
+
+		}
+		catch (Exception^ komunikat)
+		{
+			MessageBox::Show(komunikat->Message);
+			transaction->Rollback();
+		}
+		this->Close();
+	}
+	else
+	{
+		MessageBox::Show(err_msg, "Informacja", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
+	}
 	
 	baseConnection->Close();
 
@@ -786,6 +823,31 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	this->Close();
 }
 private: System::Void txt_reg_email_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	txt_reg_email->BackColor = Color::White;
+}
+private: System::Void txt_reg_login_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	txt_reg_login->BackColor = Color::White;
+}
+private: System::Void txt_reg_password_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	txt_reg_password->BackColor = Color::White;
+}
+private: System::Void txt_reg_repeat_password_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	txt_reg_repeat_password->BackColor = Color::White;
+}
+private: System::Void txt_reg_name_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	txt_reg_name->BackColor = Color::White;
+}
+private: System::Void txt_reg_surname_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	txt_reg_surname->BackColor = Color::White;
+}
+private: System::Void txt_reg_phone_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+	txt_reg_phone->BackColor = Color::White;
+}
+private: System::Void txt_reg_phone_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (!Char::IsControl(e->KeyChar) && !Char::IsDigit(e->KeyChar))
+	{
+		e->Handled = true;
+	}
 }
 };
 }

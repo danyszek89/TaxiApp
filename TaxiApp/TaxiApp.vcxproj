@@ -123,6 +123,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AdminPanel.cpp" />
     <ClCompile Include="Customer.cpp" />
     <ClCompile Include="DriverProgram.cpp" />
     <ClCompile Include="Login.cpp" />
@@ -133,6 +134,9 @@
     <ClCompile Include="Register.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AdminPanel.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Customer.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -150,6 +154,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AdminPanel.resx">
+      <DependentUpon>AdminPanel.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Customer.resx">
       <DependentUpon>Customer.h</DependentUpon>
     </EmbeddedResource>
