@@ -757,8 +757,9 @@ private: System::Void btnTripAdd_Click(System::Object^ sender, System::EventArgs
 
 }
 private: System::Void dGTripDriver_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-
-	driver_record_id = Convert::ToInt32(dGTripDriver->Rows[e->RowIndex]->Cells[0]->Value);
+	if (e->RowIndex != -1) {
+		driver_record_id = Convert::ToInt32(dGTripDriver->Rows[e->RowIndex]->Cells[0]->Value);
+	}
 	
 
 }

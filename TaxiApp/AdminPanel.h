@@ -8,6 +8,7 @@ namespace TaxiApp {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace MySql::Data::MySqlClient;
 
 	/// <summary>
 	/// Podsumowanie informacji o AdminPanel
@@ -15,6 +16,7 @@ namespace TaxiApp {
 	public ref class AdminPanel : public System::Windows::Forms::Form
 	{
 	public:
+		String^ configuration = L"datasource=localhost ; port=3306; username=root; password=123123; database=taxiappdb";
 		AdminPanel(void)
 		{
 			InitializeComponent();
@@ -40,10 +42,17 @@ namespace TaxiApp {
 	private: System::Windows::Forms::TabPage^ tabPage2;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
-	private: System::Windows::Forms::ComboBox^ comboBox1;
-	private: System::Windows::Forms::TextBox^ textBox3;
+	private: System::Windows::Forms::ComboBox^ combo_car_class;
+
+	private: System::Windows::Forms::TextBox^ txt_car_regnum;
+
 	private: System::Windows::Forms::TextBox^ txt_car_model;
 	private: System::Windows::Forms::TextBox^ txt_car_brand;
+	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Label^ label2;
 
 	private:
 		/// <summary>
@@ -65,8 +74,13 @@ namespace TaxiApp {
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
 			this->txt_car_brand = (gcnew System::Windows::Forms::TextBox());
 			this->txt_car_model = (gcnew System::Windows::Forms::TextBox());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->txt_car_regnum = (gcnew System::Windows::Forms::TextBox());
+			this->combo_car_class = (gcnew System::Windows::Forms::ComboBox());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
@@ -84,8 +98,13 @@ namespace TaxiApp {
 			// 
 			// tabPage1
 			// 
-			this->tabPage1->Controls->Add(this->comboBox1);
-			this->tabPage1->Controls->Add(this->textBox3);
+			this->tabPage1->Controls->Add(this->button1);
+			this->tabPage1->Controls->Add(this->label5);
+			this->tabPage1->Controls->Add(this->label4);
+			this->tabPage1->Controls->Add(this->label3);
+			this->tabPage1->Controls->Add(this->label2);
+			this->tabPage1->Controls->Add(this->combo_car_class);
+			this->tabPage1->Controls->Add(this->txt_car_regnum);
 			this->tabPage1->Controls->Add(this->txt_car_model);
 			this->tabPage1->Controls->Add(this->txt_car_brand);
 			this->tabPage1->Controls->Add(this->label1);
@@ -130,32 +149,78 @@ namespace TaxiApp {
 			// 
 			// txt_car_brand
 			// 
-			this->txt_car_brand->Location = System::Drawing::Point(106, 96);
+			this->txt_car_brand->Location = System::Drawing::Point(121, 100);
 			this->txt_car_brand->Name = L"txt_car_brand";
 			this->txt_car_brand->Size = System::Drawing::Size(100, 20);
 			this->txt_car_brand->TabIndex = 2;
 			// 
 			// txt_car_model
 			// 
-			this->txt_car_model->Location = System::Drawing::Point(106, 122);
+			this->txt_car_model->Location = System::Drawing::Point(121, 126);
 			this->txt_car_model->Name = L"txt_car_model";
 			this->txt_car_model->Size = System::Drawing::Size(100, 20);
 			this->txt_car_model->TabIndex = 3;
 			// 
-			// textBox3
+			// txt_car_regnum
 			// 
-			this->textBox3->Location = System::Drawing::Point(106, 149);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(100, 20);
-			this->textBox3->TabIndex = 4;
+			this->txt_car_regnum->Location = System::Drawing::Point(121, 153);
+			this->txt_car_regnum->Name = L"txt_car_regnum";
+			this->txt_car_regnum->Size = System::Drawing::Size(100, 20);
+			this->txt_car_regnum->TabIndex = 4;
 			// 
-			// comboBox1
+			// combo_car_class
 			// 
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Location = System::Drawing::Point(106, 176);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(100, 21);
-			this->comboBox1->TabIndex = 5;
+			this->combo_car_class->FormattingEnabled = true;
+			this->combo_car_class->Location = System::Drawing::Point(121, 180);
+			this->combo_car_class->Name = L"combo_car_class";
+			this->combo_car_class->Size = System::Drawing::Size(100, 21);
+			this->combo_car_class->TabIndex = 5;
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(12, 100);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(95, 13);
+			this->label2->TabIndex = 6;
+			this->label2->Text = L"Marka samochodu";
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(74, 126);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(36, 13);
+			this->label3->TabIndex = 7;
+			this->label3->Text = L"Model";
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(8, 153);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(99, 13);
+			this->label4->TabIndex = 8;
+			this->label4->Text = L"Numer rejestracyjny";
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Location = System::Drawing::Point(74, 180);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(33, 13);
+			this->label5->TabIndex = 9;
+			this->label5->Text = L"Klasa";
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(77, 217);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(93, 23);
+			this->button1->TabIndex = 10;
+			this->button1->Text = L"Dodaj pojazd";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &AdminPanel::button1_Click);
 			// 
 			// AdminPanel
 			// 
@@ -177,5 +242,17 @@ namespace TaxiApp {
 	private: System::Void AdminPanel_Load(System::Object^ sender, System::EventArgs^ e) {
 
 	}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
+	MySqlCommand^ query = baseConnection->CreateCommand();
+	MySqlTransaction^ transaction;
+	baseConnection->Open();
+	transaction = baseConnection->BeginTransaction(IsolationLevel::ReadCommitted);
+
+	
+
+	query->Connection = baseConnection;
+	query->Transaction = transaction;
+}
 };
 }
