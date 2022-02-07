@@ -283,7 +283,7 @@ namespace TaxiApp {
 			this->tabControl1->Controls->Add(this->tabPage3);
 			this->tabControl1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->tabControl1->Location = System::Drawing::Point(0, 0);
-			this->tabControl1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->tabControl1->Margin = System::Windows::Forms::Padding(2);
 			this->tabControl1->Name = L"tabControl1";
 			this->tabControl1->SelectedIndex = 0;
 			this->tabControl1->Size = System::Drawing::Size(1053, 573);
@@ -306,7 +306,7 @@ namespace TaxiApp {
 			this->tabPage4->Controls->Add(this->dgCustomersForTrip);
 			this->tabPage4->Controls->Add(this->dgDriversForTrip);
 			this->tabPage4->Location = System::Drawing::Point(4, 22);
-			this->tabPage4->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->tabPage4->Margin = System::Windows::Forms::Padding(2);
 			this->tabPage4->Name = L"tabPage4";
 			this->tabPage4->Size = System::Drawing::Size(1045, 547);
 			this->tabPage4->TabIndex = 4;
@@ -315,72 +315,86 @@ namespace TaxiApp {
 			// 
 			// btnTripEdit
 			// 
-			this->btnTripEdit->Location = System::Drawing::Point(144, 349);
-			this->btnTripEdit->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnTripEdit->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(29)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->btnTripEdit->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnTripEdit->ForeColor = System::Drawing::Color::White;
+			this->btnTripEdit->Location = System::Drawing::Point(123, 348);
+			this->btnTripEdit->Margin = System::Windows::Forms::Padding(2);
 			this->btnTripEdit->Name = L"btnTripEdit";
-			this->btnTripEdit->Size = System::Drawing::Size(75, 39);
+			this->btnTripEdit->Size = System::Drawing::Size(85, 39);
 			this->btnTripEdit->TabIndex = 27;
 			this->btnTripEdit->Text = L"Edytuj";
-			this->btnTripEdit->UseVisualStyleBackColor = true;
+			this->btnTripEdit->UseVisualStyleBackColor = false;
 			this->btnTripEdit->Click += gcnew System::EventHandler(this, &Program::btnTripEdit_Click);
 			// 
 			// btnTripDelete
 			// 
-			this->btnTripDelete->Location = System::Drawing::Point(238, 344);
-			this->btnTripDelete->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnTripDelete->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(29)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->btnTripDelete->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnTripDelete->ForeColor = System::Drawing::Color::White;
+			this->btnTripDelete->Location = System::Drawing::Point(224, 348);
+			this->btnTripDelete->Margin = System::Windows::Forms::Padding(2);
 			this->btnTripDelete->Name = L"btnTripDelete";
-			this->btnTripDelete->Size = System::Drawing::Size(70, 47);
+			this->btnTripDelete->Size = System::Drawing::Size(84, 39);
 			this->btnTripDelete->TabIndex = 26;
 			this->btnTripDelete->Text = L"Usuñ";
-			this->btnTripDelete->UseVisualStyleBackColor = true;
+			this->btnTripDelete->UseVisualStyleBackColor = false;
 			this->btnTripDelete->Click += gcnew System::EventHandler(this, &Program::btnTripDelete_Click);
 			// 
 			// label26
 			// 
 			this->label26->AutoSize = true;
-			this->label26->Location = System::Drawing::Point(354, 280);
+			this->label26->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label26->Location = System::Drawing::Point(334, 283);
 			this->label26->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label26->Name = L"label26";
-			this->label26->Size = System::Drawing::Size(33, 13);
+			this->label26->Size = System::Drawing::Size(51, 21);
 			this->label26->TabIndex = 25;
 			this->label26->Text = L"Kursy";
 			// 
 			// label25
 			// 
 			this->label25->AutoSize = true;
-			this->label25->Location = System::Drawing::Point(692, 52);
+			this->label25->Location = System::Drawing::Point(674, 58);
 			this->label25->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label25->Name = L"label25";
-			this->label25->Size = System::Drawing::Size(38, 13);
+			this->label25->Size = System::Drawing::Size(41, 13);
 			this->label25->TabIndex = 24;
-			this->label25->Text = L"Klienci";
+			this->label25->Text = L"Klienci:";
 			// 
 			// label24
 			// 
 			this->label24->AutoSize = true;
-			this->label24->Location = System::Drawing::Point(344, 58);
+			this->label24->Location = System::Drawing::Point(334, 58);
 			this->label24->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label24->Name = L"label24";
-			this->label24->Size = System::Drawing::Size(50, 13);
+			this->label24->Size = System::Drawing::Size(53, 13);
 			this->label24->TabIndex = 23;
-			this->label24->Text = L"Kierowcy";
+			this->label24->Text = L"Kierowcy:";
 			// 
 			// btnTripAdd
 			// 
-			this->btnTripAdd->Location = System::Drawing::Point(50, 349);
-			this->btnTripAdd->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnTripAdd->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(29)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->btnTripAdd->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnTripAdd->ForeColor = System::Drawing::Color::White;
+			this->btnTripAdd->Location = System::Drawing::Point(20, 348);
+			this->btnTripAdd->Margin = System::Windows::Forms::Padding(2);
 			this->btnTripAdd->Name = L"btnTripAdd";
 			this->btnTripAdd->Size = System::Drawing::Size(85, 39);
 			this->btnTripAdd->TabIndex = 22;
 			this->btnTripAdd->Text = L"Dodaj";
-			this->btnTripAdd->UseVisualStyleBackColor = true;
+			this->btnTripAdd->UseVisualStyleBackColor = false;
 			this->btnTripAdd->Click += gcnew System::EventHandler(this, &Program::btnTripAdd_Click);
 			// 
 			// dgTrips
 			// 
 			this->dgTrips->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dgTrips->Location = System::Drawing::Point(332, 308);
-			this->dgTrips->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->dgTrips->Margin = System::Windows::Forms::Padding(2);
 			this->dgTrips->Name = L"dgTrips";
 			this->dgTrips->RowHeadersWidth = 51;
 			this->dgTrips->RowTemplate->Height = 24;
@@ -390,40 +404,48 @@ namespace TaxiApp {
 			// 
 			// btnSearchCustomerForTrips
 			// 
-			this->btnSearchCustomerForTrips->Location = System::Drawing::Point(752, 52);
-			this->btnSearchCustomerForTrips->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnSearchCustomerForTrips->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(29)),
+				static_cast<System::Int32>(static_cast<System::Byte>(161)), static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->btnSearchCustomerForTrips->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnSearchCustomerForTrips->ForeColor = System::Drawing::Color::White;
+			this->btnSearchCustomerForTrips->Location = System::Drawing::Point(918, 42);
+			this->btnSearchCustomerForTrips->Margin = System::Windows::Forms::Padding(2);
 			this->btnSearchCustomerForTrips->Name = L"btnSearchCustomerForTrips";
-			this->btnSearchCustomerForTrips->Size = System::Drawing::Size(67, 21);
+			this->btnSearchCustomerForTrips->Size = System::Drawing::Size(67, 32);
 			this->btnSearchCustomerForTrips->TabIndex = 20;
 			this->btnSearchCustomerForTrips->Text = L"Szukaj";
-			this->btnSearchCustomerForTrips->UseVisualStyleBackColor = true;
+			this->btnSearchCustomerForTrips->UseVisualStyleBackColor = false;
 			this->btnSearchCustomerForTrips->Click += gcnew System::EventHandler(this, &Program::btnSearchCustomerForTrips_Click);
 			// 
 			// txtSearchCustomerForTrips
 			// 
-			this->txtSearchCustomerForTrips->Location = System::Drawing::Point(831, 54);
-			this->txtSearchCustomerForTrips->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtSearchCustomerForTrips->Location = System::Drawing::Point(729, 52);
+			this->txtSearchCustomerForTrips->Margin = System::Windows::Forms::Padding(2);
 			this->txtSearchCustomerForTrips->Name = L"txtSearchCustomerForTrips";
-			this->txtSearchCustomerForTrips->Size = System::Drawing::Size(76, 20);
+			this->txtSearchCustomerForTrips->Size = System::Drawing::Size(159, 20);
 			this->txtSearchCustomerForTrips->TabIndex = 19;
 			// 
 			// btnSearchDriverForTrips
 			// 
-			this->btnSearchDriverForTrips->Location = System::Drawing::Point(403, 55);
-			this->btnSearchDriverForTrips->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnSearchDriverForTrips->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(29)),
+				static_cast<System::Int32>(static_cast<System::Byte>(161)), static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->btnSearchDriverForTrips->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnSearchDriverForTrips->ForeColor = System::Drawing::Color::White;
+			this->btnSearchDriverForTrips->Location = System::Drawing::Point(566, 45);
+			this->btnSearchDriverForTrips->Margin = System::Windows::Forms::Padding(2);
 			this->btnSearchDriverForTrips->Name = L"btnSearchDriverForTrips";
-			this->btnSearchDriverForTrips->Size = System::Drawing::Size(67, 21);
+			this->btnSearchDriverForTrips->Size = System::Drawing::Size(67, 32);
 			this->btnSearchDriverForTrips->TabIndex = 18;
 			this->btnSearchDriverForTrips->Text = L"Szukaj";
-			this->btnSearchDriverForTrips->UseVisualStyleBackColor = true;
+			this->btnSearchDriverForTrips->UseVisualStyleBackColor = false;
 			this->btnSearchDriverForTrips->Click += gcnew System::EventHandler(this, &Program::btnSearchDriverForTrips_Click);
 			// 
 			// txtSearchDriverForTrips
 			// 
-			this->txtSearchDriverForTrips->Location = System::Drawing::Point(483, 55);
-			this->txtSearchDriverForTrips->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtSearchDriverForTrips->Location = System::Drawing::Point(391, 54);
+			this->txtSearchDriverForTrips->Margin = System::Windows::Forms::Padding(2);
 			this->txtSearchDriverForTrips->Name = L"txtSearchDriverForTrips";
-			this->txtSearchDriverForTrips->Size = System::Drawing::Size(76, 20);
+			this->txtSearchDriverForTrips->Size = System::Drawing::Size(159, 20);
 			this->txtSearchDriverForTrips->TabIndex = 17;
 			// 
 			// groupBox1
@@ -439,98 +461,101 @@ namespace TaxiApp {
 			this->groupBox1->Controls->Add(this->label22);
 			this->groupBox1->Controls->Add(this->label23);
 			this->groupBox1->Controls->Add(this->dateTimePickerAdmin);
-			this->groupBox1->Location = System::Drawing::Point(43, 84);
-			this->groupBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->groupBox1->Location = System::Drawing::Point(20, 30);
+			this->groupBox1->Margin = System::Windows::Forms::Padding(2);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->groupBox1->Size = System::Drawing::Size(265, 250);
+			this->groupBox1->Padding = System::Windows::Forms::Padding(2);
+			this->groupBox1->Size = System::Drawing::Size(288, 304);
 			this->groupBox1->TabIndex = 16;
 			this->groupBox1->TabStop = false;
 			// 
 			// btnCalculate
 			// 
-			this->btnCalculate->Location = System::Drawing::Point(195, 164);
-			this->btnCalculate->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnCalculate->BackColor = System::Drawing::Color::Gold;
+			this->btnCalculate->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnCalculate->ForeColor = System::Drawing::Color::Black;
+			this->btnCalculate->Location = System::Drawing::Point(83, 214);
+			this->btnCalculate->Margin = System::Windows::Forms::Padding(2);
 			this->btnCalculate->Name = L"btnCalculate";
-			this->btnCalculate->Size = System::Drawing::Size(56, 19);
+			this->btnCalculate->Size = System::Drawing::Size(165, 31);
 			this->btnCalculate->TabIndex = 27;
 			this->btnCalculate->Text = L"Oblicz";
-			this->btnCalculate->UseVisualStyleBackColor = true;
+			this->btnCalculate->UseVisualStyleBackColor = false;
 			this->btnCalculate->ClientSizeChanged += gcnew System::EventHandler(this, &Program::btnCalculate_ClientSizeChanged);
 			this->btnCalculate->Click += gcnew System::EventHandler(this, &Program::btnCalculate_Click);
 			// 
 			// txtATime
 			// 
-			this->txtATime->Location = System::Drawing::Point(101, 78);
-			this->txtATime->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtATime->Location = System::Drawing::Point(83, 73);
+			this->txtATime->Margin = System::Windows::Forms::Padding(2);
 			this->txtATime->Mask = L"90:00";
 			this->txtATime->Name = L"txtATime";
-			this->txtATime->Size = System::Drawing::Size(76, 20);
+			this->txtATime->Size = System::Drawing::Size(165, 20);
 			this->txtATime->TabIndex = 26;
 			this->txtATime->ValidatingType = System::DateTime::typeid;
 			// 
 			// txtADistance
 			// 
-			this->txtADistance->Location = System::Drawing::Point(94, 159);
-			this->txtADistance->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtADistance->Location = System::Drawing::Point(83, 142);
+			this->txtADistance->Margin = System::Windows::Forms::Padding(2);
 			this->txtADistance->Name = L"txtADistance";
-			this->txtADistance->Size = System::Drawing::Size(76, 20);
+			this->txtADistance->Size = System::Drawing::Size(165, 20);
 			this->txtADistance->TabIndex = 25;
 			// 
 			// label18
 			// 
 			this->label18->AutoSize = true;
-			this->label18->Location = System::Drawing::Point(12, 164);
+			this->label18->Location = System::Drawing::Point(18, 145);
 			this->label18->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label18->Name = L"label18";
-			this->label18->Size = System::Drawing::Size(45, 13);
+			this->label18->Size = System::Drawing::Size(48, 13);
 			this->label18->TabIndex = 24;
-			this->label18->Text = L"Dystans";
+			this->label18->Text = L"Dystans:";
 			// 
 			// txtACost
 			// 
 			this->txtACost->Enabled = false;
-			this->txtACost->Location = System::Drawing::Point(101, 196);
-			this->txtACost->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtACost->Location = System::Drawing::Point(83, 177);
+			this->txtACost->Margin = System::Windows::Forms::Padding(2);
 			this->txtACost->Name = L"txtACost";
-			this->txtACost->Size = System::Drawing::Size(76, 20);
+			this->txtACost->Size = System::Drawing::Size(165, 20);
 			this->txtACost->TabIndex = 23;
 			// 
 			// label19
 			// 
 			this->label19->AutoSize = true;
-			this->label19->Location = System::Drawing::Point(12, 198);
+			this->label19->Location = System::Drawing::Point(28, 180);
 			this->label19->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label19->Name = L"label19";
-			this->label19->Size = System::Drawing::Size(33, 13);
+			this->label19->Size = System::Drawing::Size(36, 13);
 			this->label19->TabIndex = 22;
-			this->label19->Text = L"Koszt";
+			this->label19->Text = L"Koszt:";
 			this->label19->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
 			// label21
 			// 
 			this->label21->AutoSize = true;
-			this->label21->Location = System::Drawing::Point(17, 128);
+			this->label21->Location = System::Drawing::Point(28, 110);
 			this->label21->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label21->Name = L"label21";
-			this->label21->Size = System::Drawing::Size(35, 13);
+			this->label21->Size = System::Drawing::Size(38, 13);
 			this->label21->TabIndex = 21;
-			this->label21->Text = L"Strefa";
+			this->label21->Text = L"Strefa:";
 			// 
 			// comboBoxAdmin
 			// 
 			this->comboBoxAdmin->FormattingEnabled = true;
 			this->comboBoxAdmin->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Strefa_1", L"Strefa_2" });
-			this->comboBoxAdmin->Location = System::Drawing::Point(94, 122);
-			this->comboBoxAdmin->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->comboBoxAdmin->Location = System::Drawing::Point(83, 107);
+			this->comboBoxAdmin->Margin = System::Windows::Forms::Padding(2);
 			this->comboBoxAdmin->Name = L"comboBoxAdmin";
-			this->comboBoxAdmin->Size = System::Drawing::Size(92, 21);
+			this->comboBoxAdmin->Size = System::Drawing::Size(165, 21);
 			this->comboBoxAdmin->TabIndex = 20;
 			// 
 			// label22
 			// 
 			this->label22->AutoSize = true;
-			this->label22->Location = System::Drawing::Point(12, 80);
+			this->label22->Location = System::Drawing::Point(17, 76);
 			this->label22->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label22->Name = L"label22";
 			this->label22->Size = System::Drawing::Size(49, 13);
@@ -540,26 +565,26 @@ namespace TaxiApp {
 			// label23
 			// 
 			this->label23->AutoSize = true;
-			this->label23->Location = System::Drawing::Point(17, 41);
+			this->label23->Location = System::Drawing::Point(33, 47);
 			this->label23->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label23->Name = L"label23";
-			this->label23->Size = System::Drawing::Size(30, 13);
+			this->label23->Size = System::Drawing::Size(33, 13);
 			this->label23->TabIndex = 18;
-			this->label23->Text = L"Data";
+			this->label23->Text = L"Data:";
 			// 
 			// dateTimePickerAdmin
 			// 
 			this->dateTimePickerAdmin->Location = System::Drawing::Point(83, 41);
-			this->dateTimePickerAdmin->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->dateTimePickerAdmin->Margin = System::Windows::Forms::Padding(2);
 			this->dateTimePickerAdmin->Name = L"dateTimePickerAdmin";
-			this->dateTimePickerAdmin->Size = System::Drawing::Size(151, 20);
+			this->dateTimePickerAdmin->Size = System::Drawing::Size(165, 20);
 			this->dateTimePickerAdmin->TabIndex = 17;
 			// 
 			// dgCustomersForTrip
 			// 
 			this->dgCustomersForTrip->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dgCustomersForTrip->Location = System::Drawing::Point(667, 81);
-			this->dgCustomersForTrip->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->dgCustomersForTrip->Margin = System::Windows::Forms::Padding(2);
 			this->dgCustomersForTrip->Name = L"dgCustomersForTrip";
 			this->dgCustomersForTrip->RowHeadersWidth = 51;
 			this->dgCustomersForTrip->RowTemplate->Height = 24;
@@ -572,7 +597,7 @@ namespace TaxiApp {
 			// 
 			this->dgDriversForTrip->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dgDriversForTrip->Location = System::Drawing::Point(332, 81);
-			this->dgDriversForTrip->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->dgDriversForTrip->Margin = System::Windows::Forms::Padding(2);
 			this->dgDriversForTrip->Name = L"dgDriversForTrip";
 			this->dgDriversForTrip->RowHeadersWidth = 51;
 			this->dgDriversForTrip->RowTemplate->Height = 24;
@@ -591,9 +616,9 @@ namespace TaxiApp {
 			this->tabPage2->Controls->Add(this->label1);
 			this->tabPage2->Controls->Add(this->dGCustomers);
 			this->tabPage2->Location = System::Drawing::Point(4, 22);
-			this->tabPage2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->tabPage2->Margin = System::Windows::Forms::Padding(2);
 			this->tabPage2->Name = L"tabPage2";
-			this->tabPage2->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->tabPage2->Padding = System::Windows::Forms::Padding(2);
 			this->tabPage2->Size = System::Drawing::Size(1045, 547);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"Klienci";
@@ -613,9 +638,9 @@ namespace TaxiApp {
 			this->gBCostumer->Controls->Add(this->label4);
 			this->gBCostumer->Controls->Add(this->label5);
 			this->gBCostumer->Location = System::Drawing::Point(76, 137);
-			this->gBCostumer->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->gBCostumer->Margin = System::Windows::Forms::Padding(2);
 			this->gBCostumer->Name = L"gBCostumer";
-			this->gBCostumer->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->gBCostumer->Padding = System::Windows::Forms::Padding(2);
 			this->gBCostumer->Size = System::Drawing::Size(404, 181);
 			this->gBCostumer->TabIndex = 30;
 			this->gBCostumer->TabStop = false;
@@ -708,7 +733,7 @@ namespace TaxiApp {
 			this->btnCustomerEdit->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnCustomerEdit->ForeColor = System::Drawing::Color::White;
 			this->btnCustomerEdit->Location = System::Drawing::Point(360, 331);
-			this->btnCustomerEdit->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnCustomerEdit->Margin = System::Windows::Forms::Padding(2);
 			this->btnCustomerEdit->Name = L"btnCustomerEdit";
 			this->btnCustomerEdit->Size = System::Drawing::Size(78, 30);
 			this->btnCustomerEdit->TabIndex = 29;
@@ -723,7 +748,7 @@ namespace TaxiApp {
 			this->btnCustomerAdd->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnCustomerAdd->ForeColor = System::Drawing::Color::White;
 			this->btnCustomerAdd->Location = System::Drawing::Point(111, 331);
-			this->btnCustomerAdd->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnCustomerAdd->Margin = System::Windows::Forms::Padding(2);
 			this->btnCustomerAdd->Name = L"btnCustomerAdd";
 			this->btnCustomerAdd->Size = System::Drawing::Size(78, 30);
 			this->btnCustomerAdd->TabIndex = 28;
@@ -738,7 +763,7 @@ namespace TaxiApp {
 			this->btnCustomerDelete->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnCustomerDelete->ForeColor = System::Drawing::Color::White;
 			this->btnCustomerDelete->Location = System::Drawing::Point(234, 331);
-			this->btnCustomerDelete->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnCustomerDelete->Margin = System::Windows::Forms::Padding(2);
 			this->btnCustomerDelete->Name = L"btnCustomerDelete";
 			this->btnCustomerDelete->Size = System::Drawing::Size(78, 30);
 			this->btnCustomerDelete->TabIndex = 4;
@@ -753,7 +778,7 @@ namespace TaxiApp {
 			this->btnKlientSzukaj->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnKlientSzukaj->ForeColor = System::Drawing::Color::White;
 			this->btnKlientSzukaj->Location = System::Drawing::Point(387, 88);
-			this->btnKlientSzukaj->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnKlientSzukaj->Margin = System::Windows::Forms::Padding(2);
 			this->btnKlientSzukaj->Name = L"btnKlientSzukaj";
 			this->btnKlientSzukaj->Size = System::Drawing::Size(93, 29);
 			this->btnKlientSzukaj->TabIndex = 3;
@@ -764,7 +789,7 @@ namespace TaxiApp {
 			// txtCustomerSearch
 			// 
 			this->txtCustomerSearch->Location = System::Drawing::Point(201, 93);
-			this->txtCustomerSearch->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtCustomerSearch->Margin = System::Windows::Forms::Padding(2);
 			this->txtCustomerSearch->Name = L"txtCustomerSearch";
 			this->txtCustomerSearch->Size = System::Drawing::Size(165, 20);
 			this->txtCustomerSearch->TabIndex = 2;
@@ -785,7 +810,7 @@ namespace TaxiApp {
 			this->dGCustomers->AllowUserToOrderColumns = true;
 			this->dGCustomers->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dGCustomers->Location = System::Drawing::Point(526, 35);
-			this->dGCustomers->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->dGCustomers->Margin = System::Windows::Forms::Padding(2);
 			this->dGCustomers->Name = L"dGCustomers";
 			this->dGCustomers->RowHeadersWidth = 51;
 			this->dGCustomers->RowTemplate->Height = 24;
@@ -805,7 +830,7 @@ namespace TaxiApp {
 			this->tabPage1->Controls->Add(this->label12);
 			this->tabPage1->Controls->Add(this->dGCars);
 			this->tabPage1->Location = System::Drawing::Point(4, 22);
-			this->tabPage1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->tabPage1->Margin = System::Windows::Forms::Padding(2);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Size = System::Drawing::Size(1045, 547);
 			this->tabPage1->TabIndex = 2;
@@ -819,7 +844,7 @@ namespace TaxiApp {
 			this->btnCarEdit->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnCarEdit->ForeColor = System::Drawing::Color::White;
 			this->btnCarEdit->Location = System::Drawing::Point(332, 301);
-			this->btnCarEdit->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnCarEdit->Margin = System::Windows::Forms::Padding(2);
 			this->btnCarEdit->Name = L"btnCarEdit";
 			this->btnCarEdit->Size = System::Drawing::Size(78, 30);
 			this->btnCarEdit->TabIndex = 39;
@@ -838,9 +863,9 @@ namespace TaxiApp {
 			this->gbCar->Controls->Add(this->label9);
 			this->gbCar->Controls->Add(this->label10);
 			this->gbCar->Location = System::Drawing::Point(76, 137);
-			this->gbCar->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->gbCar->Margin = System::Windows::Forms::Padding(2);
 			this->gbCar->Name = L"gbCar";
-			this->gbCar->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->gbCar->Padding = System::Windows::Forms::Padding(2);
 			this->gbCar->Size = System::Drawing::Size(404, 145);
 			this->gbCar->TabIndex = 38;
 			this->gbCar->TabStop = false;
@@ -918,7 +943,7 @@ namespace TaxiApp {
 			this->btnCarAdd->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnCarAdd->ForeColor = System::Drawing::Color::White;
 			this->btnCarAdd->Location = System::Drawing::Point(110, 301);
-			this->btnCarAdd->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnCarAdd->Margin = System::Windows::Forms::Padding(2);
 			this->btnCarAdd->Name = L"btnCarAdd";
 			this->btnCarAdd->Size = System::Drawing::Size(78, 30);
 			this->btnCarAdd->TabIndex = 36;
@@ -933,7 +958,7 @@ namespace TaxiApp {
 			this->btnCarDelete->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnCarDelete->ForeColor = System::Drawing::Color::White;
 			this->btnCarDelete->Location = System::Drawing::Point(220, 301);
-			this->btnCarDelete->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnCarDelete->Margin = System::Windows::Forms::Padding(2);
 			this->btnCarDelete->Name = L"btnCarDelete";
 			this->btnCarDelete->Size = System::Drawing::Size(78, 30);
 			this->btnCarDelete->TabIndex = 35;
@@ -948,7 +973,7 @@ namespace TaxiApp {
 			this->btnCarSearch->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnCarSearch->ForeColor = System::Drawing::Color::White;
 			this->btnCarSearch->Location = System::Drawing::Point(394, 87);
-			this->btnCarSearch->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnCarSearch->Margin = System::Windows::Forms::Padding(2);
 			this->btnCarSearch->Name = L"btnCarSearch";
 			this->btnCarSearch->Size = System::Drawing::Size(93, 29);
 			this->btnCarSearch->TabIndex = 34;
@@ -959,7 +984,7 @@ namespace TaxiApp {
 			// txtCarSearch
 			// 
 			this->txtCarSearch->Location = System::Drawing::Point(201, 93);
-			this->txtCarSearch->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtCarSearch->Margin = System::Windows::Forms::Padding(2);
 			this->txtCarSearch->Name = L"txtCarSearch";
 			this->txtCarSearch->Size = System::Drawing::Size(165, 20);
 			this->txtCarSearch->TabIndex = 33;
@@ -980,7 +1005,7 @@ namespace TaxiApp {
 			this->dGCars->AllowUserToOrderColumns = true;
 			this->dGCars->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dGCars->Location = System::Drawing::Point(526, 35);
-			this->dGCars->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->dGCars->Margin = System::Windows::Forms::Padding(2);
 			this->dGCars->Name = L"dGCars";
 			this->dGCars->RowHeadersWidth = 51;
 			this->dGCars->RowTemplate->Height = 24;
@@ -999,7 +1024,7 @@ namespace TaxiApp {
 			this->tabPage3->Controls->Add(this->dGDrivers);
 			this->tabPage3->Controls->Add(this->btnDriverDelete);
 			this->tabPage3->Location = System::Drawing::Point(4, 22);
-			this->tabPage3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->tabPage3->Margin = System::Windows::Forms::Padding(2);
 			this->tabPage3->Name = L"tabPage3";
 			this->tabPage3->Size = System::Drawing::Size(1045, 547);
 			this->tabPage3->TabIndex = 3;
@@ -1014,7 +1039,7 @@ namespace TaxiApp {
 			this->btnDriverSearch->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnDriverSearch->ForeColor = System::Drawing::Color::White;
 			this->btnDriverSearch->Location = System::Drawing::Point(397, 88);
-			this->btnDriverSearch->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnDriverSearch->Margin = System::Windows::Forms::Padding(2);
 			this->btnDriverSearch->Name = L"btnDriverSearch";
 			this->btnDriverSearch->Size = System::Drawing::Size(93, 29);
 			this->btnDriverSearch->TabIndex = 50;
@@ -1025,7 +1050,7 @@ namespace TaxiApp {
 			// txtDriverSearch
 			// 
 			this->txtDriverSearch->Location = System::Drawing::Point(201, 93);
-			this->txtDriverSearch->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtDriverSearch->Margin = System::Windows::Forms::Padding(2);
 			this->txtDriverSearch->Name = L"txtDriverSearch";
 			this->txtDriverSearch->Size = System::Drawing::Size(165, 20);
 			this->txtDriverSearch->TabIndex = 49;
@@ -1047,7 +1072,7 @@ namespace TaxiApp {
 			this->btnDriverEdit->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnDriverEdit->ForeColor = System::Drawing::Color::White;
 			this->btnDriverEdit->Location = System::Drawing::Point(363, 389);
-			this->btnDriverEdit->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnDriverEdit->Margin = System::Windows::Forms::Padding(2);
 			this->btnDriverEdit->Name = L"btnDriverEdit";
 			this->btnDriverEdit->Size = System::Drawing::Size(78, 30);
 			this->btnDriverEdit->TabIndex = 47;
@@ -1075,9 +1100,9 @@ namespace TaxiApp {
 			this->gbDrivers->Controls->Add(this->label14);
 			this->gbDrivers->Controls->Add(this->txt_login_driver);
 			this->gbDrivers->Location = System::Drawing::Point(76, 137);
-			this->gbDrivers->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->gbDrivers->Margin = System::Windows::Forms::Padding(2);
 			this->gbDrivers->Name = L"gbDrivers";
-			this->gbDrivers->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->gbDrivers->Padding = System::Windows::Forms::Padding(2);
 			this->gbDrivers->Size = System::Drawing::Size(404, 233);
 			this->gbDrivers->TabIndex = 45;
 			this->gbDrivers->TabStop = false;
@@ -1087,7 +1112,7 @@ namespace TaxiApp {
 			// 
 			this->checkBoxD->AutoSize = true;
 			this->checkBoxD->Location = System::Drawing::Point(308, 198);
-			this->checkBoxD->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->checkBoxD->Margin = System::Windows::Forms::Padding(2);
 			this->checkBoxD->Name = L"checkBoxD";
 			this->checkBoxD->Size = System::Drawing::Size(34, 17);
 			this->checkBoxD->TabIndex = 48;
@@ -1098,7 +1123,7 @@ namespace TaxiApp {
 			// 
 			this->checkBoxC->AutoSize = true;
 			this->checkBoxC->Location = System::Drawing::Point(271, 198);
-			this->checkBoxC->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->checkBoxC->Margin = System::Windows::Forms::Padding(2);
 			this->checkBoxC->Name = L"checkBoxC";
 			this->checkBoxC->Size = System::Drawing::Size(33, 17);
 			this->checkBoxC->TabIndex = 47;
@@ -1109,7 +1134,7 @@ namespace TaxiApp {
 			// 
 			this->checkBoxB->AutoSize = true;
 			this->checkBoxB->Location = System::Drawing::Point(234, 198);
-			this->checkBoxB->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->checkBoxB->Margin = System::Windows::Forms::Padding(2);
 			this->checkBoxB->Name = L"checkBoxB";
 			this->checkBoxB->Size = System::Drawing::Size(33, 17);
 			this->checkBoxB->TabIndex = 46;
@@ -1120,7 +1145,7 @@ namespace TaxiApp {
 			// 
 			this->checkBoxA->AutoSize = true;
 			this->checkBoxA->Location = System::Drawing::Point(197, 198);
-			this->checkBoxA->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->checkBoxA->Margin = System::Windows::Forms::Padding(2);
 			this->checkBoxA->Name = L"checkBoxA";
 			this->checkBoxA->Size = System::Drawing::Size(33, 17);
 			this->checkBoxA->TabIndex = 45;
@@ -1239,7 +1264,7 @@ namespace TaxiApp {
 			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button2->ForeColor = System::Drawing::Color::White;
 			this->button2->Location = System::Drawing::Point(116, 389);
-			this->button2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button2->Margin = System::Windows::Forms::Padding(2);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(78, 30);
 			this->button2->TabIndex = 46;
@@ -1251,7 +1276,7 @@ namespace TaxiApp {
 			// 
 			this->dGDrivers->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dGDrivers->Location = System::Drawing::Point(526, 35);
-			this->dGDrivers->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->dGDrivers->Margin = System::Windows::Forms::Padding(2);
 			this->dGDrivers->Name = L"dGDrivers";
 			this->dGDrivers->RowHeadersWidth = 51;
 			this->dGDrivers->RowTemplate->Height = 24;
@@ -1266,7 +1291,7 @@ namespace TaxiApp {
 			this->btnDriverDelete->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnDriverDelete->ForeColor = System::Drawing::Color::White;
 			this->btnDriverDelete->Location = System::Drawing::Point(241, 389);
-			this->btnDriverDelete->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnDriverDelete->Margin = System::Windows::Forms::Padding(2);
 			this->btnDriverDelete->Name = L"btnDriverDelete";
 			this->btnDriverDelete->Size = System::Drawing::Size(78, 30);
 			this->btnDriverDelete->TabIndex = 45;
@@ -1281,7 +1306,7 @@ namespace TaxiApp {
 			this->ClientSize = System::Drawing::Size(1053, 573);
 			this->Controls->Add(this->tabControl1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"Program";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"TaxiApp";
