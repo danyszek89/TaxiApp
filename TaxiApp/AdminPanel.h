@@ -60,13 +60,13 @@ namespace TaxiApp {
 		{
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->txt_car_model = (gcnew System::Windows::Forms::TextBox());
+			this->txt_car_brand = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
-			this->txt_car_brand = (gcnew System::Windows::Forms::TextBox());
-			this->txt_car_model = (gcnew System::Windows::Forms::TextBox());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->tabControl1->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
@@ -98,12 +98,43 @@ namespace TaxiApp {
 			this->tabPage1->Text = L"Zarz¹dzaj flot¹";
 			this->tabPage1->UseVisualStyleBackColor = true;
 			// 
+			// comboBox1
+			// 
+			this->comboBox1->FormattingEnabled = true;
+			this->comboBox1->Location = System::Drawing::Point(106, 176);
+			this->comboBox1->Name = L"comboBox1";
+			this->comboBox1->Size = System::Drawing::Size(100, 21);
+			this->comboBox1->TabIndex = 5;
+			// 
+			// textBox3
+			// 
+			this->textBox3->Location = System::Drawing::Point(106, 149);
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->Size = System::Drawing::Size(100, 20);
+			this->textBox3->TabIndex = 4;
+			// 
+			// txt_car_model
+			// 
+			this->txt_car_model->Location = System::Drawing::Point(106, 122);
+			this->txt_car_model->Name = L"txt_car_model";
+			this->txt_car_model->Size = System::Drawing::Size(100, 20);
+			this->txt_car_model->TabIndex = 3;
+			// 
+			// txt_car_brand
+			// 
+			this->txt_car_brand->Location = System::Drawing::Point(106, 96);
+			this->txt_car_brand->Name = L"txt_car_brand";
+			this->txt_car_brand->Size = System::Drawing::Size(100, 20);
+			this->txt_car_brand->TabIndex = 2;
+			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
 			this->label1->Location = System::Drawing::Point(246, 13);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(94, 13);
+			this->label1->Size = System::Drawing::Size(148, 21);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Nasze samochody";
 			// 
@@ -127,35 +158,6 @@ namespace TaxiApp {
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"tabPage2";
 			this->tabPage2->UseVisualStyleBackColor = true;
-			// 
-			// txt_car_brand
-			// 
-			this->txt_car_brand->Location = System::Drawing::Point(106, 96);
-			this->txt_car_brand->Name = L"txt_car_brand";
-			this->txt_car_brand->Size = System::Drawing::Size(100, 20);
-			this->txt_car_brand->TabIndex = 2;
-			// 
-			// txt_car_model
-			// 
-			this->txt_car_model->Location = System::Drawing::Point(106, 122);
-			this->txt_car_model->Name = L"txt_car_model";
-			this->txt_car_model->Size = System::Drawing::Size(100, 20);
-			this->txt_car_model->TabIndex = 3;
-			// 
-			// textBox3
-			// 
-			this->textBox3->Location = System::Drawing::Point(106, 149);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(100, 20);
-			this->textBox3->TabIndex = 4;
-			// 
-			// comboBox1
-			// 
-			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Location = System::Drawing::Point(106, 176);
-			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(100, 21);
-			this->comboBox1->TabIndex = 5;
 			// 
 			// AdminPanel
 			// 

@@ -17,7 +17,7 @@ namespace TaxiApp {
 	public ref class Register : public System::Windows::Forms::Form
 	{
 	public:
-		String^ configuration = L"datasource=localhost ; port=3306; username=root; password=123123; database=taxiappdb";
+		String^ configuration = L"datasource=localhost ; port=3306; username=root; password=zaq1@WSX; database=taxiappdb";
 
 		Register(void)
 		{

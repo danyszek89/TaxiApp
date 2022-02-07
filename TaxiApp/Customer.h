@@ -47,6 +47,7 @@ namespace TaxiApp {
 	private: System::Windows::Forms::Label^ label10;
 	private: System::Windows::Forms::DateTimePicker^ dateTimePicker;
 	private: System::Windows::Forms::DataGridView^ dGTripDriver;
+	private: System::Windows::Forms::Label^ label11;
 
 	public:
 
@@ -61,7 +62,7 @@ namespace TaxiApp {
 
 
 
-		   String^ configuration = L"datasource=localhost ; port=3306; username=root; password=123123; database=taxiappdb";
+		   String^ configuration = L"datasource=localhost ; port=3306; username=root; password=zaq1@WSX; database=taxiappdb";
 		Customer(int customer, int user)
 		{
 			InitializeComponent();
@@ -105,6 +106,7 @@ namespace TaxiApp {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Customer::typeid));
 			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->btnFuture = (gcnew System::Windows::Forms::Button());
 			this->btnArchive = (gcnew System::Windows::Forms::Button());
 			this->label4 = (gcnew System::Windows::Forms::Label());
@@ -154,6 +156,7 @@ namespace TaxiApp {
 			// 
 			// tabPage1
 			// 
+			this->tabPage1->Controls->Add(this->label11);
 			this->tabPage1->Controls->Add(this->btnFuture);
 			this->tabPage1->Controls->Add(this->btnArchive);
 			this->tabPage1->Controls->Add(this->label4);
@@ -183,13 +186,27 @@ namespace TaxiApp {
 			this->tabPage1->UseVisualStyleBackColor = true;
 			this->tabPage1->Click += gcnew System::EventHandler(this, &Customer::tabPage1_Click);
 			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(238)));
+			this->label11->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(29)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->label11->Location = System::Drawing::Point(152, 21);
+			this->label11->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(181, 22);
+			this->label11->TabIndex = 41;
+			this->label11->Text = L"Planowanie podró¿y:";
+			// 
 			// btnFuture
 			// 
 			this->btnFuture->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(29)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
 				static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->btnFuture->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnFuture->ForeColor = System::Drawing::Color::White;
-			this->btnFuture->Location = System::Drawing::Point(508, 275);
+			this->btnFuture->Location = System::Drawing::Point(507, 285);
 			this->btnFuture->Margin = System::Windows::Forms::Padding(2);
 			this->btnFuture->Name = L"btnFuture";
 			this->btnFuture->Size = System::Drawing::Size(138, 29);
@@ -204,7 +221,7 @@ namespace TaxiApp {
 				static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->btnArchive->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnArchive->ForeColor = System::Drawing::Color::White;
-			this->btnArchive->Location = System::Drawing::Point(650, 275);
+			this->btnArchive->Location = System::Drawing::Point(649, 285);
 			this->btnArchive->Margin = System::Windows::Forms::Padding(2);
 			this->btnArchive->Name = L"btnArchive";
 			this->btnArchive->Size = System::Drawing::Size(138, 29);
@@ -216,12 +233,14 @@ namespace TaxiApp {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label4->Location = System::Drawing::Point(54, 277);
+			this->label4->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(29)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->label4->Location = System::Drawing::Point(53, 292);
 			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(145, 21);
+			this->label4->Size = System::Drawing::Size(154, 22);
 			this->label4->TabIndex = 38;
 			this->label4->Text = L"Twoje rezerwacje:";
 			// 
@@ -230,7 +249,7 @@ namespace TaxiApp {
 			this->btnCancelTrip->BackColor = System::Drawing::Color::DarkOrange;
 			this->btnCancelTrip->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnCancelTrip->ForeColor = System::Drawing::Color::Black;
-			this->btnCancelTrip->Location = System::Drawing::Point(366, 275);
+			this->btnCancelTrip->Location = System::Drawing::Point(365, 285);
 			this->btnCancelTrip->Margin = System::Windows::Forms::Padding(2);
 			this->btnCancelTrip->Name = L"btnCancelTrip";
 			this->btnCancelTrip->Size = System::Drawing::Size(138, 29);
@@ -248,7 +267,7 @@ namespace TaxiApp {
 			this->dGTrips->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::AllCells;
 			this->dGTrips->AutoSizeRowsMode = System::Windows::Forms::DataGridViewAutoSizeRowsMode::AllCells;
 			this->dGTrips->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dGTrips->Location = System::Drawing::Point(48, 308);
+			this->dGTrips->Location = System::Drawing::Point(47, 323);
 			this->dGTrips->Margin = System::Windows::Forms::Padding(2);
 			this->dGTrips->Name = L"dGTrips";
 			this->dGTrips->ReadOnly = true;
@@ -291,12 +310,14 @@ namespace TaxiApp {
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
+			this->label7->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(29)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
+				static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->label7->Location = System::Drawing::Point(433, 21);
 			this->label7->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(169, 21);
+			this->label7->Size = System::Drawing::Size(183, 22);
 			this->label7->TabIndex = 33;
 			this->label7->Text = L"Kierowcy do wyboru:";
 			// 
@@ -425,7 +446,7 @@ namespace TaxiApp {
 			this->dGTripDriver->ShowCellToolTips = false;
 			this->dGTripDriver->ShowEditingIcon = false;
 			this->dGTripDriver->ShowRowErrors = false;
-			this->dGTripDriver->Size = System::Drawing::Size(536, 151);
+			this->dGTripDriver->Size = System::Drawing::Size(536, 201);
 			this->dGTripDriver->TabIndex = 22;
 			this->dGTripDriver->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Customer::dGTripDriver_CellClick);
 			this->dGTripDriver->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Customer::dGTripDriver_CellContentClick);
@@ -454,7 +475,7 @@ namespace TaxiApp {
 			this->label17->AutoSize = true;
 			this->label17->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label17->Location = System::Drawing::Point(428, 137);
+			this->label17->Location = System::Drawing::Point(436, 138);
 			this->label17->Name = L"label17";
 			this->label17->Size = System::Drawing::Size(152, 28);
 			this->label17->TabIndex = 16;
@@ -490,6 +511,7 @@ namespace TaxiApp {
 			this->txtOldPasswordCustomer->PasswordChar = '*';
 			this->txtOldPasswordCustomer->Size = System::Drawing::Size(166, 20);
 			this->txtOldPasswordCustomer->TabIndex = 3;
+			this->txtOldPasswordCustomer->TextChanged += gcnew System::EventHandler(this, &Customer::txtOldPasswordCustomer_TextChanged);
 			// 
 			// txtRepeatPasswordCustomer
 			// 
@@ -555,45 +577,66 @@ namespace TaxiApp {
 	private: System::Void tabPage1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void btnChangePasswordCustomer_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (txtNewPasswordCustomer->Text != txtRepeatPasswordCustomer->Text)
+		if (txtOldPasswordCustomer->Text == "" || txtNewPasswordCustomer->Text == "" || txtRepeatPasswordCustomer->Text == "")
 		{
-			MessageBox::Show("Has³a nie s¹ takie same");
-			return;
+			MessageBox::Show("Wype³nij wszystkie pola.", "Informacja", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
 		}
-
-		if (txtNewPasswordCustomer->Text == txtOldPasswordCustomer->Text)
+		else
 		{
-			MessageBox::Show("Nowe has³o nie mo¿e takie same jak stare");
-			return;
-		}
-
-		MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
-		MySqlCommand^ query = gcnew MySqlCommand(" UPDATE tbl_user SET password = md5('" + txtNewPasswordCustomer->Text + "') WHERE user_id = " + id_user + "  AND password = md5('" + txtOldPasswordCustomer->Text + "')", baseConnection);
-
-		try
-		{
-			baseConnection->Open();
-
-			if (query->ExecuteNonQuery())
+			if (txtNewPasswordCustomer->Text->Length < 6 || txtNewPasswordCustomer->Text->Length >20)
 			{
-				MessageBox::Show("Has³o zosta³o zmienione");
-				txtOldPasswordCustomer->Text = "";
-				txtNewPasswordCustomer->Text = "";
-				txtRepeatPasswordCustomer->Text = "";			
+				MessageBox::Show("Has³o musi spe³niaæ nastêpuj¹ce wymagania: od 6 do 20 znaków.", "Informacja", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
+				return;
 			}
 
-			else
+			if (txtNewPasswordCustomer->Text != txtRepeatPasswordCustomer->Text)
 			{
-				MessageBox::Show("Has³o niepoprawne");
-			}
-			baseConnection->Close();
+				MessageBox::Show("Has³a nie s¹ takie same.", "Informacja", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
 
-		}
-		catch (Exception^ komunikat)
-		{
-			MessageBox::Show(komunikat->Message);
-		}
+				return;
+			}
+
+			if (txtNewPasswordCustomer->Text == txtOldPasswordCustomer->Text)
+			{
+				MessageBox::Show("Nowe has³o nie mo¿e takie same jak stare.", "Informacja", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
+
+				//MessageBox::Show("Nowe has³o nie mo¿e takie same jak stare");
+				return;
+			}
+
+			MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
+			MySqlCommand^ query = gcnew MySqlCommand(" UPDATE tbl_user SET password = md5('" + txtNewPasswordCustomer->Text + "') WHERE user_id = " + id_user + "  AND password = md5('" + txtOldPasswordCustomer->Text + "')", baseConnection);
+
+			try
+			{
+				baseConnection->Open();
+
+				if (query->ExecuteNonQuery())
+				{
+					MessageBox::Show("Has³o zosta³o zmienione.", "Informacja", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
+
+					//MessageBox::Show("Has³o zosta³o zmienione");
+					txtOldPasswordCustomer->Text = "";
+					txtNewPasswordCustomer->Text = "";
+					txtRepeatPasswordCustomer->Text = "";
+				}
+
+				else
+				{
+					MessageBox::Show("Aktualne has³o niepoprawne.", "Informacja", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
+
+					//MessageBox::Show("Aktualne Has³o niepoprawne");
+				}
+				baseConnection->Close();
+
+			}
+			catch (Exception^ komunikat)
+			{
+				MessageBox::Show(komunikat->Message);
+			}
 		
+		
+ }
 		
 
 	}
@@ -865,6 +908,8 @@ private: System::Void txtDistance_KeyPress(System::Object^ sender, System::Windo
 		e->Handled = true;
 	}
 
+}
+private: System::Void txtOldPasswordCustomer_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

@@ -44,7 +44,7 @@ namespace TaxiApp {
 	private: System::Windows::Forms::Label^ label17;
 
 	public:
-		String^ configuration = L"datasource=localhost ; port=3306; username=root; password=123123; database=taxiappdb";
+		String^ configuration = L"datasource=localhost ; port=3306; username=root; password=zaq1@WSX database=taxiappdb";
 		DriverProgram(int driver, int user)
 		{
 			InitializeComponent();
@@ -154,12 +154,12 @@ namespace TaxiApp {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label2->Location = System::Drawing::Point(53, 28);
+			this->label2->Location = System::Drawing::Point(141, 69);
 			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(158, 20);
+			this->label2->Size = System::Drawing::Size(193, 26);
 			this->label2->TabIndex = 34;
 			this->label2->Text = L"Tw鎩 samoch鏚 to:";
 			this->label2->Click += gcnew System::EventHandler(this, &DriverProgram::label2_Click);
@@ -170,10 +170,10 @@ namespace TaxiApp {
 				static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->btnCarChoose->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnCarChoose->ForeColor = System::Drawing::Color::White;
-			this->btnCarChoose->Location = System::Drawing::Point(57, 169);
+			this->btnCarChoose->Location = System::Drawing::Point(157, 144);
 			this->btnCarChoose->Margin = System::Windows::Forms::Padding(2);
 			this->btnCarChoose->Name = L"btnCarChoose";
-			this->btnCarChoose->Size = System::Drawing::Size(171, 47);
+			this->btnCarChoose->Size = System::Drawing::Size(152, 32);
 			this->btnCarChoose->TabIndex = 33;
 			this->btnCarChoose->Text = L"Wybierz";
 			this->btnCarChoose->UseVisualStyleBackColor = false;
@@ -182,12 +182,12 @@ namespace TaxiApp {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label1->Location = System::Drawing::Point(14, 55);
+			this->label1->Location = System::Drawing::Point(97, 106);
 			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(242, 20);
+			this->label1->Size = System::Drawing::Size(264, 21);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Nie masz wybranego samochodu";
 			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -230,7 +230,7 @@ namespace TaxiApp {
 			this->label17->AutoSize = true;
 			this->label17->Font = (gcnew System::Drawing::Font(L"Microsoft YaHei UI", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(238)));
-			this->label17->Location = System::Drawing::Point(431, 49);
+			this->label17->Location = System::Drawing::Point(423, 61);
 			this->label17->Name = L"label17";
 			this->label17->Size = System::Drawing::Size(152, 28);
 			this->label17->TabIndex = 17;
@@ -332,11 +332,10 @@ namespace TaxiApp {
 			// 
 			// btnWeek
 			// 
-			this->btnWeek->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(29)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
-				static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->btnWeek->BackColor = System::Drawing::Color::Gold;
 			this->btnWeek->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btnWeek->ForeColor = System::Drawing::Color::White;
-			this->btnWeek->Location = System::Drawing::Point(340, 367);
+			this->btnWeek->ForeColor = System::Drawing::Color::Black;
+			this->btnWeek->Location = System::Drawing::Point(340, 150);
 			this->btnWeek->Margin = System::Windows::Forms::Padding(2);
 			this->btnWeek->Name = L"btnWeek";
 			this->btnWeek->Size = System::Drawing::Size(100, 27);
@@ -347,11 +346,10 @@ namespace TaxiApp {
 			// 
 			// btnYear
 			// 
-			this->btnYear->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(29)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
-				static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->btnYear->BackColor = System::Drawing::Color::Gold;
 			this->btnYear->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btnYear->ForeColor = System::Drawing::Color::White;
-			this->btnYear->Location = System::Drawing::Point(72, 367);
+			this->btnYear->ForeColor = System::Drawing::Color::Black;
+			this->btnYear->Location = System::Drawing::Point(340, 71);
 			this->btnYear->Margin = System::Windows::Forms::Padding(2);
 			this->btnYear->Name = L"btnYear";
 			this->btnYear->Size = System::Drawing::Size(100, 27);
@@ -362,11 +360,10 @@ namespace TaxiApp {
 			// 
 			// btnMonth
 			// 
-			this->btnMonth->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(29)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
-				static_cast<System::Int32>(static_cast<System::Byte>(242)));
+			this->btnMonth->BackColor = System::Drawing::Color::Gold;
 			this->btnMonth->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btnMonth->ForeColor = System::Drawing::Color::White;
-			this->btnMonth->Location = System::Drawing::Point(203, 367);
+			this->btnMonth->ForeColor = System::Drawing::Color::Black;
+			this->btnMonth->Location = System::Drawing::Point(340, 110);
 			this->btnMonth->Margin = System::Windows::Forms::Padding(2);
 			this->btnMonth->Name = L"btnMonth";
 			this->btnMonth->Size = System::Drawing::Size(100, 27);
@@ -378,48 +375,48 @@ namespace TaxiApp {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(125, 117);
+			this->label8->Location = System::Drawing::Point(46, 150);
 			this->label8->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(98, 13);
+			this->label8->Size = System::Drawing::Size(101, 13);
 			this->label8->TabIndex = 7;
-			this->label8->Text = L"ㄨcznie kilometr闚";
+			this->label8->Text = L"ㄨcznie kilometr闚:";
 			// 
 			// txtKmSum
 			// 
-			this->txtKmSum->Location = System::Drawing::Point(136, 150);
+			this->txtKmSum->Location = System::Drawing::Point(157, 147);
 			this->txtKmSum->Margin = System::Windows::Forms::Padding(2);
 			this->txtKmSum->Name = L"txtKmSum";
-			this->txtKmSum->Size = System::Drawing::Size(76, 20);
+			this->txtKmSum->Size = System::Drawing::Size(165, 20);
 			this->txtKmSum->TabIndex = 6;
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(20, 117);
+			this->label7->Location = System::Drawing::Point(69, 85);
 			this->label7->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(75, 13);
+			this->label7->Size = System::Drawing::Size(78, 13);
 			this->label7->TabIndex = 5;
-			this->label7->Text = L"Liczba kurs闚";
+			this->label7->Text = L"Liczba kurs闚:";
 			// 
 			// txtCount
 			// 
-			this->txtCount->Location = System::Drawing::Point(22, 150);
+			this->txtCount->Location = System::Drawing::Point(157, 82);
 			this->txtCount->Margin = System::Windows::Forms::Padding(2);
 			this->txtCount->Name = L"txtCount";
-			this->txtCount->Size = System::Drawing::Size(76, 20);
+			this->txtCount->Size = System::Drawing::Size(165, 20);
 			this->txtCount->TabIndex = 4;
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(241, 117);
+			this->label6->Location = System::Drawing::Point(57, 117);
 			this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(94, 13);
+			this->label6->Size = System::Drawing::Size(90, 13);
 			this->label6->TabIndex = 3;
-			this->label6->Text = L"ㄨcznie zarobione";
+			this->label6->Text = L"Zarobiona kwota:";
 			// 
 			// btnCalculate
 			// 
@@ -427,10 +424,10 @@ namespace TaxiApp {
 				static_cast<System::Int32>(static_cast<System::Byte>(242)));
 			this->btnCalculate->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->btnCalculate->ForeColor = System::Drawing::Color::White;
-			this->btnCalculate->Location = System::Drawing::Point(347, 147);
+			this->btnCalculate->Location = System::Drawing::Point(157, 180);
 			this->btnCalculate->Margin = System::Windows::Forms::Padding(2);
 			this->btnCalculate->Name = L"btnCalculate";
-			this->btnCalculate->Size = System::Drawing::Size(93, 25);
+			this->btnCalculate->Size = System::Drawing::Size(165, 33);
 			this->btnCalculate->TabIndex = 2;
 			this->btnCalculate->Text = L"Oblicz";
 			this->btnCalculate->UseVisualStyleBackColor = false;
@@ -438,10 +435,10 @@ namespace TaxiApp {
 			// 
 			// txtCostSum
 			// 
-			this->txtCostSum->Location = System::Drawing::Point(243, 150);
+			this->txtCostSum->Location = System::Drawing::Point(157, 114);
 			this->txtCostSum->Margin = System::Windows::Forms::Padding(2);
 			this->txtCostSum->Name = L"txtCostSum";
-			this->txtCostSum->Size = System::Drawing::Size(76, 20);
+			this->txtCostSum->Size = System::Drawing::Size(165, 20);
 			this->txtCostSum->TabIndex = 1;
 			// 
 			// dGMyTrips
@@ -623,30 +620,32 @@ private: System::Void btnCarChoose_Click(System::Object^ sender, System::EventAr
 private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void btnChangePassword_Click(System::Object^ sender, System::EventArgs^ e) {
-	MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
-	MySqlCommand^ query = gcnew MySqlCommand(" UPDATE tbl_user SET password = md5('" + txtNewPassword->Text + "') WHERE user_id = " + id_user + "  AND password = md5('" + txtOldPassword->Text + "')", baseConnection);
+	
 
-	try
-	{
-		baseConnection->Open();
+		MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
+		MySqlCommand^ query = gcnew MySqlCommand(" UPDATE tbl_user SET password = md5('" + txtNewPassword->Text + "') WHERE user_id = " + id_user + "  AND password = md5('" + txtOldPassword->Text + "')", baseConnection);
 
-		if (query->ExecuteNonQuery())
+		try
 		{
-			MessageBox::Show("Has這 zosta這 zmienione");
-		}
+			baseConnection->Open();
 
-		else
+			if (query->ExecuteNonQuery())
+			{
+				MessageBox::Show("Has這 zosta這 zmienione");
+			}
+
+			else
+			{
+				MessageBox::Show("Has這 niepoprawne");
+			}
+			baseConnection->Close();
+
+		}
+		catch (Exception^ komunikat)
 		{
-			MessageBox::Show("Has這 niepoprawne");
+			MessageBox::Show(komunikat->Message);
 		}
-		baseConnection->Close();
-
-	}
-	catch (Exception^ komunikat)
-	{
-		MessageBox::Show(komunikat->Message);
-	}
-
+	
 }
 private: System::Void tabPage3_Click(System::Object^ sender, System::EventArgs^ e) {
 }
