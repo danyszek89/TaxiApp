@@ -17,7 +17,7 @@ namespace TaxiApp {
 	public ref class Register : public System::Windows::Forms::Form
 	{
 	public:
-		String^ configuration = L"datasource=localhost ; port=3306; username=root; password=12345; database=taxiappdb";
+		String^ configuration = L"datasource=localhost ; port=3306; username=root; password=zaq1@WSX; database=taxiappdb";
 
 		Register(void)
 		{
@@ -613,6 +613,40 @@ namespace TaxiApp {
 	}
 
 private: System::Void btn_register_as_custumer_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
+	MySqlCommand^ query = baseConnection->CreateCommand();
+	MySqlTransaction^ transaction;
+	baseConnection->Open();
+	transaction = baseConnection->BeginTransaction(IsolationLevel::ReadCommitted);
+
+	query->Connection = baseConnection;
+	query->Transaction = transaction;
+
+	if (txt_reg_login->Text->Length >= 3)
+	{
+		query->CommandText = "SELECT * FROM tbl_user WHERE login='" + txt_reg_login->Text + "' ; ";
+		MySqlDataReader^ result = query->ExecuteReader();
+		bool rezultat = result->HasRows;
+		if (rezultat)
+		{
+			MessageBox::Show("Login istnieje! " "", "B³¹d", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
+			return;
+		}
+		result->Close();
+		query->ExecuteNonQuery();
+	}
+	else
+	{
+		MessageBox::Show("Login musi sk³adaæ siê z co najmniej 3 znaków. " "", "B³¹d", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
+	}
+
+	if (txt_reg_password->Text->Length < 6 || txt_reg_password->Text->Length >20)
+	{
+		MessageBox::Show("Has³o musi spe³niaæ nastêpuj¹ce wymagania: od 6 do 20 znaków." "", "B³¹d", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
+	}
+
+
 	if (txt_reg_name->Text->Length < 3 || txt_reg_surname->Text->Length < 3 || txt_reg_email->Text->Length < 3 )
 	{
 		MessageBox::Show("WprowadŸ poprawne dane " "", "B³¹d", MessageBoxButtons::OK, MessageBoxIcon::Information) == System::Windows::Forms::DialogResult::Yes;
@@ -628,14 +662,14 @@ private: System::Void btn_register_as_custumer_Click(System::Object^ sender, Sys
 	}
 
 
-	MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
+	/*MySqlConnection^ baseConnection = gcnew MySqlConnection(configuration);
 	MySqlCommand^ query = baseConnection->CreateCommand();
 	MySqlTransaction^ transaction;
 	baseConnection->Open();
 	transaction = baseConnection->BeginTransaction(IsolationLevel::ReadCommitted);
 
 	query->Connection = baseConnection;
-	query->Transaction = transaction;
+	query->Transaction = transaction;*/
 
 	try
 	{
