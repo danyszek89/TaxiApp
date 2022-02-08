@@ -61,7 +61,7 @@ namespace TaxiApp {
 
 
 
-		   String^ configuration = L"datasource=localhost ; port=3306; username=root; password=123123; database=taxiappdb";
+		   String^ configuration = L"datasource=localhost ; port=3306; username=root; password=12345; database=taxiappdb";
 		Customer(int customer, int user)
 		{
 			InitializeComponent();
@@ -757,9 +757,9 @@ private: System::Void btnTripAdd_Click(System::Object^ sender, System::EventArgs
 
 }
 private: System::Void dGTripDriver_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	if (e->RowIndex != -1) {
+
 		driver_record_id = Convert::ToInt32(dGTripDriver->Rows[e->RowIndex]->Cells[0]->Value);
-	}
+	
 	
 
 }

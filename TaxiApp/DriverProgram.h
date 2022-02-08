@@ -44,7 +44,7 @@ namespace TaxiApp {
 	private: System::Windows::Forms::Label^ label17;
 
 	public:
-		String^ configuration = L"datasource=localhost ; port=3306; username=root; password=123123; database=taxiappdb";
+		String^ configuration = L"datasource=localhost ; port=3306; username=root; password=12345; database=taxiappdb";
 		DriverProgram(int driver, int user)
 		{
 			InitializeComponent();
@@ -657,8 +657,8 @@ private: System::Void btnCalculate_Click(System::Object^ sender, System::EventAr
 	for (int i = 0; i < dGMyTrips->Rows->Count; ++i)
 	{
 		
-		cost_sum += Convert::ToInt32(dGMyTrips->Rows[i]->Cells["cost"]->Value);
-		km_sum += Convert::ToInt32(dGMyTrips->Rows[i]->Cells["distance"]->Value);
+		cost_sum += Convert::ToInt32(dGMyTrips->Rows[i]->Cells["koszt"]->Value);
+		km_sum += Convert::ToInt32(dGMyTrips->Rows[i]->Cells["dystans"]->Value);
 
 
 	}
